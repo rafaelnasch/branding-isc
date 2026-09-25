@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apresentação ISC Instituto</title>
+<meta name="description" content="Esqueleto de apresentação do ISC Instituto · Health &amp; Aesthetics no sistema Fio de Ouro v1: dez tipos de slide em 1440 × 900, com navegação por teclado e toque, notas do apresentador e exportação em PDF.">
+<meta name="theme-color" content="#121314">
+<link rel="icon" type="image/svg+xml" href="assets/isc-favicon.svg">
+<link rel="apple-touch-icon" href="assets/isc-favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=EB+Garamond:ital,wght@1,400;1,500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<!--
+  APRESENTAÇÃO ISC INSTITUTO · esqueleto de deck · sistema Fio de Ouro v1
+
+  COMO USAR ESTE ESQUELETO
+  1. Duplique este arquivo na mesma pasta de iviz.js, iforms.js e assets/
+     (os caminhos são relativos). Abra no navegador: cada slide é um palco
+     de 1440 × 900 escalado para caber na janela.
+  2. Cada slide é uma <section class="slide TIPO campo-preto|campo-marfim">.
+     Os dez tipos prontos: capa, capa-clara, secao, ideia, stat, grafico,
+     compara, citacao, passos e closer. Para um slide novo, copie a seção do
+     mesmo tipo, troque o texto e mantenha as classes (s-folio, s-rotulo,
+     s-titulo, s-apoio, s-rodape, s-num). O campo manda na cor: o mesmo
+     componente sai ouro no preto e marrom no marfim, sem ajuste.
+  3. Use UMA das duas capas (a preta para apresentação institucional, a
+     clara para documento individual, como o plano de cuidado entregue
+     depois da consulta) e apague a outra. Com a capa clara, troque também
+     o título e o botão do closer (a nota do slide 10 diz como).
+  4. As notas do apresentador ficam no <aside class="notas"> de cada slide.
+     A tecla P abre o painel com a nota do slide atual.
+  5. Gráficos: declare os dados no atributo data-iviz (motor iviz.js) e o
+     motor monta sozinho. Formas: atributo data-iforms (motor iforms.js).
+     Dado de exemplo sempre com fonte e data na própria tela.
+  6. Nunca apague o closer: é ele que leva a identificação obrigatória da
+     clínica quando o PDF sai do perfil (WhatsApp, e-mail, impresso).
+
+  REGRAS DO SLIDE (Fio de Ouro)
+  Título em frase (caixa normal), com UMA palavra em itálico; uma linha de
+  apoio; zero parágrafo; um visual por slide; um ponto de ouro por slide.
+  O metal (degradê) só na marca e no numeral de abertura de seção, e um
+  único elemento metálico por slide: por isso a capa, a abertura de seção
+  e o closer não levam o símbolo no rodapé. Ouro nunca é texto sobre o
+  marfim: lá o destaque é marrom. A marca é sempre o arquivo de assets/.
+  O símbolo isolado do rodapé (isc-simbolo-*) é versão DERIVADA · aguarda
+  validação do designer (pendência 2): se o designer não aprovar, o
+  rodapé fica só com o número do slide.
+  A identificação médica do closer sai em 34 px no palco (35% do título,
+  piso do Manual de Publicidade Médica do CFM) e a da capa clara em 26:
+  nunca reduza, porque o PDF é lido no celular.
+  Nenhuma promessa de resultado, nenhum superlativo, nenhum nome de
+  procedimento como promessa, nenhuma técnica proibida pelo CFM. CRM, RQE,
+  registro da clínica, WhatsApp e site ficam entre colchetes até o
+  Instituto confirmar.
+
+  NAVEGAÇÃO
+  Setas, PageUp, PageDown, espaço, Home e End. Clique: terço esquerdo volta,
+  o resto avança. Toque: deslize para os lados. P: notas. F: tela cheia.
+  O número do slide fica no endereço (#3 abre o terceiro). No celular (em
+  pé ou deitado) os slides empilham e a página rola.
+
+  PDF (Playwright): viewport 1440 × 900, emulate_media print e
+  pg.pdf(width="1440px", height="900px", print_background=True, margem 0).
+  No Chrome: Cmd+P, margens "Nenhuma", gráficos de segundo plano ligado.
+  Sai um slide por página. Para enviar sozinho: python3 autocontido.py
+  deck-template.html (grava dist/ com imagens, motores e fontes embutidos).
+-->
+<script>
+/* Marca a página como "com JavaScript" antes de pintar: só assim o modo palco (slides escalados) liga.
+   Sem JavaScript, os slides aparecem empilhados e inteiros. */
+document.documentElement.classList.add('js');
+</script>
+<style>
+/* =====================================================================
+   FIO DE OURO v1 · apresentação do ISC Instituto
+   Ordem: tokens (idênticos ao brand-book.html), campos, reset, tipografia
+   de palco, componentes, estrutura do slide, os dez tipos, posição no
+   palco de 1440 × 900, interface (progresso, contador, notas), modo palco,
+   celular, impressão. Uma única tag de estilo; só as cores do :root;
+   superfície chapada (sem sombra decorativa, vidro ou brilho).
+   ===================================================================== */
+
+/* ---------- 1. Tokens (bloco canônico do brand-book.html) ---------- */
+:root{
+  color-scheme: light;
+
+  /* Oficiais, medidos no vetor do designer */
+  --preto:#121314;        /* Preto ISC: o campo */
+  --ouro:#D39A1F;         /* Ouro ISC: fio, rótulo, itálico e numeral sobre preto */
+  --branco:#FFFFFF;       /* INSTITUTO: texto sobre preto, papel técnico */
+  --metal:linear-gradient(135deg,#FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,#D69F56 54%,#D19644 66%,#C9862E 82%,#C3791C 100%);
+  --metal-solido:#D69F56; /* o metal na impressão */
+
+  /* Tons do degradê, usados chapados */
+  --champanhe:#F1DDC0;    /* alternativa quente ao branco sobre preto */
+  --ouro-claro:#E6C28A;   /* itálico sobre preto em corpo grande */
+  --cobre:#C3791C;        /* detalhe gráfico sobre preto */
+  --bronze:#462214;       /* fio e detalhe sobre marfim; nunca texto pequeno */
+
+  /* Paleta do designer */
+  --marrom:#5E3118;       /* ênfase sobre marfim (9,6:1) */
+
+  /* Extensões editoriais (não são cor de marca) */
+  --marfim:#F5F0E6;       /* o papel */
+  --areia:#EBE3D3;        /* painel sobre marfim */
+  --noite:#1B1C1E;        /* painel sobre preto */
+  --fumaca:#A8A198;       /* apoio sobre preto (7,3:1) */
+  --pedra:#6B645B;        /* apoio sobre marfim (5,1:1) */
+  --grafite:#34312D;      /* texto corrido sobre marfim */
+  --fio-claro:#D9CDB8;    /* linha de 1 px sobre marfim */
+  --fio-escuro:#2E2D2B;   /* linha de 1 px sobre preto */
+  --branco-quente:#F8EEE0;/* texto corrido sobre preto (16,2:1) */
+
+  /* Submarca ISC REGEN: acento provisório, pendente de decisão. Nunca na marca-mãe */
+  --regen-provisorio:#1D4B48;
+
+  /* Famílias */
+  --display:"Gilda Display","Didot","Times New Roman",serif;
+  --enfase:"EB Garamond","Garamond","Times New Roman",serif;
+  --texto:"Montserrat",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+
+  /* Espaço: escala de 4 */
+  --e-1:4px; --e-2:8px; --e-3:12px; --e-4:16px; --e-5:24px;
+  --e-6:32px; --e-7:48px; --e-8:64px; --e-9:96px; --e-10:128px;
+
+  --colunas:12;
+  --calha:24px;
+  --gut:64px;
+
+  /* Ícones Lucide usados como máscara (a cor vem de background-color) */
+  --ic-check:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  --ic-seta:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
+
+  /* Escala do SLIDE (palco de 1440 × 900). Gilda a partir de 36; Montserrat em
+     cinco corpos: 26 · 22 · 17 · 15 · 14. Exceção única: a identificação médica,
+     34 no closer e 26 na capa clara (piso do CFM no PDF). Nada abaixo de 14. */
+  --s-display:104px;   /* capa e closer: até 3 linhas */
+  --s-secao:88px;      /* título da abertura de seção */
+  --s-frase:88px;      /* ideia única */
+  --s-capa:72px;       /* título da capa clara */
+  --s-titulo:60px;     /* título do miolo: até 2 linhas */
+  --s-sub:36px;        /* título de cartão e de etapa */
+  --s-chamada:26px;    /* linha de apoio */
+  --s-texto:22px;      /* texto de cartão e de etapa */
+  --s-legenda:17px;    /* fonte, legenda, contato */
+  --s-rotulo:15px;     /* rótulo em caixa alta, .2em */
+  --s-folio:14px;      /* fólio, rodapé, contador */
+  --s-margem:96px;     /* margem lateral; grade de 12 colunas de 82 px com calha de 24 */
+}
+@media (max-width:1024px){ :root{ --gut:32px; } }
+@media (max-width:640px){ :root{ --gut:20px; } }
+@media (max-width:380px){ :root{ --gut:16px; } }
+
+/* ---------- 2. Campos: a cor de tudo sai do campo onde o elemento está ---------- */
+:root,.campo-marfim,.campo-branco,.campo-areia{
+  --f-fundo:var(--marfim); --f-titulo:var(--preto); --f-texto:var(--grafite); --f-apoio:var(--pedra);
+  --f-enfase:var(--marrom); --f-rotulo:var(--marrom); --f-link:var(--marrom); --f-ponto:var(--marrom);
+  --f-fio:var(--fio-claro); --f-fio-destaque:var(--bronze); --f-painel:var(--areia);
+  --f-num-bg:none; --f-num-cor:var(--marrom); --f-num-print:var(--marrom); --f-btn-linha:var(--preto);
+  --f-cta-bg:var(--preto); --f-cta-fg:var(--branco); --f-cta-hover:var(--grafite);
+  --dado-destaque:var(--marrom); --dado-1:var(--bronze); --dado-2:var(--pedra); --dado-3:#B9AD98; --dado-4:var(--fio-claro);
+}
+.campo-branco{ --f-fundo:var(--branco); --f-painel:var(--marfim); }
+.campo-areia{ --f-fundo:var(--areia); --f-painel:var(--marfim); }
+.campo-preto,.campo-noite{
+  --f-fundo:var(--preto); --f-titulo:var(--branco); --f-texto:var(--branco-quente);
+  --f-apoio:var(--fumaca); --f-enfase:var(--ouro); --f-rotulo:var(--ouro); --f-link:var(--ouro-claro); --f-ponto:var(--ouro);
+  --f-fio:var(--fio-escuro); --f-fio-destaque:var(--ouro); --f-painel:var(--noite);
+  --f-num-bg:var(--metal); --f-num-cor:transparent; --f-num-print:var(--metal-solido); --f-btn-linha:var(--ouro);
+  --f-cta-bg:var(--ouro); --f-cta-fg:var(--preto); --f-cta-hover:var(--ouro-claro);
+  --dado-destaque:var(--ouro); --dado-1:var(--champanhe); --dado-2:var(--fumaca); --dado-3:#5A554E; --dado-4:var(--fio-escuro);
+}
+.campo-noite{ --f-fundo:var(--noite); --f-painel:var(--preto); }
+.campo-preto,.campo-noite,.campo-marfim,.campo-branco,.campo-areia{ background:var(--f-fundo); color:var(--f-texto); }
+
+/* ---------- 3. Reset ---------- */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; text-size-adjust:100%; }
+body{
+  margin:0; background:var(--preto); color:var(--grafite);
+  font-family:var(--texto); font-size:18px; line-height:1.6; font-weight:400;
+  font-variant-numeric:lining-nums; font-synthesis:none;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; text-rendering:optimizeLegibility;
+}
+h1,h2,h3,p,ul,ol,li,figure,blockquote,dl,dd,dt{ margin:0; padding:0; }
+ul,ol{ list-style:none; }
+img,svg{ display:block; max-width:100%; }
+img{ height:auto; }
+strong,b{ font-weight:600; }
+p,li,dd,dt,a,figcaption{ overflow-wrap:anywhere; }
+a{ color:var(--f-link); text-decoration-thickness:1px; text-underline-offset:.22em; }
+::selection{ background:var(--ouro); color:var(--preto); }
+:focus-visible{ outline:2px solid var(--f-enfase); outline-offset:3px; }
+.visualmente-oculto{ position:absolute!important; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+.ic{ width:24px; height:24px; flex:none; stroke-width:1.5; }
+
+/* ---------- 4. Tipografia de palco ---------- */
+.s-display,.s-titulo,.s-frase,.secao-titulo,.stat-conclusao,.etapa-t,.compara-t{
+  font-family:var(--display); font-weight:400; color:var(--f-titulo);
+  overflow-wrap:normal; word-break:normal; hyphens:none; text-wrap:balance;
+}
+.s-display{ font-size:var(--s-display); line-height:1.02; letter-spacing:-.012em; }
+.s-titulo{ font-size:var(--s-titulo); line-height:1.06; letter-spacing:-.008em; }
+/* A palavra de ênfase: EB Garamond Italic, uma por título, mesmo tamanho, cor de ênfase do campo */
+em{ font-family:var(--enfase); font-style:italic; font-weight:400; font-size:1em; line-height:inherit; letter-spacing:0; color:var(--f-enfase); }
+.campo-preto .s-display em{ color:var(--ouro-claro); }   /* ouro claro em corpo grande: a foto já traz o cobre */
+:is(.stat-conclusao,.etapa-t,.compara-t) em{ font-weight:500; }   /* abaixo de 40 px: 500 */
+
+.s-rotulo{
+  display:flex; align-items:center; gap:14px;
+  font:500 var(--s-rotulo)/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-rotulo);
+}
+.s-rotulo--apoio{ color:var(--f-apoio); }
+.s-apoio{ font-family:var(--texto); font-weight:400; font-size:var(--s-chamada); line-height:1.5; color:var(--f-texto); max-width:30em; text-wrap:pretty; }
+.s-legenda{ font-size:var(--s-legenda); line-height:1.5; color:var(--f-apoio); text-wrap:pretty; }
+.s-legenda b{ font:500 var(--s-folio)/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-titulo); margin-right:12px; }
+.ponto{ display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--f-ponto); flex:none; }
+.metal-texto{ background:var(--metal); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+
+/* ---------- 5. Componentes usados no deck (iguais ao brand book, na escala do palco) ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:14px; min-height:64px; padding:18px 36px 17px;
+  border:1px solid transparent; border-radius:0; font:500 var(--s-rotulo)/1.3 var(--texto); letter-spacing:.2em; text-transform:uppercase;
+  text-decoration:none; text-align:center; white-space:normal; cursor:pointer; transition:background-color .15s ease,border-color .15s ease;
+}
+.btn--cheio{ background:var(--f-cta-bg); color:var(--f-cta-fg); border-color:var(--f-cta-bg); }
+.btn--cheio:hover{ background:var(--f-cta-hover); border-color:var(--f-cta-hover); color:var(--f-cta-fg); }
+.btn::after{ content:""; width:20px; height:20px; flex:none; background:currentColor; -webkit-mask:var(--ic-seta) center/contain no-repeat; mask:var(--ic-seta) center/contain no-repeat; }
+
+/* Identificação médica: mesma fonte, mesmo tamanho e mesma cor em todos os itens */
+.s-id{ display:block; font:500 var(--s-legenda)/1.6 var(--texto); letter-spacing:.02em; color:var(--f-titulo); }
+.s-id > span + span::before{ content:"\00a0· "; }   /* o ponto fica no fim da linha, nunca abre a linha seguinte */
+.s-id--linhas > span{ display:block; }
+.s-id--linhas > span + span::before{ content:none; }
+.nw{ white-space:nowrap; }   /* CRM-PR e o número nunca se separam */
+
+/* Ficha de dados em linha (capa, closer) */
+.s-meta{ display:grid; grid-template-columns:repeat(3,minmax(0,max-content)); border-top:1px solid var(--f-fio); }
+.s-meta > div{ padding:16px 36px 0 0; min-width:0; }
+.s-meta > div + div{ padding-left:36px; border-left:1px solid var(--f-fio); }
+.s-meta dt{ font:500 var(--s-folio)/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-apoio); }
+.s-meta dd{ margin-top:6px; font:500 var(--s-legenda)/1.45 var(--texto); color:var(--f-titulo); }
+.s-meta > .s-meta-linha{ grid-column:1 / -1; margin-top:16px; padding-left:0; border-left:0; border-top:1px solid var(--f-fio); }
+.s-meta dd.s-id{ letter-spacing:.02em; }
+
+/* Prancha de foto: foto real com passe-partout (ou sangrada na coluna) e legenda */
+.s-prancha{ margin:0; display:flex; flex-direction:column; min-width:0; }
+.s-prancha-foto{ --passe:0px; position:relative; overflow:hidden; background:var(--f-painel); min-height:0; }
+.s-prancha-foto > img{ position:absolute; top:var(--passe); left:var(--passe); width:calc(100% - 2 * var(--passe)); height:calc(100% - 2 * var(--passe)); max-width:none; object-fit:cover; object-position:var(--foco,50% 50%); }
+.s-prancha > figcaption{ margin-top:16px; }
+.s-prancha--passe{ border-top:1px solid var(--f-fio-destaque); padding-top:24px; }
+.s-prancha--passe .s-prancha-foto{ --passe:24px; }
+
+/* Formas (iforms.js) e gráfico (iviz.js) */
+.forma-svg{ display:grid; place-items:center; min-width:0; }
+.forma-svg svg{ width:100%; height:auto; }
+.grafico-svg{ min-width:0; }
+.grafico-svg svg{ width:100%; height:auto; }
+
+/* ---------- 6. Estrutura do slide ---------- */
+.deck{ position:relative; }
+.slide{ position:relative; overflow:hidden; isolation:isolate; }
+aside.notas{ display:none; }
+
+/* Fólio de revista: rótulo à esquerda, capítulo à direita, fio embaixo (ouro no preto, fio claro no marfim) */
+.s-folio{
+  display:flex; justify-content:space-between; align-items:baseline; gap:24px;
+  padding-bottom:14px; border-bottom:1px solid var(--f-fio-destaque);
+  font:500 var(--s-folio)/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-apoio);
+}
+.campo-marfim .s-folio{ border-bottom-color:var(--f-fio); }
+.s-folio > span:first-child{ min-width:0; }
+.s-folio > span:last-child{ flex:none; }
+.s-folio > span:first-child b{ font-weight:500; color:var(--f-titulo); }
+.s-folio > span:last-child b{ font-weight:500; color:var(--f-rotulo); }
+
+.s-rodape{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.s-simbolo{ width:40px; height:auto; }
+.s-num{ font:500 var(--s-folio)/1 var(--texto); letter-spacing:.14em; color:var(--f-apoio); font-variant-numeric:tabular-nums; }
+.s-cab .s-titulo{ margin-top:20px; max-width:1100px; }
+.s-cab .s-apoio{ margin-top:18px; }
+
+/* ---------- 7. Os dez tipos (tipografia e cor; a posição no palco fica no bloco 8) ---------- */
+/* 1 · Capa preta: marca em ouro metálico (o único metal), foto real à direita, fio de ouro no meio da calha */
+.slide.capa .s-marca{ width:340px; }
+.capa-titulos .s-display{ margin-top:22px; }
+.capa-titulos .s-apoio{ margin-top:24px; max-width:25em; }
+.capa-titulos .s-meta{ margin-top:36px; }
+.capa-fio{ display:block; width:1px; background:var(--ouro); }
+/* A foto da capa é o detalhe da cortina (instituto-cortina-dourada-capa.jpg, 720 × 442), o mesmo
+   da capa do brand book: só as correntes, sem teto, piso ou poltronas. A foto sai 4% mais alta
+   que o quadro para a última faixa (o reflexo claro de um móvel) ficar de fora. */
+.slide.capa .capa-prancha .s-prancha-foto > img{ height:104%; }
+.capa .s-prancha > figcaption b{ color:var(--f-apoio); }
+
+/* 2 · Capa clara: marca preta, título em Gilda com uma palavra em marrom, foto com passe-partout areia */
+.capa-clara .s-marca{ width:300px; }
+.capa-clara .s-titulo{ font-size:var(--s-capa); line-height:1.04; margin-top:22px; }
+.capa-clara .capa-titulos .s-apoio{ margin-top:22px; max-width:24em; }
+.capa-clara .s-meta{ margin-top:30px; grid-template-columns:max-content max-content minmax(0,1fr); }   /* a terceira coluna leva o fio da linha do médico até a margem */
+
+/* 3 · Abertura de seção: numeral em Gilda com o degradê da marca (≥ 96 px), o único metal do slide */
+.secao-num{
+  display:inline-block; font-family:var(--display); font-weight:400; font-size:480px; line-height:.8; letter-spacing:-.03em;
+  padding:.06em .02em .04em 0; background:var(--f-num-bg); -webkit-background-clip:text; background-clip:text;
+  color:var(--f-num-cor); -webkit-text-fill-color:var(--f-num-cor); font-variant-numeric:lining-nums;
+}
+.secao-kicker{ display:flex; align-items:center; gap:14px; font:500 var(--s-rotulo)/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-apoio); }
+.secao-kicker::before{ content:""; width:40px; height:1px; flex:none; background:var(--f-rotulo); }
+.secao-titulo{ margin-top:22px; font-size:var(--s-secao); line-height:1.04; letter-spacing:-.012em; }
+.secao-texto .s-apoio{ margin-top:26px; max-width:24em; color:var(--f-apoio); }
+
+/* 4 · Ideia única: uma frase, uma forma */
+.s-frase{ font-size:var(--s-frase); line-height:1.04; letter-spacing:-.012em; max-width:12.5em; }
+.ideia-frase .s-apoio{ margin-top:36px; max-width:27em; }
+
+/* 5 · Estatística: um número em Gilda, com fonte e data na própria tela */
+.stat-num{ display:flex; align-items:baseline; font-family:var(--display); font-weight:400; font-size:300px; line-height:.86; letter-spacing:-.03em; color:var(--f-titulo); font-variant-numeric:lining-nums; white-space:nowrap; overflow-wrap:normal; }
+.stat-un{ font-size:.4em; letter-spacing:0; margin-left:.06em; color:var(--champanhe); }
+.campo-marfim .stat-un{ color:var(--f-enfase); }
+.stat-desc{ font-size:var(--s-chamada); line-height:1.5; color:var(--f-texto); max-width:20em; text-wrap:balance; }
+.stat-conclusao{ margin-top:30px; padding-top:30px; border-top:1px solid var(--f-fio-destaque); font-size:36px; line-height:1.18; text-wrap:wrap; }
+
+/* 6 · Gráfico: o título é a conclusão; um destaque; fonte embaixo */
+.grafico-lado{ border-left:1px solid var(--f-fio); padding-left:32px; }
+.grafico-lado .s-apoio{ font-size:var(--s-texto); line-height:1.45; }
+.grafico-lado .s-legenda{ margin-top:22px; }
+
+/* 7 · Comparação de processo (nunca de paciente): antes à esquerda, depois no campo preto */
+.compara-lado{ min-width:0; padding:40px 44px 44px; }
+.compara-antes{ border:1px solid var(--f-fio); }
+.compara-t{ margin-top:14px; font-size:var(--s-sub); line-height:1.1; }
+.compara-lista{ margin-top:28px; display:grid; }
+.compara-lista li{ display:grid; grid-template-columns:28px minmax(0,1fr); gap:18px; align-items:start; padding:18px 0; border-top:1px solid var(--f-fio); font-size:var(--s-texto); line-height:1.4; color:var(--f-texto); }
+.compara-lista li::before{ content:""; margin-top:.62em; height:1px; width:20px; background:var(--f-apoio); }
+.compara-antes .compara-lista li::before{ width:7px; height:7px; margin-top:.6em; border-radius:50%; background:none; border:1px solid var(--f-apoio); justify-self:start; }   /* anel vazio: não confunde com travessão */
+.compara-depois .compara-lista li::before{ margin-top:.05em; width:28px; height:28px; background:var(--f-enfase); -webkit-mask:var(--ic-check) center/contain no-repeat; mask:var(--ic-check) center/contain no-repeat; }
+.compara-seta{ align-self:center; justify-self:center; width:56px; height:56px; border-radius:50%; border:1px solid var(--f-fio-destaque); color:var(--f-enfase); display:grid; place-items:center; }
+
+/* 8 · Citação: olho de revista (EB Garamond Italic sobre fio de ouro), frase real com crédito */
+.olho{ margin:0; border-top:1px solid var(--f-fio-destaque); padding-top:40px; }
+.olho blockquote{ margin:0; }
+.olho blockquote p{ font-family:var(--enfase); font-style:italic; font-weight:400; font-size:64px; line-height:1.12; color:var(--f-titulo); text-wrap:balance; text-indent:-.4em; overflow-wrap:normal; }
+.olho blockquote p::before{ content:"\201C"; }
+.olho blockquote p::after{ content:"\201D"; }
+.olho figcaption{ margin-top:32px; display:flex; align-items:center; gap:14px; font:500 var(--s-rotulo)/1.5 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--f-rotulo); }
+.olho figcaption::before{ content:""; width:40px; height:1px; background:currentColor; flex:none; }
+.citacao .s-legenda{ margin-top:18px; max-width:30em; }
+
+/* 9 · Passos: o percurso da consulta. O ponto cheio marca onde tudo começa */
+.percurso{ position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:var(--calha); }
+.percurso::before{ content:""; position:absolute; left:8px; right:0; top:105px; height:1px; background:var(--f-fio-destaque); }
+.etapa{ position:relative; min-width:0; padding-right:24px; }
+.etapa-n{ display:block; font-family:var(--display); font-size:64px; line-height:1; color:var(--f-enfase); font-variant-numeric:lining-nums; }
+.etapa-marca{ position:relative; z-index:1; display:block; margin-top:32px; width:17px; height:17px; border-radius:50%; background:var(--f-fundo); border:1.5px solid var(--f-fio-destaque); }
+.etapa--agora .etapa-marca{ background:var(--f-ponto); border-color:var(--f-ponto); box-shadow:0 0 0 7px var(--f-fundo),0 0 0 8px var(--f-fio); }
+.etapa-t{ margin-top:32px; font-size:var(--s-sub); line-height:1.1; }
+.etapa-d{ margin-top:14px; font-size:var(--s-texto); line-height:1.5; color:var(--f-texto); max-width:19em; }
+
+/* 10 · Closer: agradecimento, um próximo passo, contato e a identificação da clínica */
+.closer .s-display{ font-size:96px; max-width:10.5em; }
+.closer-cta{ margin-top:48px; }
+.closer-contatos{ margin-top:56px; }
+.closer-contatos > div{ padding-right:44px; }
+.closer-contatos > div + div{ padding-left:44px; }
+.closer-base{ display:flex; justify-content:space-between; align-items:flex-end; gap:48px; padding-top:28px; border-top:1px solid var(--f-fio); }
+.closer-base .s-marca{ width:300px; flex:none; }
+.closer-base .s-id{ max-width:40em; }
+
+/* ---------- 8. Posição no palco de 1440 × 900 (tela com mais de 640 px de largura e 500 de altura, e impressão) ----------
+   Grade: margem de 96, 12 colunas de 82 px, calha de 24. Eixo A = coluna 6 (x 626);
+   eixo B = coluna 8 (x 838). Fólio em cima (y 40), conteúdo entre y 124 e y 800,
+   rodapé e contador embaixo (y 824 a 864). */
+@media print, screen and (min-width:641px) and (min-height:501px){
+  .slide{ width:1440px; height:900px; }
+  .s-folio{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:40px; }
+  .s-rodape{ position:absolute; left:var(--s-margem); right:var(--s-margem); bottom:36px; height:40px; }
+  .s-cab{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:124px; }
+
+  /* capas: texto nas colunas 1 a 7, foto a partir do eixo B */
+  .capa-texto{ position:absolute; left:var(--s-margem); top:124px; bottom:100px; width:718px; display:flex; flex-direction:column; align-items:flex-start; }
+  .capa-titulos{ margin-top:auto; width:100%; }
+  .capa-prancha{ position:absolute; left:838px; right:var(--s-margem); top:124px; bottom:100px; justify-content:flex-end; }
+  .capa-prancha .s-prancha-foto{ flex:1 1 auto; }
+  .capa-clara .s-meta dd.s-id{ font-size:26px; }   /* identificação do médico: 36% do título de 72 */
+  .capa-fio{ position:absolute; left:826px; top:75px; bottom:0; }
+
+  .secao-num{ position:absolute; left:78px; bottom:150px; }
+  .secao-texto{ position:absolute; left:626px; right:var(--s-margem); bottom:180px; }
+
+  .ideia .s-cab{ top:257px; }   /* o rótulo encosta na frase, não no fólio */
+  .ideia-frase{ position:absolute; left:var(--s-margem); top:306px; width:880px; }
+  .ideia-forma{ position:absolute; right:var(--s-margem); top:306px; width:296px; }
+
+  .stat .s-cab{ top:236px; }
+  .stat-miolo{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:172px; bottom:100px; display:grid; grid-template-columns:680px minmax(0,1fr); grid-template-rows:auto auto; column-gap:24px; align-content:center; align-items:end; }
+  .stat-num{ grid-column:1; grid-row:1; }
+  .stat-lado{ grid-column:2; grid-row:1; padding-left:56px; padding-bottom:10px; }
+  .stat-fonte{ grid-column:1; grid-row:2; margin-top:64px; max-width:40em; }
+
+  .grafico-corpo{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:330px; bottom:100px; display:grid; grid-template-columns:824px minmax(0,1fr); column-gap:var(--calha); align-items:end; }
+  .grafico-corpo .grafico-lado{ margin-bottom:6px; margin-left:0; }
+
+  .compara-grade{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:292px; display:grid; grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr); align-items:stretch; }
+
+  .citacao-miolo{ position:absolute; left:var(--s-margem); top:124px; bottom:100px; width:664px; display:flex; flex-direction:column; justify-content:center; }
+  .citacao-prancha{ position:absolute; left:838px; right:var(--s-margem); top:124px; bottom:100px; }
+  .citacao-prancha .s-prancha-foto{ flex:1 1 auto; }
+
+  .passos-visual{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:420px; }
+
+  .closer-texto{ position:absolute; left:var(--s-margem); right:var(--s-margem); top:124px; }
+  .closer-cta{ margin-top:40px; }
+  .closer-contatos{ margin-top:40px; }
+  .closer-base{ position:absolute; left:var(--s-margem); right:var(--s-margem); bottom:100px; }
+  /* identificação da clínica: 34 px = 35% do título de 96, o piso do Manual de Publicidade Médica */
+  .closer-base .s-id{ font-size:34px; line-height:1.35; }
+  .closer-base .s-marca{ width:230px; }
+}
+
+/* ---------- 9. Interface: progresso, contador, painel de notas ---------- */
+.progresso,.contador,.painel-notas{ display:none; }
+.painel-notas .rotulo-painel{ display:block; font:500 12px/1.4 var(--texto); letter-spacing:.2em; text-transform:uppercase; color:var(--ouro); }
+.painel-cab{ display:flex; align-items:baseline; justify-content:space-between; gap:16px; padding-bottom:18px; border-bottom:1px solid var(--fio-escuro); }
+.painel-num{ font-family:var(--display); font-size:30px; line-height:1; color:var(--branco); font-variant-numeric:tabular-nums; }
+.painel-num span{ color:var(--fumaca); font-size:18px; }
+.painel-tit{ margin-top:22px; font-family:var(--display); font-size:24px; line-height:1.18; color:var(--branco); }
+.painel-txt{ margin-top:16px; flex:1 1 auto; overflow:auto; font-size:16px; line-height:1.65; color:var(--branco-quente); }
+.painel-txt p + p{ margin-top:12px; }
+.painel-prox{ margin-top:16px; padding-top:16px; border-top:1px solid var(--fio-escuro); font-size:14px; line-height:1.5; color:var(--fumaca); }
+.painel-prox b{ color:var(--branco); font-weight:500; }
+.painel-teclas{ margin-top:14px; font-size:13px; line-height:1.6; color:var(--fumaca); }
+.painel-teclas kbd{ display:inline-block; min-width:1.9em; padding:0 .45em; border:1px solid var(--fio-escuro); border-bottom-width:2px; font:500 12px/1.6 var(--texto); color:var(--ouro); text-align:center; }
+
+/* ---------- 10. Modo palco (tela com mais de 640 × 500 px, com JavaScript) ---------- */
+@media screen and (min-width:641px) and (min-height:501px){
+  html.js,html.js body{ height:100%; }
+  html.js body{ background:var(--preto); }
+  html.js .palco{ position:fixed; inset:0; overflow:hidden; background:var(--preto); }
+  html.js.com-notas .deck{ outline:1px solid var(--fio-escuro); }   /* com as notas abertas, o slide preto não some no fundo */
+  html.js.com-notas .palco{ right:380px; }
+  html.js .deck{
+    position:absolute; left:50%; top:50%; width:1440px; height:900px;
+    transform:translate(-50%,-50%) scale(var(--k,1)); transform-origin:50% 50%;
+  }
+  html.js .slide{ position:absolute; inset:0; opacity:0; visibility:hidden; transition:opacity .25s ease,visibility 0s linear .25s; }
+  html.js .slide.ativo{ opacity:1; visibility:visible; transition:opacity .25s ease; }
+  html.js .s-num{ visibility:hidden; }
+  html.js .progresso{ display:block; position:absolute; left:0; top:0; right:0; height:2px; z-index:5; pointer-events:none; }
+  html.js .progresso span{ display:block; height:100%; width:100%; background:var(--ouro); transform-origin:0 50%; transform:scaleX(var(--p,.1)); transition:transform .25s ease; }
+  html.js .deck[data-tom="marfim"] .progresso span{ background:var(--marrom); }
+  html.js .contador{
+    display:flex; align-items:center; gap:.5em; position:absolute; right:var(--s-margem); bottom:36px; height:40px; z-index:5; pointer-events:none;
+    font:500 var(--s-folio)/1 var(--texto); letter-spacing:.14em; font-variant-numeric:tabular-nums; color:var(--fumaca);
+  }
+  html.js .contador b{ font-weight:500; color:var(--branco); }
+  html.js .deck[data-tom="marfim"] .contador{ color:var(--pedra); }
+  html.js .deck[data-tom="marfim"] .contador b{ color:var(--preto); }
+  html.js .painel-notas{
+    display:flex; flex-direction:column; position:fixed; top:0; right:0; bottom:0; width:380px; z-index:10;
+    background:var(--noite); color:var(--branco-quente); border-left:2px solid var(--ouro); padding:32px 28px 28px;
+    transform:translateX(100%); visibility:hidden;
+  }
+  html.js.com-notas .painel-notas{ transform:none; visibility:visible; }
+}
+@media screen and (min-width:641px) and (min-height:501px) and (prefers-reduced-motion:reduce){
+  html.js .slide,html.js .slide.ativo,html.js .progresso span{ transition:none; }
+}
+
+/* ---------- 11. Celular (até 640 px de largura, ou deitado, até 500 de altura): slides empilhados, a página rola ---------- */
+@media screen and (max-width:640px), screen and (max-height:500px){
+  body{ background:var(--preto); }
+  .progresso,.contador,.painel-notas{ display:none!important; }
+  .slide{ display:flex; flex-direction:column; padding:26px var(--gut) 32px; }
+  .s-folio{ margin-bottom:40px; padding-bottom:12px; font-size:11px; gap:4px 16px; flex-wrap:wrap; }
+  .slide:not(.capa):not(.capa-clara) .s-folio > span:first-child{ display:none; }
+  .s-folio-extra{ display:none; }
+  .slide:not(.capa):not(.capa-clara) .s-folio{ justify-content:flex-end; }
+  .s-rodape{ margin-top:44px; padding-top:16px; border-top:1px solid var(--f-fio); }
+  .s-simbolo{ width:32px; }
+  .s-num{ font-size:12px; }
+  .s-rotulo{ font-size:11px; gap:10px; }
+  .ponto{ width:8px; height:8px; }
+  .s-titulo{ font-size:32px; line-height:1.08; }
+  .s-apoio{ font-size:17px; line-height:1.55; }
+  .s-legenda{ font-size:13px; }
+  .s-legenda b{ font-size:11px; margin-right:8px; }
+  .s-cab .s-titulo{ margin-top:14px; }
+  .s-cab .s-apoio{ margin-top:12px; }
+  .s-display{ font-size:44px; line-height:1.04; }
+  :is(.s-titulo,.s-frase,.stat-conclusao) em{ font-weight:500; }   /* itálico abaixo de 40 px: 500 */
+  .s-meta{ grid-template-columns:minmax(0,1fr)!important; }
+  .s-meta > div,.s-meta > div + div{ padding:12px 0; border-left:0; }
+  .s-meta > div + div{ border-top:1px solid var(--f-fio); }
+  .s-meta > .s-meta-linha{ margin-top:0; }
+  .s-meta dt{ font-size:11px; }
+  .s-meta dd{ font-size:15px; }
+  .s-id{ font-size:15px; }
+  .btn{ min-height:52px; padding:14px 22px 13px; font-size:12px; gap:10px; }
+  .btn::after{ width:18px; height:18px; }
+  .s-prancha > figcaption{ margin-top:12px; }
+  .s-prancha--passe{ padding-top:16px; }
+  .s-prancha--passe .s-prancha-foto{ --passe:14px; }
+
+  .slide.capa .s-marca,.capa-clara .s-marca{ width:min(100%,250px); }
+  .capa-titulos{ margin-top:48px; }
+  .capa-titulos .s-display{ margin-top:16px; }
+  .capa-titulos .s-apoio{ margin-top:16px; }
+  .capa-titulos .s-meta{ margin-top:28px; }
+  .capa-fio{ display:none; }
+  .capa-prancha{ margin-top:32px; }
+  .capa-prancha .s-prancha-foto{ aspect-ratio:4/5; }
+  .capa-prancha .s-prancha-foto,.citacao-prancha .s-prancha-foto{ max-height:max(440px,80vh); }   /* celular deitado: a foto não passa de uma tela */
+  .capa-clara .s-titulo{ font-size:34px; margin-top:16px; }
+  .capa-clara .s-meta{ margin-top:24px; }
+
+  .secao-num{ order:2; font-size:156px; margin:8px 0 0 -6px; align-self:flex-start; }
+  .secao-texto{ order:3; margin-top:24px; }
+  .secao .s-rodape{ order:4; }
+  .secao-titulo{ font-size:40px; margin-top:16px; }
+  .secao-kicker{ font-size:11px; gap:10px; }
+  .secao-kicker::before{ width:32px; }
+  .secao-texto .s-apoio{ margin-top:16px; }
+
+  .s-frase{ font-size:38px; line-height:1.06; }
+  .ideia-frase{ margin-top:4px; }
+  .ideia-frase .s-apoio{ margin-top:20px; }
+  .ideia-forma{ width:150px; align-self:flex-end; margin-top:28px; }
+
+  .stat-miolo{ margin-top:24px; }
+  .stat-num{ font-size:clamp(96px,29vw,124px); }
+  .stat-lado{ margin-top:24px; }
+  .stat-desc{ font-size:17px; }
+  .stat-conclusao{ font-size:26px; margin-top:20px; padding-top:20px; text-wrap:balance; }
+  .stat-fonte{ margin-top:24px; }
+
+  .grafico-corpo{ margin-top:32px; }
+  .grafico-corpo .grafico-lado{ margin-top:24px; border-left:0; padding-left:0; border-top:1px solid var(--f-fio); padding-top:18px; }
+  .grafico-lado .s-apoio{ font-size:17px; }
+  .grafico-lado .s-legenda{ margin-top:12px; }
+
+  .compara-grade{ display:grid; grid-template-columns:minmax(0,1fr); margin-top:28px; }
+  .compara-lado{ padding:24px 20px 20px; }
+  .compara-t{ font-size:26px; margin-top:10px; }
+  .compara-lista{ margin-top:14px; }
+  .compara-lista li{ grid-template-columns:20px minmax(0,1fr); gap:12px; padding:12px 0; font-size:16px; }
+  .compara-lista li::before{ width:14px; }
+  .compara-depois .compara-lista li::before{ width:20px; height:20px; }
+  .compara-seta{ width:44px; height:44px; margin:-10px 0; transform:rotate(90deg); z-index:2; background:var(--f-fundo); }
+  .compara-seta .ic{ width:20px; height:20px; }
+
+  .citacao-miolo{ margin-top:8px; }
+  .olho{ border-top:0; padding-top:0; }   /* o fio de ouro do fólio já abre a citação */
+  .olho blockquote p{ font-size:32px; line-height:1.16; }
+  .olho figcaption{ margin-top:20px; font-size:11px; gap:10px; }
+  .olho figcaption::before{ width:28px; }
+  .citacao .s-legenda{ margin-top:12px; }
+  .citacao-prancha{ margin-top:32px; }
+  .citacao-prancha .s-prancha-foto{ aspect-ratio:4/5; }
+
+  .passos-visual{ margin-top:32px; }
+  .percurso{ grid-template-columns:minmax(0,1fr); row-gap:28px; padding-left:36px; }
+  .percurso::before{ left:8px; right:auto; top:12px; bottom:12px; width:1px; height:auto; }
+  .etapa{ padding-right:0; }
+  .etapa-n{ font-size:36px; }
+  .etapa-marca{ position:absolute; left:-36px; top:10px; margin:0; }
+  .etapa-t{ margin-top:10px; font-size:26px; }
+  .etapa-d{ margin-top:8px; font-size:16px; }
+
+  .closer .s-display{ font-size:42px; }
+  .closer-cta{ margin-top:32px; width:100%; }
+  .closer-contatos{ margin-top:32px; }
+  .closer-contatos > div,.closer-contatos > div + div{ padding-left:0; padding-right:0; }
+  .closer-base{ margin-top:40px; flex-direction:column-reverse; align-items:flex-start; gap:28px; }
+  .closer-base .s-marca{ width:min(100%,220px); }
+}
+@media screen and (max-width:380px){
+  .s-display,.closer .s-display{ font-size:38px; }
+  .s-titulo{ font-size:29px; }
+  .s-frase{ font-size:33px; }
+  .secao-titulo{ font-size:35px; }
+  .olho blockquote p{ font-size:28px; }
+  .stat-num{ font-size:92px; }
+  .stat-conclusao{ font-size:24px; }
+  :is(.s-display,.secao-titulo) em{ font-weight:500; }
+}
+
+/* ---------- 12. Impressão e PDF: 1440 × 900, um slide por página ---------- */
+@page{ size:1440px 900px; margin:0; }
+@media print{
+  html,body{ background:var(--preto); margin:0; padding:0; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .palco,.deck{ position:static; transform:none; width:auto; height:auto; }
+  .slide{ position:relative; width:1440px; height:900px; opacity:1!important; visibility:visible!important; transform:none; break-after:page; page-break-after:always; break-inside:avoid; }
+  .deck > section.slide:last-of-type{ break-after:auto; page-break-after:auto; }
+  .progresso,.contador,.painel-notas,aside.notas{ display:none!important; }
+  .s-num{ visibility:visible; }
+  /* o degradê recortado no texto vaza no PDF do Chromium: no papel o numeral sai em metal sólido */
+  .secao-num,.metal-texto{ background:none!important; color:var(--f-num-print)!important; -webkit-text-fill-color:var(--f-num-print)!important; }
+  *,*::before,*::after{ transition:none!important; animation:none!important; }
+}
+</style>
+</head>
+<body>
+<div class="palco" id="palco">
+<main class="deck" id="deck" aria-roledescription="apresentação" aria-label="Apresentação do ISC Instituto">
+
+  <!-- ===================== 1 · CAPA PRETA (apresentação institucional) ===================== -->
+  <section class="slide capa campo-preto ativo" id="slide-1" data-tom="preto" aria-roledescription="slide" aria-label="1 de 10: A consulta vem antes">
+    <div class="s-folio"><span><b>ISC Instituto</b><span class="s-folio-extra"> · Apresentação institucional</span></span><span>[mês de aaaa]</span></div>
+    <div class="capa-texto">
+      <img class="s-marca" src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto · Health &amp; Aesthetics" width="852" height="365" fetchpriority="high" decoding="async">
+      <div class="capa-titulos">
+        <p class="s-rotulo"><span class="ponto" aria-hidden="true"></span>Apresentação institucional</p>
+        <h1 class="s-display">A consulta vem <em>antes</em>.</h1>
+        <p class="s-apoio">Saúde e estética com avaliação médica antes de qualquer indicação, no Ecoville, em Curitiba.</p>
+        <dl class="s-meta">
+          <div><dt>Para</dt><dd>[nome do destinatário]</dd></div>
+          <div><dt>Data</dt><dd>[dd/mm/aaaa]</dd></div>
+          <div><dt>Apresentado por</dt><dd>[nome e função]</dd></div>
+        </dl>
+      </div>
+    </div>
+    <span class="capa-fio" aria-hidden="true"></span>
+    <figure class="s-prancha capa-prancha">
+      <div class="s-prancha-foto" style="--foco:32% 50%">
+        <img src="assets/fotos/instituto-cortina-dourada-capa.jpg" alt="Detalhe da cortina de correntes douradas da sala de espera do ISC Instituto" width="720" height="442" fetchpriority="high" decoding="async">
+      </div>
+      <figcaption class="s-legenda"><b>Na capa</b>Cortina de correntes douradas da sala de espera do Instituto.</figcaption>
+    </figure>
+    <aside class="notas">
+      <p>Capa da apresentação institucional (reunião, palestra, parceiro, visita). Use uma das duas capas e apague a outra.</p>
+      <p>A marca em ouro metálico é o único elemento metálico deste slide (lei II); por isso a capa não leva símbolo no rodapé. Troque o mês no fólio e o destinatário, a data e quem apresenta na linha de dados. Título em frase, até três linhas, com uma palavra em itálico.</p>
+      <p>A foto é o detalhe da cortina da sala de espera (instituto-cortina-dourada-capa.jpg), o mesmo da capa do brand book: só as correntes, sem teto nem piso. Nunca troque por banco de imagem, e o letreiro antigo fica fora do quadro.</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 2 · CAPA CLARA (proposta técnica, documento individual) ===================== -->
+  <section class="slide capa-clara campo-marfim" id="slide-2" data-tom="marfim" aria-roledescription="slide" aria-label="2 de 10: Seu plano de cuidado, explicado">
+    <div class="s-folio"><span><b>ISC Instituto</b><span class="s-folio-extra"> · Plano de cuidado</span></span><span>Documento individual</span></div>
+    <div class="capa-texto">
+      <img class="s-marca" src="assets/isc-horizontal-preto.svg" alt="ISC Instituto · Health &amp; Aesthetics" width="852" height="365" decoding="async">
+      <div class="capa-titulos">
+        <p class="s-rotulo"><span class="ponto" aria-hidden="true"></span>Plano de cuidado</p>
+        <h1 class="s-titulo">Seu plano de cuidado, <em>explicado</em>.</h1>
+        <p class="s-apoio">Avaliação, indicação e acompanhamento, como combinados na consulta.</p>
+        <dl class="s-meta">
+          <div><dt>Preparado para</dt><dd>[nome do paciente]</dd></div>
+          <div><dt>Consulta em</dt><dd>[dd/mm/aaaa]</dd></div>
+          <div class="s-meta-linha"><dt>Médico responsável</dt><dd class="s-id"><span>[Nome do médico]</span><span>MÉDICO</span><span class="nw">CRM-PR [nº]</span></dd></div>
+        </dl>
+      </div>
+    </div>
+    <figure class="s-prancha s-prancha--passe capa-prancha">
+      <div class="s-prancha-foto" style="--foco:30% 50%">
+        <img src="assets/fotos/instituto-sala-de-atendimento.jpg" alt="Sala de atendimento do ISC Instituto, clara, com cadeira clínica e janelas voltadas para as árvores do Ecoville" width="1920" height="1280" loading="lazy" decoding="async">
+      </div>
+      <figcaption class="s-legenda"><b>Sala de atendimento</b>Luz natural, Ecoville, Curitiba.</figcaption>
+    </figure>
+    <aside class="notas">
+      <p>Capa clara para documento individual, como o plano de cuidado entregue depois da consulta. Troque o rótulo, o título e o fólio pelo assunto do documento, e ajuste o closer (a nota do slide 10 diz como).</p>
+      <p>No marfim a marca é preta e o destaque é marrom: ouro nunca vira texto sobre fundo claro (lei I).</p>
+      <p>A identificação do médico responsável vai na capa: nome, a palavra MÉDICO e o CRM-PR, com a mesma fonte, o mesmo tamanho e a mesma cor (26 px no palco; não reduza). Especialidade e RQE só quando o documento citar especialidade. Documento com dado de saúde vai só para o paciente, por canal seguro: nunca em rede, grupo ou anúncio.</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 3 · ABERTURA DE SEÇÃO ===================== -->
+  <section class="slide secao campo-preto" id="slide-3" data-tom="preto" aria-roledescription="slide" aria-label="3 de 10: O cuidado começa pela conversa">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <p class="secao-num" aria-hidden="true">01</p>
+    <div class="secao-texto">
+      <p class="secao-kicker">Como cuidamos</p>
+      <h2 class="secao-titulo">O cuidado começa pela <em>conversa</em>.</h2>
+      <p class="s-apoio">Da primeira consulta ao retorno: o que acontece em cada etapa, e por quê.</p>
+    </div>
+    <div class="s-rodape"><span></span><span class="s-num">03</span></div>
+    <aside class="notas">
+      <p>Abertura de capítulo. Troque o número (01, 02, 03), o nome do capítulo no fólio e o título-tese, sempre em frase com uma palavra em itálico.</p>
+      <p>O numeral em ouro metálico é o único metal deste slide; por isso o rodapé não leva o símbolo. Nada mais entra: o numeral, o título e o espaço preto fazem a abertura, como numa revista.</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 4 · IDEIA ÚNICA ===================== -->
+  <section class="slide ideia campo-marfim" id="slide-4" data-tom="marfim" aria-roledescription="slide" aria-label="4 de 10: A indicação vem antes da técnica">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <p class="s-rotulo s-cab">Como decidimos</p>
+    <div class="ideia-frase">
+      <h2 class="s-frase">A indicação vem antes da <em>técnica</em>.</h2>
+      <p class="s-apoio">Nem todo caso precisa de procedimento. Por isso, a consulta é sempre o primeiro passo.</p>
+    </div>
+    <div class="ideia-forma forma-svg" data-iforms='{"forma":"grade","peca":296}'></div>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">04</span></div>
+    <aside class="notas">
+      <p>Slide de ideia única: uma frase, uma palavra em itálico, uma forma. Fale a frase e pare.</p>
+      <p>O apoio vem de um anúncio real do Instituto ("a consulta é sempre o primeiro passo"). A forma grade (iforms.js) quer dizer precisão: entre muitas opções, a certa. O ponto dela é o único ponto do slide.</p>
+      <p>O símbolo do rodapé é versão derivada · aguarda validação do designer (pendência 2). Se não for aprovado, o rodapé fica só com o número.</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 5 · ESTATÍSTICA ===================== -->
+  <section class="slide stat campo-preto" id="slide-5" data-tom="preto" aria-roledescription="slide" aria-label="5 de 10: 62,6% dos adultos das capitais brasileiras têm excesso de peso">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <p class="s-rotulo s-cab"><span class="ponto" aria-hidden="true"></span>Um dado público</p>
+    <div class="stat-miolo">
+      <p class="stat-num"><span>62,6</span><span class="stat-un">%</span></p>
+      <div class="stat-lado">
+        <p class="stat-desc">dos adultos das capitais brasileiras e do <span class="nw">Distrito Federal</span> têm excesso de peso.</p>
+        <p class="stat-conclusao">O número é da população.<br> A indicação é de cada&nbsp;<em>pessoa</em>.</p>
+      </div>
+      <p class="s-legenda stat-fonte"><b>Fonte</b>Vigitel Brasil 2006-2024, Ministério da Saúde, divulgado em janeiro de 2026. Dado de 2024, adultos de 18 anos ou mais. Excesso de peso: índice de massa corporal (IMC) de 25 ou mais.</p>
+    </div>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">05</span></div>
+    <aside class="notas">
+      <p>Um número por slide, com fonte e data na própria tela. Este é um dado público do Ministério da Saúde e descreve a população, não os pacientes do Instituto.</p>
+      <p>Nunca use número de paciente, de faturamento ou "pacientes atendidos" sem fonte confirmada pelo Instituto. A frase de fechamento explica o número sem medo e sem promessa.</p>
+      <p>Atenção ao tema: excesso de peso encosta no ISC HEALTH e pode soar como medo ou insegurança (Resolução CFM 2.336, art. 11, §2º, "e"). Aqui ele é só o exemplo do tipo de slide; trocar o tema é decisão do Instituto. O símbolo do rodapé é versão derivada · aguarda validação do designer (pendência 2).</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 6 · GRÁFICO ===================== -->
+  <section class="slide grafico campo-marfim" id="slide-6" data-tom="marfim" aria-roledescription="slide" aria-label="6 de 10: Em 18 anos, o excesso de peso passou de 42,6% para 62,6% dos adultos">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <div class="s-cab">
+      <p class="s-rotulo">Dado público · Ministério da Saúde</p>
+      <h2 class="s-titulo">Em 18 anos, o excesso de peso passou de 42,6% para 62,6% dos adultos</h2>
+    </div>
+    <div class="grafico-corpo">
+      <div class="grafico-svg" data-iviz='{"tipo":"barras","rotulos":["2006","2012","2018","2024"],"valores":[42.6,51.1,55.8,62.6],"vrotulos":["42,6%","51,1%","55,8%","62,6%"],"destaque":3,"altura":280,"aria":"Adultos com excesso de peso nas capitais brasileiras: 42,6% em 2006, 51,1% em 2012, 55,8% em 2018 e 62,6% em 2024."}'></div>
+      <div class="grafico-lado">
+        <p class="s-apoio">Cada barra é a média de milhões de adultos. A&nbsp;avaliação olha para uma pessoa de cada vez.</p>
+        <p class="s-legenda"><b>Fonte</b>Vigitel Brasil 2006-2024 (tabela 1), Ministério da Saúde. Adultos das capitais e do Distrito Federal; um ano a cada seis.</p>
+      </div>
+    </div>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">06</span></div>
+    <aside class="notas">
+      <p>O título do gráfico é a conclusão, não a descrição. Um destaque por gráfico, no valor que importa (aqui, o ano mais recente); o resto fica neutro.</p>
+      <p>Troque os valores no atributo data-iviz (motor iviz.js). No palco o desenho é ampliado 1,6 vez para os rótulos lerem a distância; no celular ele usa a largura real. Não declare "unidade" no data-iviz: ela vira uma quinta categoria na linha dos anos; o % já está no título e nos valores. Dado de exemplo sempre com fonte; dado ilustrativo sempre rotulado como ilustrativo.</p>
+      <p>Os quatro valores (42,6 · 51,1 · 55,8 · 62,6) foram conferidos na tabela 1 do relatório oficial Vigitel Brasil 2006-2024 (linha Total). O cuidado com o tema é o mesmo do slide 5. O símbolo do rodapé é versão derivada · aguarda validação do designer (pendência 2).</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 7 · COMPARAÇÃO ===================== -->
+  <section class="slide compara campo-marfim" id="slide-7" data-tom="marfim" aria-roledescription="slide" aria-label="7 de 10: Da dúvida à decisão">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <div class="s-cab">
+      <p class="s-rotulo">O que a avaliação muda</p>
+      <h2 class="s-titulo">Da dúvida à <em>decisão</em>.</h2>
+    </div>
+    <div class="compara-grade">
+      <div class="compara-lado compara-antes">
+        <p class="s-rotulo s-rotulo--apoio">Antes da consulta</p>
+        <h3 class="compara-t">Muitas perguntas</h3>
+        <ul class="compara-lista">
+          <li>Uma queixa e muitas opções</li>
+          <li>Informação de anúncio e de rede social</li>
+          <li>Dúvida sobre o que serve para você</li>
+        </ul>
+      </div>
+      <span class="compara-seta" aria-hidden="true"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+      <div class="compara-lado compara-depois campo-preto">
+        <p class="s-rotulo">Depois da consulta</p>
+        <h3 class="compara-t">Uma decisão explicada</h3>
+        <ul class="compara-lista">
+          <li>Indicação com motivo, ou a orientação de não fazer</li>
+          <li>Alternativas, limites e riscos explicados pelo médico</li>
+          <li>Próximo passo e retorno combinados</li>
+        </ul>
+      </div>
+    </div>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">07</span></div>
+    <aside class="notas">
+      <p>Comparação de processo, nunca de paciente. Antes e depois de paciente só existe no formato educativo do CFM (quatro etapas, quatro ou mais pacientes, autorização escrita), e nunca solto numa apresentação.</p>
+      <p>Até três linhas por lado. O lado de antes descreve a situação de quem procura; nunca critica outros médicos, clínicas ou técnicas. O título não usa "antes e depois", o nome do formato que o CFM regula para imagem de paciente.</p>
+      <p>O símbolo do rodapé é versão derivada · aguarda validação do designer (pendência 2).</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 8 · CITAÇÃO ===================== -->
+  <section class="slide citacao campo-preto" id="slide-8" data-tom="preto" aria-roledescription="slide" aria-label="8 de 10: citação do Instituto">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <div class="citacao-miolo">
+      <figure class="olho">
+        <blockquote><p>Nosso espaço foi projetado para unir medicina e acolhimento.</p></blockquote>
+        <figcaption>Página inicial do site do Instituto</figcaption>
+      </figure>
+    </div>
+    <figure class="s-prancha citacao-prancha">
+      <div class="s-prancha-foto" style="--foco:50% 22%">
+        <img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="Sala do Instituto com pendentes de luz âmbar e poltrona reclinável preta" width="700" height="1280" loading="lazy" decoding="async">
+      </div>
+      <figcaption class="s-legenda"><b>O espaço</b>Luz quente do próprio ambiente.</figcaption>
+    </figure>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">08</span></div>
+    <aside class="notas">
+      <p>Olho de revista: só frase real, com crédito certo, até três linhas no palco. Esta frase é da página inicial do site do Instituto.</p>
+      <p>Depoimento de paciente não entra em apresentação: a regra do CFM limita o repost de elogio e proíbe identificar paciente. A foto é do próprio Instituto; o símbolo do rodapé é o único metal do slide, e é versão derivada · aguarda validação do designer (pendência 2).</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 9 · PASSOS ===================== -->
+  <section class="slide passos campo-marfim" id="slide-9" data-tom="marfim" aria-roledescription="slide" aria-label="9 de 10: Do primeiro contato ao retorno">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span><b>01</b> · Como cuidamos</span></div>
+    <div class="s-cab">
+      <p class="s-rotulo">Como funciona</p>
+      <h2 class="s-titulo">Do primeiro contato ao <em>retorno</em>.</h2>
+      <p class="s-apoio">Três etapas, sempre nesta ordem.</p>
+    </div>
+    <div class="passos-visual">
+      <ol class="percurso">
+        <li class="etapa etapa--agora">
+          <span class="etapa-n">01</span>
+          <span class="etapa-marca" aria-hidden="true"></span>
+          <h3 class="etapa-t">Avaliação</h3>
+          <p class="etapa-d">Conversa sobre histórico de saúde, medicamentos em uso e o que a pessoa espera, com exame médico.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa-n">02</span>
+          <span class="etapa-marca" aria-hidden="true"></span>
+          <h3 class="etapa-t">Indicação</h3>
+          <p class="etapa-d">O médico explica o que é indicado, as alternativas, os limites e os riscos. Às vezes, a indicação é não fazer.</p>
+        </li>
+        <li class="etapa">
+          <span class="etapa-n">03</span>
+          <span class="etapa-marca" aria-hidden="true"></span>
+          <h3 class="etapa-t">Acompanhamento</h3>
+          <p class="etapa-d">Retornos combinados para acompanhar a evolução e ajustar o plano quando for preciso.</p>
+        </li>
+      </ol>
+    </div>
+    <div class="s-rodape"><img class="s-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="s-num">09</span></div>
+    <aside class="notas">
+      <p>Percurso em três etapas, no mesmo desenho do motor iforms (forma percurso). O ponto cheio marca a etapa em que tudo começa: a avaliação.</p>
+      <p>Nenhum prazo, preço ou nome de procedimento como promessa. Se um dia entrar prazo, só o que o atendimento confirma.</p>
+      <p>O símbolo do rodapé é versão derivada · aguarda validação do designer (pendência 2).</p>
+    </aside>
+  </section>
+
+  <!-- ===================== 10 · CLOSER ===================== -->
+  <section class="slide closer campo-preto" id="slide-10" data-tom="preto" aria-roledescription="slide" aria-label="10 de 10: Obrigado. O próximo passo é a consulta">
+    <div class="s-folio"><span><b>ISC Instituto</b> · Apresentação institucional</span><span>Contato</span></div>
+    <div class="closer-texto">
+      <h2 class="s-display">Obrigado. O&nbsp;próximo passo é a <em>consulta</em>.</h2>
+      <a class="btn btn--cheio closer-cta" href="#" data-link-pendente>Agende sua avaliação</a>
+      <dl class="s-meta closer-contatos">
+        <div><dt>WhatsApp</dt><dd>(41) [número oficial]</dd></div>
+        <div><dt>Site</dt><dd>[site do ISC]</dd></div>
+        <div><dt>Endereço</dt><dd>R. Dep. Heitor Alencar Furtado, 3350, conj. 51<br>Ecoville, Curitiba (PR)</dd></div>
+      </dl>
+    </div>
+    <div class="closer-base">
+      <p class="s-id s-id--linhas"><span>ISC Instituto · <span class="nw">Registro CRM-PR [nº]</span></span><span><span class="nw">Diretor Técnico-Médico:</span> [nome] · <span class="nw">CRM-PR [nº]</span></span><span>[Especialidade · <span class="nw">RQE nº</span>, se exigível]</span></p>
+      <img class="s-marca" src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto · Health &amp; Aesthetics" width="852" height="365" loading="lazy" decoding="async">
+    </div>
+    <aside class="notas">
+      <p>Fechamento: agradecimento e um único próximo passo, no botão. Quando quem apresenta for mulher, o título começa com "Obrigada.". Quando o WhatsApp oficial único for definido (pendência), troque o destino do botão pelo link dele e apague o atributo data-link-pendente.</p>
+      <p>No plano de cuidado (capa clara), a consulta já aconteceu: troque o título por "O próximo passo é o retorno." (com "retorno" em itálico) e o botão por "Fale com a equipe".</p>
+      <p>A identificação da clínica é obrigatória quando a apresentação sai do perfil (PDF, WhatsApp, e-mail, impresso): nunca apague este slide. Mesma fonte, mesmo tamanho e mesma cor em todos os itens, em branco sobre o preto, em 34 px no palco (35% do título, para continuar legível no PDF aberto no celular). A terceira linha só fica se o estabelecimento for especializado: aí entram a especialidade e o RQE do Diretor Técnico-Médico; se não for, apague a linha. Os números ficam entre colchetes até o Instituto confirmar.</p>
+      <p>A marca em ouro metálico é o único metal do slide.</p>
+    </aside>
+  </section>
+
+  <div class="progresso" aria-hidden="true"><span></span></div>
+  <p class="contador" aria-live="polite"><b id="c-atual">01</b><span aria-hidden="true">/</span><span id="c-total">10</span></p>
+</main>
+</div>
+
+<aside class="painel-notas" id="painel-notas" aria-label="Notas do apresentador">
+  <div class="painel-cab">
+    <span class="rotulo-painel">Notas do apresentador</span>
+    <span class="painel-num" id="p-num">01<span> / 10</span></span>
+  </div>
+  <p class="painel-tit" id="p-tit"></p>
+  <div class="painel-txt" id="p-txt"></div>
+  <p class="painel-prox" id="p-prox"></p>
+  <p class="painel-teclas"><kbd>P</kbd> fecha as notas · <kbd>F</kbd> tela cheia · setas mudam o slide</p>
+</aside>
+
+<script src="iviz.js"></script>
+<script src="iforms.js"></script>
+<script>
+/* =====================================================================
+   NAVEGAÇÃO DO DECK · Fio de Ouro v1
+   ===================================================================== */
+(function(){
+  try {
+  var raiz = document.documentElement;
+  var deck = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var total = slides.length, atual = 0;
+  var barra = deck.querySelector('.progresso span');
+  var cAtual = document.getElementById('c-atual');
+  var pNum = document.getElementById('p-num'), pTit = document.getElementById('p-tit');
+  var pTxt = document.getElementById('p-txt'), pProx = document.getElementById('p-prox');
+  var dois = function(n){ return (n < 10 ? '0' : '') + n; };
+  document.getElementById('c-total').textContent = dois(total);
+  var celular = function(){ return window.matchMedia('(max-width:640px), (max-height:500px)').matches; };
+
+  /* Título do slide para o painel de notas: o rótulo acessível sem o número */
+  var tituloDe = function(s){ return (s.getAttribute('aria-label') || '').replace(/^\d+ de \d+:\s*/, ''); };
+
+  /* ---------- escala do palco: k = min(largura / 1440, altura / 900) ---------- */
+  function escalar(){
+    var palco = document.getElementById('palco');
+    var w = palco.clientWidth, h = palco.clientHeight;
+    if (!w || !h) return;
+    deck.style.setProperty('--k', Math.min(w / 1440, h / 900).toFixed(4));
+  }
+
+  /* ---------- mostrar um slide ---------- */
+  function mostrar(n, semHash){
+    atual = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function(s, i){
+      var ativo = i === atual;
+      s.classList.toggle('ativo', ativo);
+      if (!celular() && !ativo) s.setAttribute('aria-hidden', 'true'); else s.removeAttribute('aria-hidden');
+    });
+    var s = slides[atual];
+    deck.setAttribute('data-tom', s.getAttribute('data-tom') || 'marfim');
+    if (barra) barra.style.setProperty('--p', ((atual + 1) / total).toFixed(4));
+    cAtual.textContent = dois(atual + 1);
+    pNum.innerHTML = dois(atual + 1) + '<span> / ' + dois(total) + '</span>';
+    pTit.textContent = tituloDe(s);
+    var nota = s.querySelector('aside.notas');
+    pTxt.innerHTML = nota ? nota.innerHTML : '<p>Sem notas para este slide.</p>';
+    pProx.innerHTML = atual < total - 1 ? '<b>Próximo:</b> ' + tituloDe(slides[atual + 1]) : '<b>Fim da apresentação.</b>';
+    if (!semHash) { try { history.replaceState(null, '', '#' + (atual + 1)); } catch (e) {} }
+  }
+  /* só número vale como endereço de slide (#3); qualquer outra âncora é ignorada */
+  var lerHash = function(){ var h = (location.hash || '').replace('#', ''); return /^\d+$/.test(h) ? parseInt(h, 10) - 1 : null; };
+
+  /* ---------- teclado ---------- */
+  document.addEventListener('keydown', function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var alvo = e.target && e.target.tagName;
+    if (alvo === 'INPUT' || alvo === 'TEXTAREA' || alvo === 'SELECT') return;
+    var k = e.key;
+    if (k === 'p' || k === 'P') { raiz.classList.toggle('com-notas'); escalar(); return; }
+    if (k === 'f' || k === 'F') {
+      try {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (raiz.requestFullscreen) { var r = raiz.requestFullscreen(); if (r && r.catch) r.catch(function(){}); }
+      } catch (err) {}
+      return;
+    }
+    if (celular()) return;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || (k === ' ' && !e.shiftKey)) { e.preventDefault(); mostrar(atual + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp' || (k === ' ' && e.shiftKey)) { e.preventDefault(); mostrar(atual - 1); }
+    else if (k === 'Home') { e.preventDefault(); mostrar(0); }
+    else if (k === 'End') { e.preventDefault(); mostrar(total - 1); }
+  });
+
+  /* ---------- clique no palco: terço esquerdo volta, o resto avança ---------- */
+  document.getElementById('palco').addEventListener('click', function(e){
+    if (celular() || e.target.closest('a,button')) return;
+    mostrar(atual + (e.clientX < window.innerWidth / 3 ? -1 : 1));
+  });
+
+  /* ---------- link ainda sem destino oficial (WhatsApp pendente): não sai do slide ---------- */
+  deck.addEventListener('click', function(e){
+    var a = e.target.closest('a[data-link-pendente]');
+    if (a) e.preventDefault();
+  });
+
+  /* ---------- toque: deslize horizontal acima de 40 px ---------- */
+  var x0 = null, y0 = null;
+  document.addEventListener('touchstart', function(e){ if (e.touches.length === 1) { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; } }, { passive:true });
+  document.addEventListener('touchend', function(e){
+    if (x0 === null || celular()) { x0 = null; return; }
+    var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) mostrar(atual + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive:true });
+
+  /* fora do intervalo (#0, #99): mostra o slide mais próximo e corrige o endereço */
+  window.addEventListener('hashchange', function(){ var n = lerHash(); if (n !== null) mostrar(n, n >= 0 && n < total); });
+
+  /* =====================================================================
+     GRÁFICOS (iviz.js, pelo atributo data-iviz)
+     No palco o desenho é feito mais estreito e ampliado 1,6 vez, para os rótulos
+     lerem a distância (o rótulo de 11 unidades sai com cerca de 18 px no slide).
+     No celular o motor usa a largura real. Este script roda antes do motor
+     montar: ele só acrescenta a largura ao atributo, e refaz ao trocar de modo.
+     ===================================================================== */
+  var AMPLIA = 1.6;
+  var graficos = Array.prototype.slice.call(deck.querySelectorAll('[data-iviz]'));
+  graficos.forEach(function(el){ try { el.__base = JSON.parse(el.getAttribute('data-iviz')); } catch (err) { el.__base = null; console.error('deck: data-iviz não é JSON válido', el); } });
+  function cfgPara(el){
+    var c = Object.assign({}, el.__base);
+    if (!celular()) { var w = el.clientWidth; if (w) c.largura = Math.round(w / AMPLIA); }
+    return c;
+  }
+  graficos.forEach(function(el){ if (el.__base) el.setAttribute('data-iviz', JSON.stringify(cfgPara(el))); });
+  function refazGraficos(){
+    if (!window.iviz) return;
+    graficos.forEach(function(el){ if (el.__base) window.iviz.render(el, el.__base.tipo, cfgPara(el)); });
+  }
+
+  /* ---------- início ---------- */
+  var modo = celular() ? 'celular' : 'palco';
+  function ajustar(){
+    escalar();
+    var m = celular() ? 'celular' : 'palco';
+    if (m !== modo) { modo = m; refazGraficos(); mostrar(atual, true); }
+  }
+  var inicial = lerHash();
+  mostrar(inicial === null ? 0 : inicial, inicial === null || (inicial >= 0 && inicial < total));
+  escalar();
+  /* no celular, o endereço #N rola até o slide N */
+  if (inicial !== null && celular() && slides[atual]) { try { slides[atual].scrollIntoView(); } catch (err) {} }
+  var espera = 0;
+  window.addEventListener('resize', function(){ clearTimeout(espera); espera = setTimeout(ajustar, 80); });
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(function(){ clearTimeout(espera); espera = setTimeout(ajustar, 80); }).observe(document.getElementById('palco'));
+  } catch (e) { console.error('deck', e); }
+})();
+</script>
+</body>
+</html>
