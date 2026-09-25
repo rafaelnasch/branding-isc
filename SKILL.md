@@ -78,7 +78,7 @@ O sistema **não tem modo escuro automático**: preto e marfim são escolha edit
 
 ## A marca (TRAVADA)
 
-Arquivo oficial: CorelDRAW de Wéliton Gomes, 31/08/2026 (`assets/referencia-original/`). A marca é **sempre um arquivo** de `assets/`: nunca redesenhe, redigite "ISC" em fonte, recolora fora das versões, gire, estique, aplique sombra, brilho ou relevo.
+Arquivo oficial: CorelDRAW do designer da marca, 31/08/2026 (`assets/referencia-original/`). A marca é **sempre um arquivo** de `assets/`: nunca redesenhe, redigite "ISC" em fonte, recolora fora das versões, gire, estique, aplique sombra, brilho ou relevo.
 
 | Versão | Arquivo | Status | Fundo |
 |---|---|---|---|
@@ -289,4 +289,4 @@ Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em
 
 ---
 
-Marca, símbolo e logotipo são propriedade do ISC Instituto. Arquivo oficial da marca: Wéliton Gomes (31/08/2026). Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
+Marca, símbolo e logotipo são propriedade do ISC Instituto. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.

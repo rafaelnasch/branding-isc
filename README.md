@@ -111,4 +111,4 @@ Chrome, Edge ou Safari recentes (iOS 16 ou mais novo, Chrome 105 ou mais novo).
 
 ---
 
-Marca, símbolo e logotipo são propriedade do **ISC Instituto**. Arquivo oficial da marca: Wéliton Gomes (31/08/2026). Os motores `iviz.js` e `iforms.js` foram escritos para este sistema. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
+Marca, símbolo e logotipo são propriedade do **ISC Instituto**. Os motores `iviz.js` e `iforms.js` foram escritos para este sistema. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
