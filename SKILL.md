@@ -57,7 +57,7 @@ O sistema **não tem modo escuro automático**: preto e marfim são escolha edit
 
 **Orçamento do ouro (LEI):** ouro chapado mais metal ocupam no máximo **5% da área** da peça e marcam **uma** informação. **Um único elemento metálico por peça** (o símbolo no post, o logotipo no story). Proporção medida no conjunto das peças do mês: Preto 45 · Marfim 35 · Branco e champanhe 10 · Ouro 6 · Marrom 3 · Metal 1.
 
-**Em reserva (não usar sem decisão):** as outras cores do arquivo do designer (marrom escuro `#402C11`, âmbar `#C98302`, `#D7A241`, marinhos `#0B153B` `#03151F` `#032130`, roxo, ouro de gráfica). **ISC REGEN** usa as cores do Instituto, com o verde `#1D4B48` como cor secundária; a **Benessere** usa verde como cor principal (tom a definir). O verde nunca vai na marca-mãe. CMYK e Pantone dependem de prova de gráfica; metal no papel é hot stamping ou ouro chapado, nunca amarelo.
+**Em reserva (não usar sem decisão):** as outras cores do arquivo do designer (marrom escuro `#402C11`, âmbar `#C98302`, `#D7A241`, marinhos `#0B153B` `#03151F` `#032130`, roxo, ouro de gráfica). **ISC REGEN** usa as cores do Instituto (preto, marfim, ouro e cobre), com o verde petróleo `#1D4B48` como cor secundária para uma leve diferença; laranja mais escuro é alternativa em avaliação, não usar ainda. A **Benessere** usa tons de verde como principais (tom a definir). Ambas usam o mesmo logotipo do Instituto. O verde nunca vai na marca-mãe. CMYK e Pantone dependem de prova de gráfica; metal no papel é hot stamping ou ouro chapado, nunca amarelo.
 
 ## Tipografia (TRAVADA)
 
@@ -244,7 +244,7 @@ Deck: viewport 1440 × 900 e `pg.pdf(width="1440px", height="900px", print_backg
 3. CRM e RQE de cada médico, registro da clínica no CRM-PR e nome do Diretor Técnico-Médico.
 4. Uso público da leitura "Integrated Systemic Care" e nome registrado no CRM-PR (o nome principal já é "Instituto ISC").
 5. WhatsApp oficial único, e-mail institucional, horário, site e domínio.
-6. Tom exato do verde da Benessere e papel das cores em reserva (ISC REGEN, Benessere e ISC Academy já são submarcas do Instituto ISC).
+6. Tom exato do verde da Benessere, eventual laranja mais escuro de apoio no ISC REGEN e papel das cores em reserva (ISC REGEN, Benessere e ISC Academy já são submarcas do Instituto ISC).
 7. Troca do letreiro físico e sessão de fotos.
 8. CMYK e Pantone (prova de gráfica).
 9. Gilda Display e EB Garamond no Canva e no editor de vídeo.
