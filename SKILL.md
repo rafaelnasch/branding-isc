@@ -131,6 +131,7 @@ Autoridade médica que explica com critério. Acolhimento sem intimidade forçad
 - **Nunca:** garantido, sem risco, milagre (só em negação), resultado surpreendente, transformação real, tecnologia de ponta, referência em, o melhor, exclusivo, tudo em um só lugar, livre da dor, emagreça rápido, "medicina estética" como especialidade, "especialista" sem RQE.
 - **CTAs aprovados:** "Agende sua avaliação" · "Fale com a equipe" · "Entenda se é indicado para você" · "Saiba como funciona a consulta".
 - **Pontuação:** zero travessão em título; no máximo uma exclamação; zero emoji na arte (emoji em legenda e WhatsApp é pendência de decisão: até lá, zero).
+- **Remarcação e cancelamento (WhatsApp e e-mail):** a mensagem afirma o compromisso ("Seu horário fica reservado para você."). Nunca oferecer remarcar ou desmarcar ("Para remarcar, é só responder", "se não puder vir, avise"); remarcação só quando o paciente pedir (modelo 07 da seção 15).
 
 ## Publicidade médica (CFM) · TRAVADA
 
