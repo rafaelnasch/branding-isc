@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exporta um HTML do manual ISC Instituto em PDF (seção 21.6 do brand book).
+"""Exporta um HTML do manual Instituto ISC em PDF (seção 21.6 do brand book).
 Uso, na pasta do manual: python3 exportar_pdf.py [arquivo.html]
 """
 import sys

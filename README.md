@@ -1,6 +1,6 @@
 # branding-isc
 
-**A identidade visual do ISC Instituto · Health & Aesthetics, empacotada como uma Skill do Claude.** Sistema Fio de Ouro v1.
+**A identidade visual do Instituto ISC · Health & Aesthetics, empacotada como uma Skill do Claude.** Sistema Fio de Ouro v1.
 
 Instale uma vez e peça o material em português. O Claude passa a produzir post, carrossel, story, reels, WhatsApp, site, proposta, receituário, apresentação, e-mail e impresso **já no padrão do ISC**: cor certa, fonte certa, marca certa, tom certo e as regras de publicidade médica do CFM, sem você precisar explicar nada disso de novo.
 
@@ -93,7 +93,7 @@ Até cada uma ser resolvida, a skill entrega só a versão permitida:
 1. Licença comercial da fonte usada no "ISC" do logotipo.
 2. Validação, pelo designer, das versões derivadas (branca, ouro chapado, vertical, símbolo, avatar, favicon).
 3. CRM e RQE de cada médico, registro da clínica e Diretor Técnico-Médico.
-4. Forma oficial do nome em texto ("ISC Instituto" ou "Instituto ISC").
+4. Uso público da leitura "Integrated Systemic Care" e nome registrado no CRM-PR (o nome principal já é "Instituto ISC").
 5. WhatsApp oficial, e-mail institucional, horário, site e domínio.
 6. Cores das submarcas e da paleta em reserva do designer.
 7. Troca do letreiro e sessão de fotos.
@@ -111,4 +111,4 @@ Chrome, Edge ou Safari recentes (iOS 16 ou mais novo, Chrome 105 ou mais novo).
 
 ---
 
-Marca, símbolo e logotipo são propriedade do **ISC Instituto**. Os motores `iviz.js` e `iforms.js` foram escritos para este sistema. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
+Marca, símbolo e logotipo são propriedade do **Instituto ISC**. Os motores `iviz.js` e `iforms.js` foram escritos para este sistema. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.

@@ -1,5 +1,5 @@
 /* =====================================================================
-   IVIZ · motor de gráficos do ISC Instituto · sistema Fio de Ouro v1.1
+   IVIZ · motor de gráficos do Instituto ISC · sistema Fio de Ouro v1.1
    SVG puro, zero dependências, JavaScript ES2015 simples, determinístico
    (sem Math.random, sem Date): mesma entrada e mesma largura geram sempre
    o mesmo desenho, na tela e no PDF.

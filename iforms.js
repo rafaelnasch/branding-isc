@@ -1,5 +1,5 @@
 /* =====================================================================
-   IFORMS · formas conceituais do ISC Instituto · sistema Fio de Ouro v1.1
+   IFORMS · formas conceituais do Instituto ISC · sistema Fio de Ouro v1.1
    A ilustração da casa. Quando uma peça precisa de uma FORMA (um conceito, não um dado),
    ela sai daqui: nunca de banco de imagem, nunca de emoji, nunca de desenho feito na hora.
 

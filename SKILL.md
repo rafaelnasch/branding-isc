@@ -1,11 +1,11 @@
 ---
 name: branding-isc
-description: "A identidade visual do ISC Instituto · Health & Aesthetics (Curitiba) no sistema Fio de Ouro v1: Preto ISC e Marfim como campos, o ouro só sobre preto, o metal só na marca, Gilda Display nos títulos com uma palavra em EB Garamond Italic, Montserrat no texto, foto real com luz quente, as cinco leis da casa, o bloco de identificação médica e as regras de publicidade médica do CFM, motores de gráfico (iviz) e de forma (iforms). Use para qualquer material do ISC ou do Dr. Sharbo Casagrande: post, carrossel, story, reels, WhatsApp, site, proposta, receituário, apresentação, e-mail e impresso. Triggers: /branding-isc, branding isc, marca isc, padrão isc, identidade isc, instituto isc, isc instituto, material do isc, post do isc, deck do isc, dr sharbo, sharbo casagrande, fio de ouro."
+description: "A identidade visual do Instituto ISC · Health & Aesthetics (Curitiba) no sistema Fio de Ouro v1: Preto ISC e Marfim como campos, o ouro só sobre preto, o metal só na marca, Gilda Display nos títulos com uma palavra em EB Garamond Italic, Montserrat no texto, foto real com luz quente, as cinco leis da casa, o bloco de identificação médica e as regras de publicidade médica do CFM, motores de gráfico (iviz) e de forma (iforms). Use para qualquer material do ISC ou do Dr. Sharbo Casagrande: post, carrossel, story, reels, WhatsApp, site, proposta, receituário, apresentação, e-mail e impresso. Triggers: /branding-isc, branding isc, marca isc, padrão isc, identidade isc, instituto isc, isc instituto, material do isc, post do isc, deck do isc, dr sharbo, sharbo casagrande, fio de ouro."
 ---
 
-# /branding-isc · A identidade visual do ISC Instituto
+# /branding-isc · A identidade visual do Instituto ISC
 
-Um estilo de casa travado, chamado **Fio de Ouro**. O nome vem do traço vertical dourado do logotipo, que separa o símbolo do nome. O ISC fala como uma revista de medicina bem desenhada: **título sereno em serifa, campo preto ou marfim, o ouro como fio fino e uma única palavra em itálico.** Cada peça explica antes de indicar e nunca promete resultado. Vale para **todo** material do ISC Instituto e do Dr. Sharbo Casagrande: post, carrossel, story, reels, WhatsApp, site, proposta, receituário, apresentação, e-mail, impresso e sinalização.
+Um estilo de casa travado, chamado **Fio de Ouro**. O nome vem do traço vertical dourado do logotipo, que separa o símbolo do nome. O ISC fala como uma revista de medicina bem desenhada: **título sereno em serifa, campo preto ou marfim, o ouro como fio fino e uma única palavra em itálico.** Cada peça explica antes de indicar e nunca promete resultado. Vale para **todo** material do Instituto ISC e do Dr. Sharbo Casagrande: post, carrossel, story, reels, WhatsApp, site, proposta, receituário, apresentação, e-mail, impresso e sinalização.
 
 Palavras-guia: sóbrio, preciso, acolhedor, médico, de alto padrão. Nunca: gritado, brilhante, milagroso, genérico de luxo.
 
@@ -57,7 +57,7 @@ O sistema **não tem modo escuro automático**: preto e marfim são escolha edit
 
 **Orçamento do ouro (LEI):** ouro chapado mais metal ocupam no máximo **5% da área** da peça e marcam **uma** informação. **Um único elemento metálico por peça** (o símbolo no post, o logotipo no story). Proporção medida no conjunto das peças do mês: Preto 45 · Marfim 35 · Branco e champanhe 10 · Ouro 6 · Marrom 3 · Metal 1.
 
-**Em reserva (não usar sem decisão):** as outras cores do arquivo do designer (marrom escuro `#402C11`, âmbar `#C98302`, `#D7A241`, marinhos `#0B153B` `#03151F` `#032130`, roxo, ouro de gráfica). **ISC REGEN** usa o verde petróleo `#1D4B48` como acento provisório (pendente), nunca na marca-mãe. CMYK e Pantone dependem de prova de gráfica; metal no papel é hot stamping ou ouro chapado, nunca amarelo.
+**Em reserva (não usar sem decisão):** as outras cores do arquivo do designer (marrom escuro `#402C11`, âmbar `#C98302`, `#D7A241`, marinhos `#0B153B` `#03151F` `#032130`, roxo, ouro de gráfica). **ISC REGEN** usa as cores do Instituto, com o verde `#1D4B48` como cor secundária; a **Benessere** usa verde como cor principal (tom a definir). O verde nunca vai na marca-mãe. CMYK e Pantone dependem de prova de gráfica; metal no papel é hot stamping ou ouro chapado, nunca amarelo.
 
 ## Tipografia (TRAVADA)
 
@@ -104,18 +104,19 @@ Arquivo oficial: CorelDRAW do designer da marca, 31/08/2026 (`assets/referencia-
 2. **O metal é da marca.** O gradiente vive no símbolo, nas letras ISC e no numeral de abertura sobre preto. Um elemento metálico por peça; o resto do ouro é chapado, fino e ocupa no máximo 5% da área.
 3. **Uma ideia por peça, um itálico por título.** Se falta espaço, corta-se texto, nunca margem.
 4. **Foto real, luz quente.** Só o Instituto, a equipe e o trabalho verdadeiro. Banco de imagem nunca; letreiro antigo fora do quadro.
-5. **Critério antes de promessa.** Nenhum resultado prometido, nenhum superlativo, nenhuma técnica proibida (PMMA e bioplastia em lugar nenhum: arte, legenda, hashtag, texto alternativo, post antigo), identificação médica sempre que o CFM exigir.
+5. **Critério antes de promessa.** Nenhum resultado prometido, nenhum superlativo, nenhuma técnica proibida (PMMA em lugar nenhum: arte, legenda, hashtag, texto alternativo, post antigo), identificação médica sempre que o CFM exigir.
 
 ## Arquitetura de marca
 
 | Marca | Papel | Assina com |
 |---|---|---|
-| **ISC Instituto** (marca-mãe) | institucional, vitrine de todo o corpo clínico | logotipo ISC + bloco da clínica |
-| **Dr. Sharbo Casagrande** (marca pessoal) | autoridade e alcance; explica temas | bloco do médico; o ISC entra como "Atende no ISC Instituto" |
-| **ISC REGEN** (submarca) | medicina regenerativa | pendente: validar enquadramento regulatório antes de anunciar |
+| **Instituto ISC** (marca-mãe) | institucional, vitrine de todo o corpo clínico | logotipo ISC + bloco da clínica |
+| **Dr. Sharbo Casagrande** (marca pessoal) | autoridade e alcance; explica temas | bloco do médico; o ISC entra como "Atende no Instituto ISC" |
+| **ISC REGEN** (sublinha) | medicina regenerativa; ISC = Integrated Systemic Care | cores do Instituto + verde secundário; validar enquadramento regulatório antes de anunciar |
+| **Benessere** (sublinha) | acupuntura, saúde e bem-estar ("bem-estar" em italiano) | mesmo logotipo do ISC; verde como cor principal, tom a definir |
 | **ISC HEALTH**, **Vitalize ISC** | produtos com sufixo ISC | nome em texto com a marca-mãe; sem logotipo próprio |
 
-Nunca assinar peça do Instituto como se fosse do médico, nem o contrário. Nome em texto corrido: **"ISC Instituto"** (forma do logotipo) até o Instituto decidir entre essa e "Instituto ISC" (seção 02). "ISC" sempre em maiúsculas; "Health & Aesthetics" com &; **Sharbo Casagrande** (nunca Charbo, Casa Grande).
+Nunca assinar peça do Instituto como se fosse do médico, nem o contrário. Nome principal em texto corrido, fala e atendimento: **"Instituto ISC"**. "ISC Instituto" é a forma secundária, como o logotipo se lê (seção 02). "ISC" sempre em maiúsculas; "Health & Aesthetics" com &; **Sharbo Casagrande** (nunca Charbo, Casa Grande).
 
 ## Voz e tom
 
@@ -132,11 +133,11 @@ Base: Resolução CFM 2.336/2023 (em vigor desde 11/03/2024) + Manual de Publici
 
 **Bloco de identificação** (mesma fonte, mesmo tamanho, mesma cor em todos os itens; snippet no bloco 08 do `lockup.html`):
 - Médico: `Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]` e, **só quando a peça citar especialidade**, `[Especialidade] · RQE [nº]`.
-- Clínica: `ISC Instituto · Registro CRM-PR [nº] · Diretor Técnico-Médico: [nome] · CRM-PR [nº]`.
+- Clínica: `Instituto ISC · Registro CRM-PR [nº] · Diretor Técnico-Médico: [nome] · CRM-PR [nº]`.
 - **Onde:** na bio das redes; **dentro da peça** quando ela sai do perfil (WhatsApp, impresso, anúncio em vídeo em todos os quadros, compartilhamento); no rodapé da página inicial do site; no receituário. Na peça 1080, nunca abaixo de 26 px.
 - **Números nunca inventados:** use `[nº]` até o Instituto confirmar.
 
-**Essencial:** sem promessa de resultado; sem superlativo; sem preço de procedimento (preço de consulta pode); sem gratuidade, sorteio, pacote ou venda casada; sem depoimento de paciente sobre resultado; sem paciente identificável; nome comercial de aparelho não vira argumento. **Antes e depois:** só no formato educativo do Manual (vídeo ou página do site, com as condições da seção 08.6); nunca post solto, nunca anúncio pago; mama, glúteo e região íntima fora das redes. **PMMA e bioplastia:** fora de tudo, nem para explicar. PRP, ozônio, aspirado de medula e células: não anunciar antes de validar a situação regulatória (pendência).
+**Essencial:** sem promessa de resultado; sem superlativo; sem preço de procedimento (preço de consulta pode); sem gratuidade, sorteio, pacote ou venda casada; sem depoimento de paciente sobre resultado; sem paciente identificável; nome comercial de aparelho não vira argumento. **Antes e depois:** só no formato educativo do Manual (vídeo ou página do site, com as condições da seção 08.6); nunca post solto, nunca anúncio pago; mama, glúteo e região íntima fora das redes. **PMMA:** fora de tudo, nem para explicar. PRP, ozônio, aspirado de medula e células: não anunciar antes de validar a situação regulatória (pendência).
 
 **Quem aprova:** peça do Instituto, o Diretor Técnico-Médico; peça do perfil pessoal, o próprio médico. Nada vai ao ar sem aprovação escrita.
 
@@ -236,9 +237,9 @@ Deck: viewport 1440 × 900 e `pg.pdf(width="1440px", height="900px", print_backg
 1. Licença comercial da fonte do "ISC" (The Seasons, arquivo demo).
 2. Validação das versões derivadas pelo designer.
 3. CRM e RQE de cada médico, registro da clínica no CRM-PR e nome do Diretor Técnico-Médico.
-4. Forma oficial do nome em texto ("ISC Instituto" ou "Instituto ISC") e uso público da leitura "Integrated Systemic Care".
+4. Uso público da leitura "Integrated Systemic Care" e nome registrado no CRM-PR (o nome principal já é "Instituto ISC").
 5. WhatsApp oficial único, e-mail institucional, horário, site e domínio.
-6. Cores do ISC REGEN e das cores em reserva; ISC REGEN e Benessere na família visual.
+6. Tom exato do verde da Benessere e papel das cores em reserva (ISC REGEN e Benessere já são sublinhas do Instituto ISC).
 7. Troca do letreiro físico e sessão de fotos.
 8. CMYK e Pantone (prova de gráfica).
 9. Gilda Display e EB Garamond no Canva e no editor de vídeo.
@@ -256,7 +257,7 @@ Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em
 - [ ] Uma ideia por peça e um único próximo passo, com CTA aprovado.
 - [ ] Foto real, luz quente, sem letreiro antigo, sem banco de imagem, sem paciente identificável.
 - [ ] Nenhuma promessa, superlativo, preço de procedimento, sorteio, gratuidade ou depoimento de resultado.
-- [ ] PMMA e bioplastia em lugar nenhum (arte, legenda, hashtag, alt, post antigo).
+- [ ] PMMA em lugar nenhum (arte, legenda, hashtag, alt, post antigo).
 - [ ] Bloco de identificação dentro da peça quando ela sai do perfil; RQE só com especialidade citada; números em `[nº]` se não confirmados.
 - [ ] Zero travessão em título, zero emoji na arte, no máximo uma exclamação; "Sharbo Casagrande" com a grafia certa.
 - [ ] Contraste AA; texto alternativo em toda imagem.
@@ -289,4 +290,4 @@ Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em
 
 ---
 
-Marca, símbolo e logotipo são propriedade do ISC Instituto. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
+Marca, símbolo e logotipo são propriedade do Instituto ISC. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
