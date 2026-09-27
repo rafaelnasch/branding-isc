@@ -110,11 +110,16 @@ Arquivo oficial: CorelDRAW do designer da marca, 31/08/2026 (`assets/referencia-
 
 | Marca | Papel | Assina com |
 |---|---|---|
-| **Instituto ISC** (marca-mãe) | institucional, vitrine de todo o corpo clínico | logotipo ISC + bloco da clínica |
-| **Dr. Sharbo Casagrande** (marca pessoal) | autoridade e alcance; explica temas | bloco do médico; o ISC entra como "Atende no Instituto ISC" |
-| **ISC REGEN** (sublinha) | medicina regenerativa; ISC = Integrated Systemic Care | cores do Instituto + verde secundário; validar enquadramento regulatório antes de anunciar |
-| **Benessere** (sublinha) | acupuntura, saúde e bem-estar ("bem-estar" em italiano) | mesmo logotipo do ISC; verde como cor principal, tom a definir |
-| **ISC HEALTH**, **Vitalize ISC** | produtos com sufixo ISC | nome em texto com a marca-mãe; sem logotipo próprio |
+| **Instituto ISC** (marca-mãe) | contém todos os serviços da casa; vitrine de todo o corpo clínico; @instituto.isc publica tudo o que se faz no Instituto | logotipo ISC + bloco da clínica |
+| **Dr. Sharbo Casagrande** (marca pessoal) | autoridade e alcance; @drsharbo publica só os procedimentos que ele faz | bloco do médico; o ISC entra como "Atende no Instituto ISC" |
+| **ISC REGEN** (submarca) | medicina regenerativa: ortobiológicos, medicina esportiva, ortopedia e estética regenerativa; ISC = Integrated Systemic Care | mesmo logotipo; cores do Instituto + verde secundário; validar enquadramento regulatório antes de anunciar |
+| **Benessere** (submarca) | clínica de acupuntura, saúde e bem-estar ("bem-estar" em italiano) | mesmo logotipo do ISC; verde como cor principal, tom a definir |
+| **ISC Academy** (submarca) | educação médica: cursos feitos no Instituto, do Dr. Sharbo e eventualmente de outros médicos; público médico, nunca nos perfis de pacientes | nome em texto com o arquivo do ISC; assinatura própria a definir |
+| **Vitalize ISC** (produto) | acompanhamento presencial de emagrecimento, saúde hormonal e longevidade; pode ter nutrição e treino associados | nome em texto com a marca-mãe; sem logotipo próprio; nome público a validar |
+| **ISC HEALTH** (produto) | o mesmo acompanhamento, online | idem; validar formato (telemedicina, sem pacote) |
+| **Volupta** (produto) | protocolo de volumização e preenchimento de glúteo | idem; nunca citar PMMA; nome público a validar |
+
+Outros produtos podem entrar e seguem a mesma regra: nome em texto, assinatura do Instituto ISC.
 
 Nunca assinar peça do Instituto como se fosse do médico, nem o contrário. Nome principal em texto corrido, fala e atendimento: **"Instituto ISC"**. "ISC Instituto" é a forma secundária, como o logotipo se lê (seção 02). "ISC" sempre em maiúsculas; "Health & Aesthetics" com &; **Sharbo Casagrande** (nunca Charbo, Casa Grande).
 
@@ -239,7 +244,7 @@ Deck: viewport 1440 × 900 e `pg.pdf(width="1440px", height="900px", print_backg
 3. CRM e RQE de cada médico, registro da clínica no CRM-PR e nome do Diretor Técnico-Médico.
 4. Uso público da leitura "Integrated Systemic Care" e nome registrado no CRM-PR (o nome principal já é "Instituto ISC").
 5. WhatsApp oficial único, e-mail institucional, horário, site e domínio.
-6. Tom exato do verde da Benessere e papel das cores em reserva (ISC REGEN e Benessere já são sublinhas do Instituto ISC).
+6. Tom exato do verde da Benessere e papel das cores em reserva (ISC REGEN, Benessere e ISC Academy já são submarcas do Instituto ISC).
 7. Troca do letreiro físico e sessão de fotos.
 8. CMYK e Pantone (prova de gráfica).
 9. Gilda Display e EB Garamond no Canva e no editor de vídeo.
