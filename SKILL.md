@@ -142,7 +142,7 @@ Base: Resolução CFM 2.336/2023 (em vigor desde 11/03/2024) + Manual de Publici
 - **Onde:** na bio das redes; **dentro da peça** quando ela sai do perfil (WhatsApp, impresso, anúncio em vídeo em todos os quadros, compartilhamento); no rodapé da página inicial do site; no receituário. Na peça 1080, nunca abaixo de 26 px.
 - **Números nunca inventados:** use `[nº]` até o Instituto confirmar.
 
-**Essencial:** sem promessa de resultado; sem superlativo; sem preço de procedimento (preço de consulta pode); sem gratuidade, sorteio, pacote ou venda casada; sem depoimento de paciente sobre resultado; sem paciente identificável; nome comercial de aparelho não vira argumento. **Antes e depois:** só no formato educativo do Manual (vídeo ou página do site, com as condições da seção 08.6); nunca post solto, nunca anúncio pago; mama, glúteo e região íntima fora das redes. **PMMA:** fora de tudo, nem para explicar. PRP, ozônio, aspirado de medula e células: não anunciar antes de validar a situação regulatória (pendência).
+**Essencial:** sem promessa de resultado; sem superlativo; sem preço de procedimento (preço de consulta pode); sem gratuidade, sorteio, pacote ou venda casada; sem depoimento de paciente sobre resultado; sem paciente identificável; nome comercial de aparelho não vira argumento. **Antes e depois:** só no formato educativo do Manual (vídeo ou página do site, com as condições da seção 08.6); nunca post solto, nunca anúncio pago; mama, glúteo e região íntima fora das redes. **PMMA:** fora de tudo o que sai a partir de 02/06/2026, nem para explicar, nem reaproveitado; o publicado antes dessa data pode ficar no ar (parecer jurídico do Instituto). PRP, ozônio, aspirado de medula e células: não anunciar antes de validar a situação regulatória (pendência).
 
 **Quem aprova:** peça do Instituto, o Diretor Técnico-Médico; peça do perfil pessoal, o próprio médico. Nada vai ao ar sem aprovação escrita.
 
@@ -250,7 +250,7 @@ Deck: viewport 1440 × 900 e `pg.pdf(width="1440px", height="900px", print_backg
 9. Gilda Display e EB Garamond no Canva e no editor de vídeo.
 10. Missão e valores escritos.
 11. Situação regulatória de PRP, ozônio, aspirado de medula e células antes de anunciar o ISC REGEN.
-12. Revisão de todos os canais antigos (perfis, sites, cursos, cadastros) para retirar qualquer menção a técnica proibida.
+12. Revisão de nome, bio e cadastros dos perfis para retirar qualquer menção a técnica proibida (o conteúdo publicado antes de 02/06/2026 fica, por parecer jurídico).
 
 Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em `[nº]`, versão oficial da marca, sem o tema bloqueado) e diga em uma linha qual pendência trava o resto.
 

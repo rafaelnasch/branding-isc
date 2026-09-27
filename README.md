@@ -101,7 +101,7 @@ Até cada uma ser resolvida, a skill entrega só a versão permitida:
 9. Disponibilidade das fontes no Canva e no editor de vídeo.
 10. Missão e valores escritos.
 11. Validação regulatória antes de anunciar a medicina regenerativa.
-12. Revisão de todos os canais antigos.
+12. Revisão de nome, bio e cadastros dos perfis.
 
 Detalhe de cada uma na seção 23 do brand book.
 
