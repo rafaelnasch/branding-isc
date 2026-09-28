@@ -249,7 +249,7 @@ Deck: viewport 1440 × 900 e `pg.pdf(width="1440px", height="900px", print_backg
 7. Troca do letreiro físico e sessão de fotos.
 8. CMYK e Pantone (prova de gráfica).
 9. Gilda Display e EB Garamond no Canva e no editor de vídeo.
-10. Missão e valores escritos.
+10. Missão e valores escritos: resolvida em 27/09/2026 (texto oficial em 07.8 do brand book e abaixo).
 11. Situação regulatória de PRP, ozônio, aspirado de medula e células antes de anunciar o ISC REGEN.
 12. Revisão de nome, bio e cadastros dos perfis para retirar qualquer menção a técnica proibida (o conteúdo publicado antes de 02/06/2026 fica, por parecer jurídico).
 
@@ -297,3 +297,35 @@ Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em
 ---
 
 Marca, símbolo e logotipo são propriedade do Instituto ISC. Sistema de identidade organizado com a GrowAI. Fio de Ouro v1 · setembro de 2026.
+
+## Missão, visão e valores (oficial, 27/09/2026)
+
+Use o texto literal; não parafraseie.
+
+**Missão.** Transformar vidas de maneira integral. Transformar vidas de maneira integral, cuidando do corpo, acolhendo a alma e as emoções e valorizando a dimensão espiritual de pacientes, colaboradores e corpo médico, com amor cristão, excelência e respeito à singularidade de cada pessoa.
+
+**Visão.** Crescer com propósito e excelência. Crescer com propósito e excelência, desenvolvendo continuamente as pessoas e as competências de todo o time, para ampliar nosso alcance e impactar positivamente cada vez mais vidas.
+
+**Valores.**
+- Princípios cristãos: Amar a Deus e ao próximo, seguindo o exemplo de Jesus em nossas atitudes e relações.
+- Respeito e gentileza: Acolher cada pessoa com dignidade, escuta e sensibilidade.
+- Alegria e satisfação: Cultivar um ambiente de gratidão, cooperação e realização no cuidado e no trabalho.
+- Sofisticação e elegância: Expressar excelência na atenção aos detalhes, na comunicação e em cada experiência.
+- Evolução e estudo contínuos: Aprender, compartilhar conhecimento e aperfeiçoar continuamente nossas práticas.
+
+**Valores cristãos.**
+- Amor: Amar a Deus e ao próximo, traduzindo esse amor em cuidado e acolhimento.
+- Perdão: Praticar o perdão, favorecendo a reconciliação e relações saudáveis.
+- Humildade: Reconhecer nossas limitações e manter a disposição para aprender e servir.
+- Fé: Confiar em Deus e agir com responsabilidade, coerência e propósito.
+- Esperança: Cultivar confiança nas promessas de Deus e encorajar novos caminhos.
+- Paz: Promover o diálogo, a harmonia e a resolução respeitosa dos conflitos.
+- Serviço: Servir com generosidade e dedicação, seguindo o exemplo de Jesus.
+- Justiça: Agir com equidade, defender a dignidade humana e enfrentar a injustiça.
+- Gratidão: Reconhecer as bênçãos de Deus e valorizar a contribuição de cada pessoa.
+- Obediência: Orientar nossas escolhas pelos mandamentos de Deus e pelos ensinamentos de Jesus.
+- Pureza: Cultivar pureza de coração, de pensamentos e de intenções, cuidando também do corpo.
+- Honestidade: Viver com integridade, dizer a verdade e agir com transparência.
+- Generosidade: Compartilhar tempo, conhecimento e recursos para ajudar quem precisa.
+
+Versículos do documento: Provérbios 16:3 e Lucas 12:31. Valores cristãos orientam equipe e cultura; em peça pública, só quando o tema for a própria casa, nunca como argumento de venda.

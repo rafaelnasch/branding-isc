@@ -99,7 +99,7 @@ Até cada uma ser resolvida, a skill entrega só a versão permitida:
 7. Troca do letreiro e sessão de fotos.
 8. Cores de gráfica (CMYK e Pantone).
 9. Disponibilidade das fontes no Canva e no editor de vídeo.
-10. Missão e valores escritos.
+10. Missão e valores escritos (resolvida em 27/09/2026, ver 07.8).
 11. Validação regulatória antes de anunciar a medicina regenerativa.
 12. Revisão de nome, bio e cadastros dos perfis.
 

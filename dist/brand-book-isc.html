@@ -1880,6 +1880,11 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
 /* ---------- Seção 07 · Voz e tom ---------- */
 /* 07.1 a personalidade da voz */
 #s-07 .c07-voz{ max-width:44ch; }
+#s-07 .c07-mvv-txt{ font-size:var(--t-corpo, 18px); line-height:1.6; color:var(--f-texto); max-width:52ch; }
+#s-07 .c07-mvv-lista{ margin:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); column-gap:var(--calha); }
+#s-07 .c07-mvv-lista > div{ padding:14px 0; border-bottom:1px solid var(--f-fio); display:grid; gap:6px; align-content:start; }
+#s-07 .c07-mvv-lista dt{ font-family:var(--display); font-size:var(--t-h4); line-height:1.2; color:var(--f-titulo); }
+#s-07 .c07-mvv-lista dd{ margin:0; font-size:var(--t-apoio); line-height:1.55; color:var(--f-apoio); }
 #s-07 .c07-regua{ padding-top:var(--e-3); }
 #s-07 .c07-atributo{ display:flex; flex-direction:column; gap:var(--e-4); }
 #s-07 .c07-atributo > .rotulo:first-child{ margin-bottom:0; }
@@ -6495,7 +6500,7 @@ Atende no Instituto ISC · Curitiba (PR)</p>
         </div>
         <div class="pilha c07-frase">
           <div class="nota"><strong>O que os pacientes elogiam</strong>Os depoimentos do site repetem o mesmo ponto: o médico “explica com paciência todas as dúvidas”, e o cuidado vai “desde o primeiro contato até o pós atendimento”. É a confirmação da voz. Elogio assim só volta ao público como repost sóbrio de publicação espontânea do paciente, no máximo dois por semestre e registrado na planilha (seção 08). Depoimento sobre resultado, nunca.</div>
-          <div class="nota"><strong>Missão institucional</strong><p>A missão e os valores escritos do Instituto ainda serão definidos. Até lá, nenhuma peça publica frase de missão.</p><p><span class="selo selo--pendente">Pendente</span></p></div>
+          <div class="nota"><strong>Missão institucional</strong><p>Transformar vidas de maneira integral. Texto completo, visão e valores em <a href="#s07-8">07.8</a>.</p><p><span class="selo selo--oficial">Definido em 27/09/2026</span></p></div>
         </div>
       </div>
     </div>
@@ -6659,6 +6664,57 @@ Para agilizar, conte o seu nome e o assunto: consulta de avaliação, retorno ou
         <div class="alerta"><strong>Emoji</strong>Nunca na arte: peça, site, documento, apresentação e e-mail. Em legenda e no WhatsApp, a decisão ainda é do Instituto; enquanto ela não sai, nenhum emoji, inclusive a flor-de-lis da bio antiga.</div>
         <div class="nota"><strong>O teste da leitura em voz alta</strong>Leia o texto em voz alta, no tom de uma consulta. Se soaria estranho dito pelo médico ao paciente, sentado à mesa do consultório, reescreva.</div>
       </div>
+    </div>
+
+    <!-- 07.8 Missão, visão e valores (texto literal do Instituto, versão enviada pelo Dr. Sharbo em 27/09/2026) -->
+    <div class="bloco reveal" id="s07-8">
+      <div class="bloco-head">
+        <div><span class="bloco-n">07.8</span><h3>Missão, visão e valores</h3></div>
+        <p class="bloco-apoio">Texto oficial do Instituto, enviado pelo Dr. Sharbo em 27/09/2026. Reproduza sem reescrever. É a base de toda a voz: a seção 07 inteira aplica estes valores ao jeito de escrever.</p>
+      </div>
+      <div class="cols-2 gap-g">
+        <figure class="olho"><blockquote><p>Transformar vidas de maneira integral.</p></blockquote><figcaption>Missão</figcaption></figure>
+        <figure class="olho"><blockquote><p>Crescer com propósito e excelência.</p></blockquote><figcaption>Visão</figcaption></figure>
+      </div>
+      <div class="cols-2 gap-g mt-5">
+        <p class="c07-mvv-txt">Transformar vidas de maneira integral, cuidando do corpo, acolhendo a alma e as emoções e valorizando a dimensão espiritual de pacientes, colaboradores e corpo médico, com amor cristão, excelência e respeito à singularidade de cada pessoa.</p>
+        <p class="c07-mvv-txt">Crescer com propósito e excelência, desenvolvendo continuamente as pessoas e as competências de todo o time, para ampliar nosso alcance e impactar positivamente cada vez mais vidas.</p>
+      </div>
+      <div class="pilha mt-7">
+        <div>
+          <p class="rotulo">Valores</p>
+          <dl class="c07-mvv-lista">
+            <div><dt>Princípios cristãos</dt><dd>Amar a Deus e ao próximo, seguindo o exemplo de Jesus em nossas atitudes e relações.</dd></div>
+            <div><dt>Respeito e gentileza</dt><dd>Acolher cada pessoa com dignidade, escuta e sensibilidade.</dd></div>
+            <div><dt>Alegria e satisfação</dt><dd>Cultivar um ambiente de gratidão, cooperação e realização no cuidado e no trabalho.</dd></div>
+            <div><dt>Sofisticação e elegância</dt><dd>Expressar excelência na atenção aos detalhes, na comunicação e em cada experiência.</dd></div>
+            <div><dt>Evolução e estudo contínuos</dt><dd>Aprender, compartilhar conhecimento e aperfeiçoar continuamente nossas práticas.</dd></div>
+          </dl>
+        </div>
+        <div class="mt-7">
+          <p class="rotulo">Valores cristãos</p>
+          <dl class="c07-mvv-lista">
+            <div><dt>Amor</dt><dd>Amar a Deus e ao próximo, traduzindo esse amor em cuidado e acolhimento.</dd></div>
+            <div><dt>Perdão</dt><dd>Praticar o perdão, favorecendo a reconciliação e relações saudáveis.</dd></div>
+            <div><dt>Humildade</dt><dd>Reconhecer nossas limitações e manter a disposição para aprender e servir.</dd></div>
+            <div><dt>Fé</dt><dd>Confiar em Deus e agir com responsabilidade, coerência e propósito.</dd></div>
+            <div><dt>Esperança</dt><dd>Cultivar confiança nas promessas de Deus e encorajar novos caminhos.</dd></div>
+            <div><dt>Paz</dt><dd>Promover o diálogo, a harmonia e a resolução respeitosa dos conflitos.</dd></div>
+            <div><dt>Serviço</dt><dd>Servir com generosidade e dedicação, seguindo o exemplo de Jesus.</dd></div>
+            <div><dt>Justiça</dt><dd>Agir com equidade, defender a dignidade humana e enfrentar a injustiça.</dd></div>
+            <div><dt>Gratidão</dt><dd>Reconhecer as bênçãos de Deus e valorizar a contribuição de cada pessoa.</dd></div>
+            <div><dt>Obediência</dt><dd>Orientar nossas escolhas pelos mandamentos de Deus e pelos ensinamentos de Jesus.</dd></div>
+            <div><dt>Pureza</dt><dd>Cultivar pureza de coração, de pensamentos e de intenções, cuidando também do corpo.</dd></div>
+            <div><dt>Honestidade</dt><dd>Viver com integridade, dizer a verdade e agir com transparência.</dd></div>
+            <div><dt>Generosidade</dt><dd>Compartilhar tempo, conhecimento e recursos para ajudar quem precisa.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="cols-2 gap-g mt-7">
+        <figure class="olho"><blockquote><p>Entregue suas obras ao Senhor, e o que você tem planejado se realizará.</p></blockquote><figcaption>Provérbios 16:3</figcaption></figure>
+        <figure class="olho"><blockquote><p>Buscai antes o Reino de Deus, e todas estas coisas vos serão acrescentadas.</p></blockquote><figcaption>Lucas 12:31</figcaption></figure>
+      </div>
+      <div class="nota mt-7"><strong>Como usar</strong>Missão, visão e valores entram no site (página do Instituto), na apresentação institucional, no onboarding da equipe e no contexto do Hermes. Em peça de rede social, a missão aparece como frase inteira, sem cortar nem parafrasear. Os valores cristãos orientam o time e a cultura; em peça pública, entram quando o tema for a própria casa, nunca como argumento de venda de procedimento.</div>
     </div>
 <!-- /CONTEUDO:07 -->
   </div>
@@ -14932,7 +14988,7 @@ dist/assinaturas-isc.html</code></pre>
             <tr><td><a href="#s23-p07">07 · Letreiro e fotos</a></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td></tr>
             <tr><td><a href="#s23-p08">08 · Cor para gráfica</a></td><td></td><td></td><td></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td></tr>
             <tr><td><a href="#s23-p09">09 · Fontes e plano do Canva</a></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td></td><td></td></tr>
-            <tr><td><a href="#s23-p10">10 · Missão institucional</a></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td><a href="#s23-p10">10 · Missão institucional (resolvida)</a></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
             <tr><td><a href="#s23-p11">11 · ISC&nbsp;REGEN</a></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td></tr>
             <tr class="c23-linha-urgente"><td><a href="#s23-p12">12 · Nome, bio e cadastros</a></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td><td></td><td></td><td></td><td><span class="c23-cad" role="img" aria-label="Trava"></span></td></tr>
           </tbody>
@@ -15068,13 +15124,12 @@ dist/assinaturas-isc.html</code></pre>
         <li class="c23-item" id="s23-p10">
           <span class="c23-n" aria-hidden="true">10</span>
           <div class="c23-corpo">
-            <p class="c23-meta"><span class="pilula c23-tipo">Decisão</span><span class="selo selo--pendente">Aberta</span><span class="c23-quem">Quem responde: Dr. Sharbo</span></p>
+            <p class="c23-meta"><span class="pilula c23-tipo">Decisão</span><span class="selo selo--oficial">Resolvida em 27/09/2026</span><span class="c23-quem">Quem respondeu: Dr. Sharbo</span></p>
             <h4>Missão e valores escritos</h4>
-            <p class="c23-falta">O Instituto ainda não tem missão, visão e valores escritos para uso público.</p>
+            <p class="c23-falta">Resolvida. O Dr. Sharbo enviou missão, visão, valores e valores cristãos em 27/09/2026; o texto oficial está em <a href="#s07-8">07.8</a>.</p>
             <dl class="c23-campos">
               <div><dt>Por que importa</dt><dd>É decisão de posicionamento: muda o tom de todo o conteúdo e o público que o Instituto atrai.</dd></div>
-              <div><dt>Fica travado</dt><dd>A missão no site, na apresentação institucional e nas peças.</dd></div>
-              <div class="c23-espera"><dt>Enquanto isso</dt><dd>Nenhuma peça pública usa frase de missão.</dd></div>
+              <div><dt>Liberado</dt><dd>A missão no site, na apresentação institucional e nas peças, sempre com o texto literal de 07.8.</dd></div>
             </dl>
           </div>
         </li>
