@@ -39,7 +39,8 @@ O sistema **não tem modo escuro automático**: preto e marfim são escolha edit
 | Token | Nome | HEX | Origem | Uso |
 |---|---|---|---|---|
 | `--preto` | Preto ISC | `#121314` | vetor oficial | campo principal |
-| `--ouro` | Ouro ISC | `#D39A1F` | vetor oficial (fio e tagline) | fio, rótulo curto, itálico e numeral **sobre preto** |
+| `--ouro` | Ouro ISC | `#D69F56` (antes `#D39A1F`) | tom do meio do degradê do símbolo; **proposta a validar** | chapado só onde o degradê não cabe (impressão em uma cor, ícone pequeno) |
+| `--ouro-degrade` | Ouro com degradê | `linear-gradient(120deg,#F1DDC0,#E6C28A 28%,#D69F56 58%,#C3791C)` | pedido do Instituto em 27/09/2026 | **todo dourado sobre preto**: itálico, rótulo, fio, ponto, botão e numeral. Nunca ouro chapado cor de mostarda |
 | `--metal` | Ouro metálico | `linear-gradient(135deg,#FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,#D69F56 54%,#D19644 66%,#C9862E 82%,#C3791C 100%)` | vetor oficial | **só** na marca e no numeral de abertura sobre preto (≥ 96 px) |
 | `--champanhe` | Champanhe | `#F1DDC0` | tom do gradiente | texto quente sobre preto |
 | `--ouro-claro` | Ouro claro | `#E6C28A` | tom do gradiente | palavra em itálico sobre preto |

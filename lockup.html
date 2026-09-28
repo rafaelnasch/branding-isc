@@ -27,7 +27,7 @@
 
   /* Oficiais, medidos no vetor do designer */
   --preto:#121314;        /* Preto ISC: o campo */
-  --ouro:#D39A1F;         /* Ouro ISC: fio, rótulo, itálico e numeral sobre preto */
+  --ouro:#D69F56;         /* Ouro ISC: fio, rótulo, itálico e numeral sobre preto */
   --branco:#FFFFFF;       /* INSTITUTO: texto sobre preto, papel técnico */
   --metal:linear-gradient(135deg,#FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,#D69F56 54%,#D19644 66%,#C9862E 82%,#C3791C 100%);
   --metal-solido:#D69F56; /* o metal na impressão */
@@ -406,7 +406,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 /* Bloco 12: respiro desenhado (tracejado = área de proteção; linha fina = arquivo) */
 .lk-respiros{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:var(--e-6); }
-.lk-mostra{ position:relative; outline:1px dashed var(--ouro); outline-offset:-1px; background:rgba(211,154,31,.10); }
+.lk-mostra{ position:relative; outline:1px dashed var(--ouro); outline-offset:-1px; background:rgba(214,159,86,.10); }
 .lk-mostra > img{ background:var(--f-fundo); outline:1px solid rgba(168,161,152,.55); outline-offset:-1px; }
 .lk-cota{ position:absolute; font:italic 500 15px/1 var(--enfase); color:var(--ouro-claro); pointer-events:none; }
 .lk-cota--topo{ left:50%; top:0; height:calc(max(var(--l),var(--min)) * var(--x)); display:flex; align-items:center; padding-left:8px; border-left:1px solid var(--ouro-claro); }
@@ -526,7 +526,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 /* Campo preto: pinta o fundo e libera o ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-fio:#2E2D2B; --f-fio-destaque:#D39A1F; --f-ponto:#D39A1F;
+  --f-fio:#2E2D2B; --f-fio-destaque:#D69F56; --f-ponto:#D69F56;
 }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: bronze no fio, marrom no ponto (ouro nunca sobre claro) */
@@ -559,7 +559,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 /* Campo preto: pinta o fundo e libera o ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-rotulo:#D39A1F; }
+  --f-rotulo:#D69F56; }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: rótulo em marrom */
 .campo-marfim,.campo-branco,.campo-areia{ --f-rotulo:#5E3118; }
@@ -586,7 +586,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
    usam a cor do texto: o ouro só entra por escolha. */
 /* Campo preto: pinta o fundo; título branco, itálico em ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-titulo:#FFFFFF; --f-enfase:#D39A1F;
+  --f-titulo:#FFFFFF; --f-enfase:#D69F56;
 }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: título preto, itálico em marrom */
@@ -786,12 +786,12 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
         <div class="capa-plano">
           <svg viewBox="-170 -160 1192 684" role="img" aria-labelledby="capa-folha-t" focusable="false">
             <title id="capa-folha-t">Folha técnica: logotipo em ouro com a área de proteção tracejada, a medida x nos quatro lados, o diâmetro Ø do ponto do símbolo e a largura L do logotipo</title>
-            <g fill="#D39A1F" fill-opacity=".14">
+            <g fill="#D69F56" fill-opacity=".14">
               <rect x="-51" y="-51" width="51" height="51"/><rect x="851.6" y="-51" width="51" height="51"/>
               <rect x="-51" y="364.7" width="51" height="51"/><rect x="851.6" y="364.7" width="51" height="51"/>
             </g>
-            <g fill="#D39A1F"><circle cx="-37.3" cy="-25.5" r="11.8"/><circle cx="-13.7" cy="-25.5" r="11.8"/></g>
-            <rect x="-51" y="-51" width="953.6" height="466.7" fill="none" stroke="#D39A1F" stroke-width="1.25" stroke-dasharray="7 5" vector-effect="non-scaling-stroke"/>
+            <g fill="#D69F56"><circle cx="-37.3" cy="-25.5" r="11.8"/><circle cx="-13.7" cy="-25.5" r="11.8"/></g>
+            <rect x="-51" y="-51" width="953.6" height="466.7" fill="none" stroke="#D69F56" stroke-width="1.25" stroke-dasharray="7 5" vector-effect="non-scaling-stroke"/>
             <image href="assets/isc-horizontal-ouro.svg" x="0" y="0" width="851.6" height="364.7"/>
             <rect x="0" y="0" width="851.6" height="364.7" fill="none" stroke="#A8A198" stroke-opacity=".45" stroke-width="1" vector-effect="non-scaling-stroke"/>
             <g stroke="#E6C28A" stroke-width="1.1" fill="none">
@@ -1566,7 +1566,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 <span class="t-com">/* Campo preto: pinta o fundo e libera o ouro */</span>
 <span class="t-tag">.campo-preto,.campo-noite</span>{ background:#121314; color:#F8EEE0;
-  <span class="t-at">--f-fio</span>:#2E2D2B; <span class="t-at">--f-fio-destaque</span>:#D39A1F; <span class="t-at">--f-ponto</span>:#D39A1F;
+  <span class="t-at">--f-fio</span>:#2E2D2B; <span class="t-at">--f-fio-destaque</span>:#D69F56; <span class="t-at">--f-ponto</span>:#D69F56;
 }
 <span class="t-tag">.campo-noite</span>{ background:#1B1C1E; }
 <span class="t-com">/* Campo claro: bronze no fio, marrom no ponto (ouro nunca sobre claro) */</span>
@@ -1598,7 +1598,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 /* Campo preto: pinta o fundo e libera o ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-fio:#2E2D2B; --f-fio-destaque:#D39A1F; --f-ponto:#D39A1F;
+  --f-fio:#2E2D2B; --f-fio-destaque:#D69F56; --f-ponto:#D69F56;
 }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: bronze no fio, marrom no ponto (ouro nunca sobre claro) */
@@ -1686,7 +1686,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 <span class="t-com">/* Campo preto: pinta o fundo e libera o ouro */</span>
 <span class="t-tag">.campo-preto,.campo-noite</span>{ background:#121314; color:#F8EEE0;
-  <span class="t-at">--f-rotulo</span>:#D39A1F; }
+  <span class="t-at">--f-rotulo</span>:#D69F56; }
 <span class="t-tag">.campo-noite</span>{ background:#1B1C1E; }
 <span class="t-com">/* Campo claro: rótulo em marrom */</span>
 <span class="t-tag">.campo-marfim,.campo-branco,.campo-areia</span>{ <span class="t-at">--f-rotulo</span>:#5E3118; }</code></pre><p class="codigo-dica"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 8 4 4-4 4"/><path d="m6 8-4 4 4 4"/><path d="M2 12h20"/></svg>Deslize o código para o lado.</p><template id="t10c">/* Rótulo: eco do HEALTH &amp; AESTHETICS do logotipo.
@@ -1713,7 +1713,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
 
 /* Campo preto: pinta o fundo e libera o ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-rotulo:#D39A1F; }
+  --f-rotulo:#D69F56; }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: rótulo em marrom */
 .campo-marfim,.campo-branco,.campo-areia{ --f-rotulo:#5E3118; }</template></div><div class="codigo"><div class="codigo-cab"><span class="codigo-rot">HTML</span><button type="button" class="copiar" data-copiar="t10h" aria-label="Copiar o código: HTML, bloco 10">Copiar</button></div><pre tabindex="0" role="region" aria-label="Código: HTML, bloco 10"><code><span class="t-com">&lt;!-- Dentro de um contêiner campo-preto (ouro) ou campo-marfim
@@ -1788,7 +1788,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
    usam a cor do texto: o ouro só entra por escolha. */</span>
 <span class="t-com">/* Campo preto: pinta o fundo; título branco, itálico em ouro */</span>
 <span class="t-tag">.campo-preto,.campo-noite</span>{ background:#121314; color:#F8EEE0;
-  <span class="t-at">--f-titulo</span>:#FFFFFF; <span class="t-at">--f-enfase</span>:#D39A1F;
+  <span class="t-at">--f-titulo</span>:#FFFFFF; <span class="t-at">--f-enfase</span>:#D69F56;
 }
 <span class="t-tag">.campo-noite</span>{ background:#1B1C1E; }
 <span class="t-com">/* Campo claro: título preto, itálico em marrom */</span>
@@ -1815,7 +1815,7 @@ table.consulta caption{ caption-side:bottom; text-align:left; padding:12px max(0
    usam a cor do texto: o ouro só entra por escolha. */
 /* Campo preto: pinta o fundo; título branco, itálico em ouro */
 .campo-preto,.campo-noite{ background:#121314; color:#F8EEE0;
-  --f-titulo:#FFFFFF; --f-enfase:#D39A1F;
+  --f-titulo:#FFFFFF; --f-enfase:#D69F56;
 }
 .campo-noite{ background:#1B1C1E; }
 /* Campo claro: título preto, itálico em marrom */

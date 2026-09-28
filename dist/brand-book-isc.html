@@ -59,7 +59,8 @@ setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(e){e
 
   /* Oficiais, medidos no vetor do designer */
   --preto:#121314;        /* Preto ISC: o campo */
-  --ouro:#D39A1F;         /* Ouro ISC: fio, rótulo, itálico e numeral sobre preto */
+  --ouro:#D69F56;         /* Ouro ISC chapado (antes #D69F56, trocado em 27/09/2026): só onde o degradê não cabe */
+  --ouro-degrade:linear-gradient(120deg,#F1DDC0 0%,#E6C28A 28%,#D69F56 58%,#C3791C 100%); /* o dourado do símbolo, sem o branco: texto, fio e botão sobre preto */
   --branco:#FFFFFF;       /* INSTITUTO: texto sobre preto, papel técnico */
   --metal:linear-gradient(135deg,#FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,#D69F56 54%,#D19644 66%,#C9862E 82%,#C3791C 100%);
   --metal-solido:#D69F56; /* o metal na impressão */
@@ -135,7 +136,7 @@ setTimeout(function(){document.querySelectorAll('.reveal').forEach(function(e){e
   --ic-seta:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E");
 
   /* Guia de grade (ferramenta, não é cor de marca) */
-  --guia:211,154,31;
+  --guia:214,159,86;
 }
 @media (max-width:1280px){ :root{ --gut:48px; } }
 @media (max-width:1024px){ :root{ --gut:32px; } }
@@ -249,6 +250,21 @@ p,li{ font-size:inherit; }
 .texto p,.texto li{ max-width:var(--leitura); }
 .texto strong{ color:var(--f-titulo); font-weight:600; }
 .metal-texto{ background:var(--metal); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; }
+
+/* Ouro com degradê (pedido do Instituto, 27/09/2026): sobre preto, nada de ouro chapado.
+   Itálico, rótulo, fio, ponto, botão e numeral usam o degradê dourado do símbolo. Na impressão, o tom chapado. */
+.sec--preta,.campo-preto,.campo-noite{ --f-num-bg:var(--ouro-degrade); }
+:is(.sec--preta,.campo-preto,.campo-noite) :is(.display,h1,h2,h3,h4,.titulo-secao,.subtitulo,.intertitulo,.lei-titulo,.pc-titulo,.pc-sub,.c07-mvv-frase) :is(em,i,.enf):not(.enf--clara):not(.enf--champanhe),
+:is(.sec--preta,.campo-preto,.campo-noite) :is(.pc-rotulo,.rotulo:not(.rotulo--apoio),.bloco-n,.folio b,.pc-folio b){
+  background:var(--ouro-degrade); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+  -webkit-box-decoration-break:clone; box-decoration-break:clone;
+}
+:is(.sec--preta,.campo-preto,.campo-noite) :is(.pc-fio,.pc-fio-v,.fio--ouro,.fio--destaque,.fio-v,.pc-ponto,.ponto,.pc-cta--cheio,.btn--cheio,.btn--ouro,.btn--preto){ background:var(--ouro-degrade); }
+:is(.sec--preta,.campo-preto,.campo-noite) .pc-cta--cheio{ border-color:transparent; }
+:is(.sec--preta,.campo-preto,.campo-noite) .pc-cta:not(.pc-cta--cheio){ border-image:var(--ouro-degrade) 1; }
+@media print{
+  :is(.sec--preta,.campo-preto,.campo-noite) :is(.pc-rotulo,.rotulo,.bloco-n,.pc-titulo em,.pc-sub em){ background:none; color:var(--ouro); -webkit-text-fill-color:var(--ouro); }
+}
 
 code{ font-family:var(--mono); font-size:.84em; background:var(--f-painel); color:var(--f-titulo); padding:.14em .42em .1em; border-radius:2px; white-space:normal; }
 .legenda code,.aviso code{ font-size:12px; }
@@ -2380,7 +2396,7 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
 #s-11 .c11-folha .anota-lista,#s-11 .c11-zoom .anota-lista{ margin-top:var(--e-6); }
 /* rótulos da folha dentro do desenho: cotas em Garamond itálico, marcadores como os da .anota (em unidades da grade de 24) */
 #s-11 .c11-cota{ font-family:var(--enfase); font-style:italic; font-weight:500; font-size:1.25px; fill:#F1DDC0; stroke:#121314; stroke-width:.35px; paint-order:stroke; stroke-linejoin:round; }
-#s-11 .c11-marcas circle{ fill:#121314; stroke:#D39A1F; stroke-width:1px; vector-effect:non-scaling-stroke; }
+#s-11 .c11-marcas circle{ fill:#121314; stroke:#D69F56; stroke-width:1px; vector-effect:non-scaling-stroke; }
 #s-11 .c11-marcas text{ font-family:var(--texto); font-weight:500; font-size:1.05px; fill:#FFFFFF; text-anchor:middle; dominant-baseline:central; }
 #s-11 .c11-marcas > g > g{ transform-box:fill-box; transform-origin:center; }
 
@@ -4702,10 +4718,10 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
         <figure class="cor cor--grande">
           <div class="cor-amostra cor-amostra--clara" style="--c:var(--ouro)"><span>Medida no vetor</span></div>
           <figcaption class="cor-dados">
-            <div class="cor-cab"><span class="cor-nome">Ouro ISC</span><span class="cor-hex">#D39A1F</span></div>
-            <span class="cor-cod">RGB 211 · 154 · 31 · fio e tagline · <span class="c03-token">--ouro</span></span>
-            <p class="cor-papel">Fio fino, rótulo curto, palavra em itálico e numeral, sempre sobre preto. É a cor do fio, da tagline e da versão ouro chapado do logotipo.</p>
-            <div class="cor-selos"><span class="selo-contraste aa">Sobre preto · 7,5</span><span class="selo-contraste aa">Preto sobre ele · 7,5</span><span class="selo-contraste nunca">Sobre marfim · 2,2</span></div>
+            <div class="cor-cab"><span class="cor-nome">Ouro ISC</span><span class="cor-hex">#D69F56</span></div>
+            <span class="cor-cod">RGB 214 · 159 · 86 · o tom do meio do degradê do símbolo · <span class="c03-token">--ouro</span></span>
+            <p class="cor-papel">Sobre preto, texto, fio, ponto, botão e numeral saem com o degradê dourado do símbolo (<code>--ouro-degrade</code>, 03.2). Este tom chapado fica para quando o degradê não é possível: impressão em uma cor, ícone pequeno e arquivo de terceiros. <span class="selo selo--provisorio">Proposta · validar com o Instituto</span></p>
+            <div class="cor-selos"><span class="selo-contraste aa">Sobre preto · 7,9</span><span class="selo-contraste aa">Preto sobre ele · 7,9</span><span class="selo-contraste nunca">Sobre marfim · 1,8</span></div>
           </figcaption>
         </figure>
         <figure class="cor cor--grande">
@@ -4725,7 +4741,7 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
     <div class="bloco reveal" id="s03-2">
       <div class="bloco-head">
         <div><span class="bloco-n">03.2</span><h3>O ouro metálico</h3></div>
-        <p class="bloco-apoio">O degradê do símbolo e das letras ISC. Pertence à marca: fora dela, só aparece no numeral grande sobre preto, e um só elemento metálico por peça.</p>
+        <p class="bloco-apoio">O degradê do símbolo e das letras ISC. Desde 27/09/2026, a pedido do Instituto, a versão sem o branco (<code>--ouro-degrade</code>) substitui o ouro chapado em tudo o que é dourado sobre preto: itálico, rótulo, fio, ponto, botão e numeral. O brilho branco continua só na marca. <span class="selo selo--provisorio">Tom proposto · validar com o Instituto</span></p>
       </div>
       <div class="cols-7-5 alinha-topo gap-g">
         <figure class="cor cor--grande">
@@ -4952,7 +4968,7 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
       <details class="sanfona sanfona--rotulo mt-7">
         <summary>Para quem programa: todos os tokens</summary>
 <pre><code>:root{
-  --preto:#121314;  --ouro:#D39A1F;  --branco:#FFFFFF;
+  --preto:#121314;  --ouro:#D69F56;  --branco:#FFFFFF;
   --metal:linear-gradient(135deg,
     #FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,
     #D69F56 54%,#D19644 66%,#C9862E 82%,
@@ -5257,7 +5273,7 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
             <tbody>
               <tr><td>Preto ISC</td><td class="n">#121314</td><td>CMYK e Pantone (o código de cor da gráfica) a definir na prova.</td></tr>
               <tr><td>Preto em área grande</td><td class="n">#121314</td><td>Capa, cartão, pasta: peça à gráfica o preto composto que ela recomenda (a tinta preta somada a um pouco das outras) e aprove em prova. Preto só com a tinta preta sai acinzentado.</td></tr>
-              <tr><td>Ouro ISC</td><td class="n">#D39A1F</td><td>Pantone a definir. Ponto de partida para a prova: o ouro de gráfica do designer, CMYK 5 · 30 · 90 · 20.</td></tr>
+              <tr><td>Ouro ISC</td><td class="n">#D69F56 (antes #D69F56)</td><td>Pantone a definir; no impresso nobre, hot stamping dourado. Ponto de partida para a prova: o ouro de gráfica do designer, CMYK 5 · 30 · 90 · 20.</td></tr>
               <tr><td>Ouro metálico</td><td>Degradê</td><td>Não existe em impressão comum. No papel, vira hot stamping (película dourada aplicada a quente) ou ouro chapado.</td></tr>
               <tr><td>Marrom, marfim e neutros</td><td>Ver 03.3 e 03.4</td><td>CMYK a definir na prova.</td></tr>
             </tbody>
@@ -7657,7 +7673,7 @@ Ajustes pedidos: [texto]</p>
             <p>Por isso a fotografia do ISC tem uma tarefa só: mostrar o Instituto como ele é, na luz dele. Quando a foto é real e quente, o ouro da peça e o tom acobreado da parede contam a mesma história.</p>
           </div>
           <ol class="anota-lista">
-            <li><span><b>Cortina de correntes.</b> Na foto, tom acobreado: #C1916A onde a luz bate, #9B673F na sombra. O Ouro ISC (#D39A1F) é a versão limpa desse tom. <span class="c09-cores"><span class="c09-cor"><span class="amostra-mini" style="--c:#C1916A"></span>Luz</span><span class="c09-cor"><span class="amostra-mini" style="--c:#9B673F"></span>Sombra</span><span class="c09-cor"><span class="amostra-mini" style="--c:var(--ouro)"></span>Ouro ISC</span></span></span></li>
+            <li><span><b>Cortina de correntes.</b> Na foto, tom acobreado: #C1916A onde a luz bate, #9B673F na sombra. O Ouro ISC (#D69F56) e o degradê do símbolo são a versão limpa desse tom. <span class="c09-cores"><span class="c09-cor"><span class="amostra-mini" style="--c:#C1916A"></span>Luz</span><span class="c09-cor"><span class="amostra-mini" style="--c:#9B673F"></span>Sombra</span><span class="c09-cor"><span class="amostra-mini" style="--c:var(--ouro)"></span>Ouro ISC</span></span></span></li>
             <li><span><b>Luz de rodapé.</b> A luz quente sobe do piso e acende a cortina. É essa luz que a foto procura.</span></li>
             <li><span><b>Poltronas de veludo.</b> Laranja e verde-petróleo são cores do móvel, não da marca. Quando dominam o quadro, a foto vai para o monocromático quente (09.3).</span></li>
             <li><span><b>Luz branca do teto.</b> Fria e dura. Sempre que der, o teto fica fora do recorte.</span></li>
@@ -8569,7 +8585,7 @@ iforms.svg('elo',
               <rect class="c11-fino" x="1" y="1" width="22" height="22" fill="none" stroke="#A8A198" stroke-width="1" stroke-dasharray="5 4"/>
               <!-- o traço de 1,5: a espessura em champanhe translúcido, a linha do desenho em ouro -->
               <g fill="none" stroke="#F1DDC0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".25"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g>
-              <g class="c11-espinha" fill="none" stroke="#D39A1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g>
+              <g class="c11-espinha" fill="none" stroke="#D69F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g>
               <!-- cotas e linhas de chamada -->
               <g class="c11-linhas" fill="none" stroke="#A8A198" stroke-width="1">
                 <path d="M0 -2.7V-0.5M24 -2.7V-0.5M0 -1.7H24M-0.35 -1.35L0.35 -2.05M23.65 -1.35L24.35 -2.05"/>
@@ -8615,7 +8631,7 @@ iforms.svg('elo',
           <p class="rotulo mt-4">Como pegar um ícone</p>
           <ol class="passos">
             <li><div><b>Comece pelo kit</b>Os 24 do ISC já estão prontos, nas quatro cores, no fim da 11.2. Fora deles, procure pelo nome em inglês em lucide.dev: calendar, map-pin, message-circle.</div></li>
-            <li><div><b>Ajuste o traço e a cor</b>Traço 1,5 e a cor do texto: #F8EEE0 no preto, #34312D no marfim. Ouro (#D39A1F) ou marrom (#5E3118) só no ícone de destaque.</div></li>
+            <li><div><b>Ajuste o traço e a cor</b>Traço 1,5 e a cor do texto: #F8EEE0 no preto, #34312D no marfim. Ouro (#D69F56) ou marrom (#5E3118) só no ícone de destaque.</div></li>
             <li><div><b>Baixe em SVG</b>No site, cole o código. No Canva, suba em Uploads e guarde no kit da marca; se o plano não aceitar SVG, use o PNG de 512 px do kit. Falta confirmar se o plano do Canva do Instituto aceita SVG e kit da marca (pendência 9, seção 23).</div></li>
           </ol>
           <details class="sanfona sanfona--rotulo">
@@ -8721,7 +8737,7 @@ iforms.svg('elo',
       <div class="downloads mt-4">
         <div class="download"><div><b>Branco quente · para o preto</b><span>Os 24 ícones e os 2 das capas de destaque, em SVG e em PNG de 512 px, traço 1,5, cor #F8EEE0</span></div><span class="download-meta">ZIP · SVG e PNG · 357 kB</span><a class="btn btn--linha btn--baixar" href="assets/icones/isc-icones-branco-quente.zip" download="isc-icones-branco-quente.zip">Baixar</a></div>
         <div class="download"><div><b>Grafite · para o marfim e o branco</b><span>Os 24 ícones e os 2 das capas de destaque, em SVG e em PNG de 512 px, traço 1,5, cor #34312D</span></div><span class="download-meta">ZIP · SVG e PNG · 356 kB</span><a class="btn btn--linha btn--baixar" href="assets/icones/isc-icones-grafite.zip" download="isc-icones-grafite.zip">Baixar</a></div>
-        <div class="download"><div><b>Ouro · destaque no preto</b><span>Só para o ícone da ação principal, um por bloco. Cor #D39A1F</span></div><span class="download-meta">ZIP · SVG e PNG · 353 kB</span><a class="btn btn--linha btn--baixar" href="assets/icones/isc-icones-ouro.zip" download="isc-icones-ouro.zip">Baixar</a></div>
+        <div class="download"><div><b>Ouro · destaque no preto</b><span>Só para o ícone da ação principal, um por bloco. Cor #D69F56</span></div><span class="download-meta">ZIP · SVG e PNG · 353 kB</span><a class="btn btn--linha btn--baixar" href="assets/icones/isc-icones-ouro.zip" download="isc-icones-ouro.zip">Baixar</a></div>
         <div class="download"><div><b>Marrom · destaque no marfim</b><span>O ouro do papel: um por bloco. Cor #5E3118</span></div><span class="download-meta">ZIP · SVG e PNG · 358 kB</span><a class="btn btn--linha btn--baixar" href="assets/icones/isc-icones-marrom.zip" download="isc-icones-marrom.zip">Baixar</a></div>
       </div>
       <p class="legenda mt-4 c11-kit-nota">Cada arquivo também está solto em <code>assets/icones/</code>, com o nome do ícone e da cor (<code>map-pin-ouro.svg</code>, <code>map-pin-ouro.png</code>) e a licença do Lucide junto.</p>
@@ -8960,8 +8976,8 @@ iforms.svg('elo',
         <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><circle cx="40" cy="30" r="18" fill="#C3791C"/><g transform="translate(28 18)" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Dentro de um círculo colorido.</b>Vira enfeite e disputa com o ouro. O ícone fica solto, ao lado do texto.</figcaption></figure>
         <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#A8A198" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".45"><g transform="translate(4 4) scale(.5)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></g><g transform="translate(22 4) scale(.5)"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></g><g transform="translate(40 4) scale(.5)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g><g transform="translate(58 4) scale(.5)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></g><g transform="translate(13 22) scale(.5)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g><g transform="translate(31 22) scale(.5)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></g><g transform="translate(49 22) scale(.5)"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></g><g transform="translate(4 40) scale(.5)"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></g><g transform="translate(22 40) scale(.5)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g><g transform="translate(40 40) scale(.5)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/><path d="M3.22 13H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></g><g transform="translate(58 40) scale(.5)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g></g><rect x="12" y="25" width="46" height="3.5" fill="#F8EEE0"/><rect x="12" y="32" width="32" height="3.5" fill="#F8EEE0"/></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Como textura.</b>Padrão de ícones atrás do texto. Ícone orienta, não decora.</figcaption></figure>
         <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g transform="translate(18 8) scale(1.85)" fill="none" stroke="#F8EEE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Ícone como ilustração.</b>Um estetoscópio enorme no meio da peça não explica nada. Para ilustrar, as formas da seção 10.</figcaption></figure>
-        <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#D39A1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(9 4.5) scale(.33)"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></g><g transform="translate(9 13.5) scale(.33)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></g><g transform="translate(9 22.5) scale(.33)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g><g transform="translate(9 31.5) scale(.33)"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></g><g transform="translate(9 40.5) scale(.33)"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></g><g transform="translate(9 49.5) scale(.33)"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/></g></g><g fill="#A8A198"><rect x="22" y="7.3" width="44" height="2.4"/><rect x="22" y="16.3" width="38" height="2.4"/><rect x="22" y="25.3" width="46" height="2.4"/><rect x="22" y="34.3" width="34" height="2.4"/><rect x="22" y="43.3" width="42" height="2.4"/><rect x="22" y="52.3" width="36" height="2.4"/></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Ícone em lista de conteúdo.</b>Seis enfeites, nenhum orienta. Lista de conteúdo usa o ponto.</figcaption></figure>
-        <figure class="nf"><div class="nf-img campo-marfim"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#D39A1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(6 18)"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g><g transform="translate(28 18)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g><g transform="translate(50 18)"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></g></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Ouro sobre marfim.</b>2,2 para 1: some no papel. No claro, o destaque é marrom.</figcaption></figure>
+        <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#D69F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(9 4.5) scale(.33)"><path d="M11 20a10 10 0 0010-10 25.9 25.9 0 00-1.04-7.281 1 1 0 00-1.755-.325C15.833 5.5 13 5.5 9.8 6.1A7 7 0 0011 20"/><path d="M2 21a5 5 0 012.911-4.544C7.613 15.212 8.351 15.24 11 13"/></g><g transform="translate(9 13.5) scale(.33)"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></g><g transform="translate(9 22.5) scale(.33)"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g><g transform="translate(9 31.5) scale(.33)"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></g><g transform="translate(9 40.5) scale(.33)"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></g><g transform="translate(9 49.5) scale(.33)"><path d="M12 5a3 3 0 1 1 3 3m-3-3a3 3 0 1 0-3 3m3-3v1M9 8a3 3 0 1 0 3 3M9 8h1m5 0a3 3 0 1 1-3 3m3-3h-1m-2 3v-1"/><circle cx="12" cy="8" r="2"/><path d="M12 10v12"/><path d="M12 22c4.2 0 7-1.667 7-5-4.2 0-7 1.667-7 5Z"/><path d="M12 22c-4.2 0-7-1.667-7-5 4.2 0 7 1.667 7 5Z"/></g></g><g fill="#A8A198"><rect x="22" y="7.3" width="44" height="2.4"/><rect x="22" y="16.3" width="38" height="2.4"/><rect x="22" y="25.3" width="46" height="2.4"/><rect x="22" y="34.3" width="34" height="2.4"/><rect x="22" y="43.3" width="42" height="2.4"/><rect x="22" y="52.3" width="36" height="2.4"/></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Ícone em lista de conteúdo.</b>Seis enfeites, nenhum orienta. Lista de conteúdo usa o ponto.</figcaption></figure>
+        <figure class="nf"><div class="nf-img campo-marfim"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#D69F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(6 18)"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></g><g transform="translate(28 18)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g><g transform="translate(50 18)"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></g></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Ouro sobre marfim.</b>2,2 para 1: some no papel. No claro, o destaque é marrom.</figcaption></figure>
         <figure class="nf"><div class="nf-img campo-noite"><svg viewBox="0 0 80 60" aria-hidden="true" focusable="false"><g fill="none" stroke="#F8EEE0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(6 30) scale(.55)"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></g><g transform="translate(24 21) scale(.95)"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></g><g transform="translate(50 11) scale(1.35)"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></g></g></svg></div><span class="nf-x" aria-hidden="true"></span><figcaption class="nf-txt"><b>Tamanhos misturados.</b>Na mesma linha ou na mesma lista, um tamanho só.</figcaption></figure>
       </div>
     </div>
@@ -9039,7 +9055,7 @@ iforms.svg('elo',
             </div>
             <div class="nao-faca">
               <strong>Não assim</strong>
-              <div class="exemplo campo-areia"><svg class="c12-ruim" viewBox="0 0 320 200" aria-hidden="true" focusable="false"><g transform="translate(4 0)"><path d="M86 100L86.0 24.0A76 76 0 0 1 161.8 104.7Z" fill="#5E3118" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L161.8 104.7A76 76 0 0 1 114.0 170.7Z" fill="#D39A1F" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L114.0 170.7A76 76 0 0 1 45.3 164.1Z" fill="#462214" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L45.3 164.1A76 76 0 0 1 11.4 114.3Z" fill="#B9AD98" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L11.4 114.3A76 76 0 0 1 19.4 63.4Z" fill="#6B645B" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L19.4 63.4A76 76 0 0 1 49.4 33.4Z" fill="#C3791C" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L49.4 33.4A76 76 0 0 1 86.0 24.0Z" fill="#D9CDB8" stroke="#EBE3D3" stroke-width="1"/></g><g font-family="Montserrat, sans-serif" font-size="9" fill="#6B645B"><rect x="182" y="34" width="8" height="8" fill="#5E3118"/><text x="195" y="41.5">Primeira consulta 26%</text><rect x="182" y="54" width="8" height="8" fill="#D39A1F"/><text x="195" y="61.5">Retorno 18%</text><rect x="182" y="74" width="8" height="8" fill="#462214"/><text x="195" y="81.5">Procedimento 15%</text><rect x="182" y="94" width="8" height="8" fill="#B9AD98"/><text x="195" y="101.5">Exames 13%</text><rect x="182" y="114" width="8" height="8" fill="#6B645B"/><text x="195" y="121.5">Revisão 11%</text><rect x="182" y="134" width="8" height="8" fill="#C3791C"/><text x="195" y="141.5">Encaixe 9%</text><rect x="182" y="154" width="8" height="8" fill="#D9CDB8"/><text x="195" y="161.5">Outros 8%</text></g></svg></div>
+              <div class="exemplo campo-areia"><svg class="c12-ruim" viewBox="0 0 320 200" aria-hidden="true" focusable="false"><g transform="translate(4 0)"><path d="M86 100L86.0 24.0A76 76 0 0 1 161.8 104.7Z" fill="#5E3118" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L161.8 104.7A76 76 0 0 1 114.0 170.7Z" fill="#D69F56" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L114.0 170.7A76 76 0 0 1 45.3 164.1Z" fill="#462214" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L45.3 164.1A76 76 0 0 1 11.4 114.3Z" fill="#B9AD98" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L11.4 114.3A76 76 0 0 1 19.4 63.4Z" fill="#6B645B" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L19.4 63.4A76 76 0 0 1 49.4 33.4Z" fill="#C3791C" stroke="#EBE3D3" stroke-width="1"/><path d="M86 100L49.4 33.4A76 76 0 0 1 86.0 24.0Z" fill="#D9CDB8" stroke="#EBE3D3" stroke-width="1"/></g><g font-family="Montserrat, sans-serif" font-size="9" fill="#6B645B"><rect x="182" y="34" width="8" height="8" fill="#5E3118"/><text x="195" y="41.5">Primeira consulta 26%</text><rect x="182" y="54" width="8" height="8" fill="#D69F56"/><text x="195" y="61.5">Retorno 18%</text><rect x="182" y="74" width="8" height="8" fill="#462214"/><text x="195" y="81.5">Procedimento 15%</text><rect x="182" y="94" width="8" height="8" fill="#B9AD98"/><text x="195" y="101.5">Exames 13%</text><rect x="182" y="114" width="8" height="8" fill="#6B645B"/><text x="195" y="121.5">Revisão 11%</text><rect x="182" y="134" width="8" height="8" fill="#C3791C"/><text x="195" y="141.5">Encaixe 9%</text><rect x="182" y="154" width="8" height="8" fill="#D9CDB8"/><text x="195" y="161.5">Outros 8%</text></g></svg></div>
               <p>Pizza de sete fatias: ninguém compara ângulos, a legenda fica miúda e o ouro aparece no claro.</p>
             </div>
           </div>
@@ -9240,7 +9256,7 @@ iforms.svg('elo',
           <p class="rotulo">No Canva e na planilha</p>
           <ol class="passos">
             <li><div><b>Escolha o tipo</b>Em Elementos, abra Gráficos e escolha o tipo pela tabela abaixo: barras para comparar, linha para evolução, barra de 100% para partes de um todo.</div></li>
-            <li><div><b>Pinte com as cores da casa</b>No marfim: destaque <code>#5E3118</code>, neutros <code>#B9AD98</code> e <code>#6B645B</code>. No preto: destaque <code>#D39A1F</code>, neutros <code>#5A554E</code> e <code>#A8A198</code>. Um destaque só.</div></li>
+            <li><div><b>Pinte com as cores da casa</b>No marfim: destaque <code>#5E3118</code>, neutros <code>#B9AD98</code> e <code>#6B645B</code>. No preto: destaque <code>#D69F56</code>, neutros <code>#5A554E</code> e <code>#A8A198</code>. Um destaque só.</div></li>
             <li><div><b>Letra certa</b>Rótulos em Montserrat 26&nbsp;px na peça de 1080. O número em destaque em Gilda Display.</div></li>
             <li><div><b>Sem grade e sem legenda solta</b>Tire as linhas de fundo. O valor vai escrito na barra ou no ponto, não numa legenda separada.</div></li>
             <li><div><b>Eixo começando no zero</b>Confira o mínimo do eixo antes de exportar; muitos programas cortam sozinhos.</div></li>
@@ -10073,8 +10089,8 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
               <title id="s14-destaque-t">Folha técnica da capa de destaque: arquivo quadrado de 1080 px, fundo Preto ISC, o círculo que o Instagram mostra tracejado, o fio de ouro de 8 px com raio de 502 px e o ícone de 360 px no centro</title>
               <rect x="0" y="0" width="1080" height="1080" fill="#121314"/>
               <circle cx="540" cy="540" r="539" fill="none" stroke="#F1DDC0" stroke-width="3" stroke-dasharray="14 12"/>
-              <circle cx="540" cy="540" r="502" fill="none" stroke="#D39A1F" stroke-width="8"/>
-              <g transform="translate(360 360) scale(15)" fill="none" stroke="#D39A1F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="540" cy="540" r="502" fill="none" stroke="#D69F56" stroke-width="8"/>
+              <g transform="translate(360 360) scale(15)" fill="none" stroke="#D69F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/>
               </g>
               <g stroke="#5E3118" stroke-width="2" fill="none">
@@ -11300,7 +11316,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
           <svg viewBox="0 0 280 96" role="img" aria-labelledby="s16-tr1-t"><title id="s16-tr1-t">Corte seco: dois quadros da cena A e, logo em seguida, três quadros da cena B, sem nada entre elas</title>
             <g stroke="#2E2D2B" stroke-width="1"><rect x="8" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="62" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="116" y="8" width="44" height="78" fill="#34312D"/><rect x="170" y="8" width="44" height="78" fill="#34312D"/><rect x="224" y="8" width="44" height="78" fill="#34312D"/></g>
             <g fill="#A8A198"><circle cx="22" cy="47" r="4"/><circle cx="76" cy="47" r="4"/></g><g fill="#F1DDC0"><circle cx="146" cy="47" r="4"/><circle cx="200" cy="47" r="4"/><circle cx="254" cy="47" r="4"/></g>
-            <path d="M111 2V92" stroke="#D39A1F" stroke-width="2"/>
+            <path d="M111 2V92" stroke="#D69F56" stroke-width="2"/>
           </svg>
           <span class="selo selo--permitido">Permitido</span>
           <h4>Corte seco</h4>
@@ -11310,7 +11326,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
           <svg viewBox="0 0 280 96" role="img" aria-labelledby="s16-tr2-t"><defs><linearGradient id="s16-tr2-g" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#1B1C1E"/><stop offset="1" stop-color="#34312D"/></linearGradient></defs><title id="s16-tr2-t">Dissolução: o quadro do meio mistura as cenas A e B, uma se apagando enquanto a outra aparece</title>
             <g stroke="#2E2D2B" stroke-width="1"><rect x="8" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="62" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="116" y="8" width="44" height="78" fill="url(#s16-tr2-g)"/><rect x="170" y="8" width="44" height="78" fill="#34312D"/><rect x="224" y="8" width="44" height="78" fill="#34312D"/></g>
             <g fill="#A8A198"><circle cx="22" cy="47" r="4"/><circle cx="76" cy="47" r="4"/><circle cx="130" cy="47" r="4" fill-opacity=".45"/></g><g fill="#F1DDC0"><circle cx="146" cy="47" r="4" fill-opacity=".55"/><circle cx="200" cy="47" r="4"/><circle cx="254" cy="47" r="4"/></g>
-            <path d="M116 92H160" stroke="#D39A1F" stroke-width="2"/>
+            <path d="M116 92H160" stroke="#D69F56" stroke-width="2"/>
           </svg>
           <span class="selo selo--permitido">Permitido</span>
           <h4>Dissolução</h4>
@@ -11320,7 +11336,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
           <svg viewBox="0 0 280 96" role="img" aria-labelledby="s16-tr3-t"><title id="s16-tr3-t">Deslize: no quadro do meio, a cena B entra pela direita e empurra a cena A</title>
             <g stroke="#2E2D2B" stroke-width="1"><rect x="8" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="62" y="8" width="44" height="78" fill="#1B1C1E"/><rect x="116" y="8" width="20" height="78" fill="#1B1C1E"/><rect x="136" y="8" width="24" height="78" fill="#34312D"/><rect x="170" y="8" width="44" height="78" fill="#34312D"/><rect x="224" y="8" width="44" height="78" fill="#34312D"/></g>
             <g fill="#A8A198"><circle cx="22" cy="47" r="4"/><circle cx="76" cy="47" r="4"/></g><g fill="#F1DDC0"><circle cx="152" cy="47" r="4"/><circle cx="200" cy="47" r="4"/><circle cx="254" cy="47" r="4"/></g>
-            <path d="M150 92H122m5-4-5 4 5 4" stroke="#D39A1F" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M150 92H122m5-4-5 4 5 4" stroke="#D69F56" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="selo selo--permitido">Permitido</span>
           <h4>Deslize</h4>
@@ -11504,7 +11520,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#0E0D0D"></span>Fundo #0E0D0D</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#121314"></span>Preto ISC #121314</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#1A1816"></span>Cartão #1A1816</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#1B1C1E"></span>Noite #1B1C1E</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#3A3531"></span>Moldura #3A3531</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#2E2D2B"></span>Fio escuro #2E2D2B</span></div>
-            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#B68150"></span>Cobre #B68150</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D39A1F"></span>Ouro ISC #D39A1F</span></div>
+            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#B68150"></span>Cobre #B68150</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D69F56"></span>Ouro ISC #D69F56</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#B7A68F"></span>Bege #B7A68F</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#F1DDC0"></span>Champanhe #F1DDC0</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#A9A39B"></span>Apoio #A9A39B</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#A8A198"></span>Fumaça #A8A198</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#1D4B48"></span>Verde petróleo #1D4B48</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#F1DDC0"></span>Champanhe no infográfico; o verde fica só no ISC REGEN (provisório)</span></div>
@@ -11552,10 +11568,10 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
     "paleta": {
       "navy": "#121314", "navy2": "#1B1C1E", "navy3": "#2E2D2B",
       "deep": "#121314", "steel": "#2E2D2B",
-      "coral": "#D39A1F", "coralHot": "#E6C28A",
+      "coral": "#D69F56", "coralHot": "#E6C28A",
       "cyan": "#F1DDC0", "cyanHot": "#F8EEE0",
       "white": "#FFFFFF", "mist": "#A8A198",
-      "gold": "#D39A1F", "black": "#121314", "side": "#121314"
+      "gold": "#D69F56", "black": "#121314", "side": "#121314"
     },
     "fontes": {
       "display":       { "arquivo": "fontes/Montserrat-Medium-latin.woff2", "pesos": "500", "largura": "100%" },
@@ -11569,7 +11585,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
     "fonte": "fontes/Montserrat-Medium-latin.woff2",
     "texto": "#FFFFFF",
     "destaque": "#FFFFFF",
-    "destaque_rodape": "#D39A1F",
+    "destaque_rodape": "#D69F56",
     "sombra": [18, 19, 20, 140],
     "contorno": [18, 19, 20, 0],
     "gancho_destaque": [241, 221, 192, 255],
@@ -11582,9 +11598,9 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
     "fundo_card": "#1B1C1E",
     "cores": {
       "cyan": "#F1DDC0",
-      "coral": "#D39A1F",
+      "coral": "#D69F56",
       "green": "#F1DDC0",
-      "gold": "#D39A1F",
+      "gold": "#D69F56",
       "violet": "#A8A198"
     }
   },
@@ -11595,7 +11611,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
     "texto": "#FFFFFF",
     "texto_secundario": "#A8A198",
     "acento_frio": "#F1DDC0",
-    "acento_quente": "#D39A1F",
+    "acento_quente": "#D69F56",
     "positivo": "#F1DDC0",
     "nomes_para_prompt": {
       "fundo": "near-black",
@@ -11609,11 +11625,11 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
     }
   },
   "imagem": {
-    "estilo_motor": "Abstract editorial illustration: thin gold lines, circles and dots on near-black #121314, gold #D39A1F accents. No photography, no rooms, no people, no patients, no bodies, no before and after.",
+    "estilo_motor": "Abstract editorial illustration: thin gold lines, circles and dots on near-black #121314, gold #D69F56 accents. No photography, no rooms, no people, no patients, no bodies, no before and after.",
     "estilo_serie": "abstract editorial illustration, thin gold lines on near-black",
-    "paleta_prompt": "Palette near-black #121314, gold #D39A1F, champagne #F1DDC0.",
-    "paleta_broll": "Palette: near-black #121314, gold #D39A1F, champagne #F1DDC0. Flat abstract shapes only, no photography, no rooms, no people, ",
-    "paleta_cards": "Brand palette ONLY: near-black base (#121314), gold (#D39A1F) accent, champagne (#F1DDC0), warm grey (#A8A198) for tags. ",
+    "paleta_prompt": "Palette near-black #121314, gold #D69F56, champagne #F1DDC0.",
+    "paleta_broll": "Palette: near-black #121314, gold #D69F56, champagne #F1DDC0. Flat abstract shapes only, no photography, no rooms, no people, ",
+    "paleta_cards": "Brand palette ONLY: near-black base (#121314), gold (#D69F56) accent, champagne (#F1DDC0), warm grey (#A8A198) for tags. ",
     "emblema": ""
   },
   "cta": {
@@ -13179,7 +13195,7 @@ Curitiba, [data].
 
 /* tokens: o mesmo bloco da 03.4 */
 :root{
-  --preto:#121314;  --ouro:#D39A1F;  --branco:#FFFFFF;
+  --preto:#121314;  --ouro:#D69F56;  --branco:#FFFFFF;
   --metal:linear-gradient(135deg,
     #FFFFFF 0%,#F1DDC0 16%,#E6C28A 34%,
     #D69F56 54%,#D19644 66%,#C9862E 82%,
@@ -13394,8 +13410,8 @@ Curitiba, [data].
 <rect x="215" y="800" width="225" height="8" fill="#6B645B" fill-opacity=".45"/><rect x="215" y="816" width="170" height="8" fill="#6B645B" fill-opacity=".45"/>
 <rect x="30" y="873" width="410" height="110" fill="#EBE3D3"/>
 <rect x="0" y="1111" width="470" height="100" fill="#121314"/>
-<rect x="30" y="1137" width="170" height="7" fill="#A8A198" fill-opacity=".6"/><rect x="370" y="1137" width="70" height="7" fill="#D39A1F"/>
-<path d="M30 1169H440" stroke="#D39A1F" stroke-width="2"/>
+<rect x="30" y="1137" width="170" height="7" fill="#A8A198" fill-opacity=".6"/><rect x="370" y="1137" width="70" height="7" fill="#D69F56"/>
+<path d="M30 1169H440" stroke="#D69F56" stroke-width="2"/>
 <g stroke="#5E3118" stroke-width="2" fill="none">
 <path d="M520 59V155M508 59H532M508 155H532"/>
 <path d="M520 305V401M508 305H532M508 401H532"/>
@@ -13527,7 +13543,7 @@ Curitiba, [data].
 <title id="s19-g45-t">Grade do post 1080 por 1350: margem de 72 nos quatro lados e seis colunas de 136 com espaço de 24; área útil de 936 por 1206</title>
 <rect x="0" y="0" width="1080" height="1350" fill="#1B1C1E"/>
 <path d="M0 0H1080V1350H0Z M72 72V1278H1008V72Z" fill="#2E2D2B" fill-rule="evenodd"/>
-<g fill="none" stroke="#D39A1F" stroke-opacity=".6" stroke-width="2">
+<g fill="none" stroke="#D69F56" stroke-opacity=".6" stroke-width="2">
 <rect x="72" y="72" width="136" height="1206"/>
 <rect x="232" y="72" width="136" height="1206"/>
 <rect x="392" y="72" width="136" height="1206"/>
@@ -13567,7 +13583,7 @@ Curitiba, [data].
 <title id="s19-g11-t">Grade do post quadrado 1080 por 1080: margem de 135 nas laterais e 72 em cima e embaixo, seis colunas de 115 com espaço de 24; área útil de 810 por 936</title>
 <rect x="0" y="0" width="1080" height="1080" fill="#1B1C1E"/>
 <path d="M0 0H1080V1080H0Z M135 72V1008H945V72Z" fill="#2E2D2B" fill-rule="evenodd"/>
-<g fill="none" stroke="#D39A1F" stroke-opacity=".6" stroke-width="2">
+<g fill="none" stroke="#D69F56" stroke-opacity=".6" stroke-width="2">
 <rect x="135" y="72" width="115" height="936"/>
 <rect x="274" y="72" width="115" height="936"/>
 <rect x="413" y="72" width="115" height="936"/>
@@ -13605,12 +13621,12 @@ Curitiba, [data].
         <figure class="figura">
           <svg viewBox="-150 -130 1330 2210" role="img" aria-labelledby="s19-gst-t" focusable="false">
 <title id="s19-gst-t">Grade do story 1080 por 1920: faixas de 250 no topo e na base, reservadas à interface do aplicativo, 1420 livres no meio, margem lateral de 72 e seis colunas de 136</title>
-<defs><pattern id="s19-gst-hach" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="#121314"/><path d="M0 0V28" stroke="#D39A1F" stroke-opacity=".38" stroke-width="4"/></pattern></defs>
+<defs><pattern id="s19-gst-hach" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="#121314"/><path d="M0 0V28" stroke="#D69F56" stroke-opacity=".38" stroke-width="4"/></pattern></defs>
 <rect x="0" y="0" width="1080" height="1920" fill="#1B1C1E"/>
 <path d="M0 250H1080V1670H0Z M72 250V1670H1008V250Z" fill="#2E2D2B" fill-rule="evenodd"/>
 <rect x="0" y="0" width="1080" height="250" fill="url(#s19-gst-hach)"/>
 <rect x="0" y="1670" width="1080" height="250" fill="url(#s19-gst-hach)"/>
-<g fill="none" stroke="#D39A1F" stroke-opacity=".6" stroke-width="2">
+<g fill="none" stroke="#D69F56" stroke-opacity=".6" stroke-width="2">
 <rect x="72" y="250" width="136" height="1420"/>
 <rect x="232" y="250" width="136" height="1420"/>
 <rect x="392" y="250" width="136" height="1420"/>
@@ -14237,7 +14253,7 @@ document.documentElement.scrollWidth
                 <span class="campo-marfim c21-kit-s"><img data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></span>
               </div>
               <p class="c21-kit-rot">Cores · Marca</p>
-              <div class="c21-kit-cores"><i style="--c:#121314"></i><i style="--c:#D39A1F"></i><i style="--c:#FFFFFF"></i><i style="--c:#F1DDC0"></i><i style="--c:#E6C28A"></i><i style="--c:#C3791C"></i></div>
+              <div class="c21-kit-cores"><i style="--c:#121314"></i><i style="--c:#D69F56"></i><i style="--c:#FFFFFF"></i><i style="--c:#F1DDC0"></i><i style="--c:#E6C28A"></i><i style="--c:#C3791C"></i></div>
               <p class="c21-kit-rot">Cores · Papel</p>
               <div class="c21-kit-cores"><i style="--c:#F5F0E6"></i><i style="--c:#EBE3D3"></i><i style="--c:#5E3118"></i><i style="--c:#462214"></i><i style="--c:#34312D"></i><i style="--c:#6B645B"></i><i style="--c:#D9CDB8"></i></div>
               <p class="c21-kit-rot">Cores · Apoio no preto</p>
@@ -14269,7 +14285,7 @@ document.documentElement.scrollWidth
               <p class="rotulo">Paleta Marca</p>
               <ul>
                 <li><i style="--c:#121314"></i><b>Preto ISC</b><span class="num">#121314</span></li>
-                <li><i style="--c:#D39A1F"></i><b>Ouro ISC</b><span class="num">#D39A1F</span></li>
+                <li><i style="--c:#D69F56"></i><b>Ouro ISC</b><span class="num">#D69F56</span></li>
                 <li><i style="--c:#FFFFFF"></i><b>Branco</b><span class="num">#FFFFFF</span></li>
                 <li><i style="--c:#F1DDC0"></i><b>Champanhe</b><span class="num">#F1DDC0</span></li>
                 <li><i style="--c:#E6C28A"></i><b>Ouro claro</b><span class="num">#E6C28A</span></li>
@@ -14300,7 +14316,7 @@ document.documentElement.scrollWidth
           </div>
           <div class="modelo">
             <p class="rotulo">Os 17 códigos, na ordem das paletas</p>
-            <p class="modelo-texto">Marca: #121314 #D39A1F #FFFFFF #F1DDC0 #E6C28A #C3791C
+            <p class="modelo-texto">Marca: #121314 #D69F56 #FFFFFF #F1DDC0 #E6C28A #C3791C
 Papel: #F5F0E6 #EBE3D3 #5E3118 #462214 #34312D #6B645B #D9CDB8
 Apoio no preto: #1B1C1E #F8EEE0 #A8A198 #2E2D2B</p>
             <button class="copiar" type="button">Copiar os códigos</button>
@@ -14366,7 +14382,7 @@ Apoio no preto: #1B1C1E #F8EEE0 #A8A198 #2E2D2B</p>
             <li><div><b>Ligue as réguas</b><strong>Arquivo</strong> › <strong>Configurações</strong> › <strong>Mostrar réguas e guias</strong>.</div></li>
             <li><div><b>Ponha as guias</b>No mesmo menu, <strong>Adicionar guias</strong> › <strong>Personalizado</strong>: 6 colunas, espaçamento de 24 e margem de 72. O Canva já cria as guias travadas.</div></li>
             <li><div><b>Fundo e foto</b>Clique no fundo e cole o código <span class="num">#121314</span>, o Preto ISC. Para a foto, uma moldura retangular (<strong>Elementos</strong> › <strong>Molduras</strong>) de 936&nbsp;px de largura e 520 de altura, abaixo do fólio; arraste para dentro uma foto já tratada (seção 09).</div></li>
-            <li><div><b>Título</b>Gilda Display, 104, espaçamento entre linhas 1,05, até três linhas. Uma palavra só em EB Garamond Italic, na cor <span class="num">#D39A1F</span>, o Ouro ISC.</div></li>
+            <li><div><b>Título</b>Gilda Display, 104, espaçamento entre linhas 1,05, até três linhas. Uma palavra só em EB Garamond Italic, na cor <span class="num">#D69F56</span>, o Ouro ISC.</div></li>
             <li><div><b>Fólio e rótulo</b>Montserrat 500, 26, caixa alta, espaçamento entre letras 200 (é o 0,2&nbsp;em deste manual). No fólio, a série à esquerda e “1 / 6” à direita, com um fio de 2&nbsp;px embaixo.</div></li>
             <li><div><b>Símbolo e “Deslize”</b>O PNG do símbolo em ouro (21.1) com 88&nbsp;px de largura, no canto de baixo, encostado na margem; ao lado, o rótulo “Deslize”. Para a medida exata: <strong>Posição</strong> › <strong>Avançado</strong> › largura. A assinatura completa, com 460&nbsp;px, fica na última lâmina.</div></li>
             <li><div><b>Trave o que não muda</b>Selecione fundo, fólio e símbolo e clique no cadeado: <strong>Bloquear</strong>. No título e na moldura da foto, <strong>Bloquear só a posição</strong>: o texto e a foto continuam editáveis, sem sair do lugar.</div></li>
@@ -14711,8 +14727,8 @@ dist/assinaturas-isc.html</code></pre>
         <div class="pilha">
           <p class="rotulo">Cor</p>
           <div class="trocas">
-            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#B68150"></span>Cobre antigo #B68150</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D39A1F"></span>Ouro ISC #D39A1F</span></div>
-            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#9A5927"></span>Cobre escuro antigo #9A5927</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D39A1F"></span>Ouro ISC #D39A1F</span></div>
+            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#B68150"></span>Cobre antigo #B68150</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D69F56"></span>Ouro ISC #D69F56</span></div>
+            <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#9A5927"></span>Cobre escuro antigo #9A5927</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#D69F56"></span>Ouro ISC #D69F56</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#1A1F2A"></span>Grafite azulado #1A1F2A</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#121314"></span>Preto ISC #121314</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#0E0D0D"></span>Preto quente #0E0D0D</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#121314"></span>Preto ISC #121314</span></div>
             <div class="troca"><span class="troca-de"><span class="amostra-mini" style="--c:#01121C"></span>Azul-marinho do logotipo antigo #01121C</span><span class="troca-seta"></span><span class="troca-para"><span class="amostra-mini" style="--c:#121314"></span><span class="c22-pend-txt">Preto ISC #121314. Os marinhos do designer ficam em reserva (pendência 6)</span></span></div>
