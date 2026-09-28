@@ -198,7 +198,7 @@ Espaço só na escala de 4 (4, 8, 12, 16, 24, 32, 48, 64, 96, 128). Respiro late
 | Post único | 1080 × 1350 (4:5) ou 1080 × 1080 | até 15 palavras na arte; o resto vai na legenda |
 | Story | 1080 × 1920 | faixas de 250 px no topo e na base livres; tudo importante nos 1420 do meio |
 | Capa de reels | 1080 × 1920 | foto de tela inteira com véu; título e rosto dentro do recorte central 1080 × 1350 (feed) |
-| Capa de destaque | 1080 × 1080 | ícone Lucide de 360 px em ouro sobre preto, fio de ouro no círculo |
+| Capa de destaque | 1080 × 1080 | ícone próprio de 580 px no degradê dourado, moldura dupla com quatro losangos (70 px da borda), preto com luz no centro; desenho proposto a validar |
 | Avatar | símbolo sobre Preto ISC | composição completa só grande |
 | Status de WhatsApp | 1080 × 1920 | tipográfico, com bloco de identificação dentro da peça |
 | Receituário | A5 148 × 210 mm ou A4 | logo preto sobre branco; bloco do Diretor Técnico em retângulo branco com filete; espaço para carimbo |
