@@ -140,7 +140,7 @@ Base: Resolução CFM 2.336/2023 (em vigor desde 11/03/2024) + Manual de Publici
 **Bloco de identificação** (mesma fonte, mesmo tamanho, mesma cor em todos os itens; snippet no bloco 08 do `lockup.html`):
 - Médico: `Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]` e, **só quando a peça citar especialidade**, `[Especialidade] · RQE [nº]`.
 - Clínica: `Instituto ISC · Registro CRM-PR [nº] · Diretor Técnico-Médico: [nome] · CRM-PR [nº]`.
-- **Onde:** na bio das redes; **dentro da peça** quando ela sai do perfil (WhatsApp, impresso, anúncio em vídeo em todos os quadros, compartilhamento); no rodapé da página inicial do site; no receituário. Na peça 1080, nunca abaixo de 26 px.
+- **Onde:** na bio das redes e **no texto da legenda de todo post**, em todas as redes (post, carrossel, story, reels, anúncio). **Nunca dentro da arte de rede social e nunca em tarja no vídeo** (decisão do Instituto em 27/09/2026, diferente da leitura do Manual CFM p. 71-73; confirmar com a Codame). Dentro da peça só em impresso, no rodapé da página inicial do site e no receituário. Na peça 1080, nunca abaixo de 26 px.
 - **Números nunca inventados:** use `[nº]` até o Instituto confirmar.
 
 **Essencial:** sem promessa de resultado; sem superlativo; sem preço de procedimento (preço de consulta pode); sem gratuidade, sorteio, pacote ou venda casada; sem depoimento de paciente sobre resultado; sem paciente identificável; nome comercial de aparelho não vira argumento. **Antes e depois:** só no formato educativo do Manual (vídeo ou página do site, com as condições da seção 08.6); nunca post solto, nunca anúncio pago; mama, glúteo e região íntima fora das redes. **PMMA:** fora de tudo o que sai a partir de 02/06/2026, nem para explicar, nem reaproveitado; o publicado antes dessa data pode ficar no ar (parecer jurídico do Instituto). PRP, ozônio, aspirado de medula e células: não anunciar antes de validar a situação regulatória (pendência).
@@ -264,7 +264,7 @@ Quando uma peça esbarrar numa pendência, entregue a versão permitida (dado em
 - [ ] Foto real, luz quente, sem letreiro antigo, sem banco de imagem, sem paciente identificável.
 - [ ] Nenhuma promessa, superlativo, preço de procedimento, sorteio, gratuidade ou depoimento de resultado.
 - [ ] PMMA em lugar nenhum (arte, legenda, hashtag, alt, post antigo).
-- [ ] Bloco de identificação dentro da peça quando ela sai do perfil; RQE só com especialidade citada; números em `[nº]` se não confirmados.
+- [ ] Bloco de identificação na legenda do post (nunca na arte de rede social; no impresso, dentro da peça); RQE só com especialidade citada; números em `[nº]` se não confirmados.
 - [ ] Zero travessão em título, zero emoji na arte, no máximo uma exclamação; "Sharbo Casagrande" com a grafia certa.
 - [ ] Contraste AA; texto alternativo em toda imagem.
 - [ ] Testado no celular: peça reduzida a 36% ainda se lê; página sem corte de 320 a 430 px.

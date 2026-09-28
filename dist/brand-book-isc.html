@@ -864,8 +864,9 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
 /* Vídeo: legenda do reels e tarja de identificação */
 .pc-legenda{ align-self:center; max-width:86%; text-align:center; font:500 calc(var(--u) * var(--pc-legenda))/1.15 var(--texto); color:var(--branco); text-wrap:balance; }
 .peca .pc-legenda :is(em,i,.enf){ font-family:var(--enfase); font-style:italic; font-weight:500; font-size:1.2em; line-height:1; color:inherit; }
-/* Tarja: identificação médica fixa no vídeo impulsionado ou compartilhado. Nome, MÉDICO e CRM
-   com a mesma fonte, o mesmo tamanho e a mesma cor (por isso ela recebe um .pc-id por dentro). */
+/* A legenda do vídeo fica na altura do peito: guarda o espaço embaixo dela (identificação vai na legenda do post, 16.5) */
+.peca--segura > .pc-legenda:last-child{ margin-bottom:calc(var(--u) * 123); }
+/* Tarja: fora de uso desde 27/09/2026 (a identificação vai na legenda do post). */
 .pc-tarja{ align-self:flex-start; max-width:100%; padding:calc(var(--u) * 18) calc(var(--u) * 26); background:var(--preto); border-left:calc(var(--u) * 3) solid var(--ouro); }
 .pc-tarja .pc-id{ color:var(--branco); }
 
@@ -2902,9 +2903,9 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
 #s-16 .peca > .c16-silhueta{ display:block; fill:var(--fio-escuro); }
 #s-16 .c16-silhueta .c16-rosto{ fill:var(--grafite); }
 #s-16 .c16-silhueta .c16-gola{ fill:none; stroke:var(--preto); stroke-width:6; stroke-linejoin:round; }
-/* A legenda fica sempre na altura do peito: sem tarja, ela guarda o lugar da tarja embaixo (75 da faixa + 48 de espaço) */
+/* A legenda fica sempre na altura do peito */
 #s-16 .peca--segura > .pc-legenda:last-child{ margin-bottom:calc(var(--u) * 123); }
-/* Cartela: chamada e assinatura no centro da área segura; a tarja não sai do lugar */
+/* Cartela: chamada e assinatura no centro da área segura */
 #s-16 .c16-cartela-centro{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; }
 #s-16 .c16-cartela-centro .pc-marca{ align-self:center; }
 #s-16 .c16-cartela > .pc-tarja{ align-self:flex-start; }
@@ -4661,7 +4662,6 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
         <li class="pendencia"><p class="pendencia-txt"><b>Pronúncia de ISC</b>Letra por letra ou como palavra.<span class="pendencia-regra">Enquanto isso: seguir a forma que o Dr. Sharbo usar em vídeo. Ao telefone: “Instituto ISC, [nome], bom dia.”</span></p><span class="selo selo--pendente">Aberta</span></li>
         <li class="pendencia"><p class="pendencia-txt"><b>Nome registrado no CRM-PR</b>Qual nome consta no registro do estabelecimento.<span class="pendencia-regra">Enquanto isso: Instituto ISC nos modelos; se o registro ainda estiver no nome antigo, vale o nome registrado (08.2).</span></p><span class="selo selo--pendente">Aberta</span></li>
         <li class="pendencia"><p class="pendencia-txt"><b>Licença da fonte do ISC</b>The Seasons em versão de demonstração, de uso pessoal. Converter em curvas não resolve a licença: o próprio logotipo depende dela.<span class="pendencia-regra">Enquanto isso: comprar a licença comercial antes de registrar a marca no INPI (Instituto Nacional da Propriedade Industrial, o órgão federal que registra marcas) ou de imprimir em volume. Fora do logotipo, a fonte não entra em nada; títulos em Gilda Display.</span></p><span class="selo selo--pendente">Aberta</span></li>
-        
       </ol>
     </div>
 <!-- /CONTEUDO:02 -->
@@ -5427,9 +5427,9 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <p class="pc-titulo pc-mt-16">Primeiro, a <em>conversa</em>.</p>
             <p class="pc-sub pc-mt-24">Depois, a indicação.</p>
             <p class="pc-texto pc-mt-24">Histórico de saúde, medicamentos em uso e o que você espera do tratamento.</p>
-            <div class="pc-rodape"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
+            <div class="pc-rodape"><p class="pc-id"><span>Dr. Sharbo Casagrande</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
           </div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="legenda"><b>Post · 1080 × 1350</b>Foto, rótulo, título, subtítulo, texto e identificação</figcaption>
+          <figcaption class="legenda"><b>Post · 1080 × 1350</b>Foto, rótulo, título, subtítulo, texto e assinatura</figcaption>
         </figure>
         <div class="pilha">
           <div class="table-wrap">
@@ -5531,7 +5531,6 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
           <div class="mock reels"><div class="peca peca--segura campo-preto">
             <img class="pc-fundo" data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 22%;--c04-alt:1690" loading="lazy" decoding="async"><span class="pc-veu"></span>
             <p class="pc-legenda pc-empurra">Primeiro, a <em>conversa</em>.</p>
-            <div class="pc-tarja pc-mt-48"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
           </div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
           <figcaption class="legenda"><b>0:00 · Abertura</b>Três palavras</figcaption>
         </figure>
@@ -5539,7 +5538,6 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
           <div class="mock reels"><div class="peca peca--segura campo-preto">
             <img class="pc-fundo" data-asset-src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" style="--foco:55% 50%;--c04-alt:1690" loading="lazy" decoding="async"><span class="pc-veu"></span>
             <p class="pc-legenda pc-empurra">Depois, a <em>indicação</em>.</p>
-            <div class="pc-tarja pc-mt-48"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
           </div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
           <figcaption class="legenda"><b>0:04 · Meio</b>Uma palavra-chave</figcaption>
         </figure>
@@ -5547,7 +5545,6 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
           <div class="mock reels"><div class="peca peca--segura campo-preto">
             <img class="pc-fundo" data-asset-src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:42% 55%;--c04-alt:1690" loading="lazy" decoding="async"><span class="pc-veu"></span>
             <p class="pc-legenda pc-empurra">Agende sua <em>avaliação</em>.</p>
-            <div class="pc-tarja pc-mt-48"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
           </div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
           <figcaption class="legenda"><b>0:09 · Fim</b>Chamada final</figcaption>
         </figure>
@@ -5559,10 +5556,10 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <div><dt>Tamanho</dt><dd><b>64 px</b> na tela de 1080: cerca de 23 px no celular.</dd></div>
             <div><dt>Por vez</dt><dd>De 1 a 3 palavras.</dd></div>
             <div><dt>Posição</dt><dd>Dentro da área segura, acima dos 35% de baixo, onde ficam a descrição e os botões do aplicativo.</dd></div>
-            <div><dt>Zona</dt><dd>Na tela de 1080 × 1920: de <b>y 269</b> a <b>y 1248</b> (fora dos 14% de cima e dos 35% de baixo) e de <b>x 65</b> a <b>x 900</b>. À direita de x 900 ficam os botões do aplicativo. A legenda é centralizada na tela, então a linha tem no máximo <b>720 px</b> (de x 180 a x 900); a tarja começa em x 65.</dd></div>
+            <div><dt>Zona</dt><dd>Na tela de 1080 × 1920: de <b>y 269</b> a <b>y 1248</b> (fora dos 14% de cima e dos 35% de baixo) e de <b>x 65</b> a <b>x 900</b>. À direita de x 900 ficam os botões do aplicativo. A legenda é centralizada na tela, então a linha tem no máximo <b>720 px</b> (de x 180 a x 900).</dd></div>
             <div><dt>Leitura</dt><dd>Sobre foto clara, sombra em degradê de Preto ISC subindo da base. Nunca contorno nem caixa colorida.</dd></div>
           </dl>
-          <div class="nota"><strong>Identificação no vídeo</strong>Em vídeo impulsionado ou compartilhado fora do perfil, a identificação médica fica fixa em todos os quadros, na tarja preta com fio de ouro. No vídeo que fica só no perfil, ela está na bio. Detalhes na <a href="#s-16">seção 16</a>.</div>
+          <div class="nota"><strong>Identificação no vídeo</strong>O vídeo não leva tarja. Nome, MÉDICO e CRM vão no texto da legenda do post, em todas as redes. Modelos na <a href="#s16-5">seção 16.5</a>.</div>
       </div>
     </div>
 
@@ -5804,7 +5801,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <span class="c05-romano" aria-hidden="true">v.</span>
             <h4 class="c05-titulo"><em>Critério</em> antes de promessa.</h4>
             <p class="c05-texto">O Instituto explica antes de indicar. Nenhuma peça promete resultado, usa superlativo ou fala de técnica proibida: PMMA não aparece em arte, legenda, hashtag, texto alternativo nem em post antigo reaproveitado. A identificação médica entra sempre que a regra do Conselho Federal de Medicina (CFM) exigir (seção 08).</p>
-            <p class="lei-teste c05-teste"><strong>Teste</strong>Sublinhe cada verbo que promete algo ao paciente: “emagreça”, “elimina”, “garante”, “você vai”. Cada um vira explicação. Depois confira a identificação: peça do médico leva nome, MÉDICO e CRM (e RQE quando cita especialidade); peça do Instituto que sai do perfil leva também o registro da clínica e o Diretor Técnico-Médico (seção 08).</p>
+            <p class="lei-teste c05-teste"><strong>Teste</strong>Sublinhe cada verbo que promete algo ao paciente: “emagreça”, “elimina”, “garante”, “você vai”. Cada um vira explicação. Depois confira a legenda do post: peça do médico leva nome, MÉDICO e CRM (e RQE quando cita especialidade); peça do Instituto leva o registro da clínica e o Diretor Técnico-Médico (16.5).</p>
           </div>
           <div class="par c05-par">
             <div class="faca c05-ex">
@@ -5815,10 +5812,10 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
                     <p class="pc-rotulo" style="color:var(--f-apoio)">Cuidado do peso</p>
                     <p class="pc-titulo pc-mt-72">O peso tem mais de uma <em>causa</em>.</p>
                     <p class="pc-texto pc-mt-32">A consulta investiga as suas antes de indicar qualquer tratamento.</p>
-                    <div class="pc-rodape"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
+                    <div class="pc-rodape"><p class="pc-id"><span>Dr. Sharbo Casagrande</span></p></div>
                   </div>
                 </div>
-                <figcaption class="legenda c05-leg">Explica antes de indicar e traz a identificação do médico.</figcaption>
+                <figcaption class="legenda c05-leg">Explica antes de indicar e assina com o nome do médico.</figcaption>
               </figure>
             </div>
             <div class="nao-faca c05-ex">
@@ -5854,7 +5851,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
                 <div class="pc-foto pc-mt-48" style="height:calc(var(--u) * 470)"><img data-asset-src="assets/fotos/instituto-cortina-dourada-capa.jpg" alt="" width="720" height="442" loading="lazy" decoding="async" style="--foco:50% 45%"></div>
                 <p class="pc-titulo pc-mt-48">A consulta vem <em>antes</em> da técnica.</p>
                 <p class="pc-texto pc-mt-24">O médico examina, explica as alternativas e só então indica.</p>
-                <div class="pc-rodape"><p class="pc-id pc-id--linhas"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async" style="width:calc(var(--u) * 104)"></div>
+                <div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async" style="width:calc(var(--u) * 104)"></div>
               </div>
               <span class="anota-marca" style="left:calc(100% - var(--u) * 36);top:64%" aria-hidden="true"></span>
               <span class="anota-marca" style="left:calc(100% - var(--u) * 36);top:91%" aria-hidden="true"></span>
@@ -5871,7 +5868,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
               <li><span><b>Lei II · um brilho só.</b> O símbolo é o único elemento metálico. O fio do fólio e o itálico são ouro chapado.</span></li>
               <li><span><b>Lei III · margem inteira.</b> A peça respeita os 72 px nos quatro lados e tem um itálico no título. A capa não faz pedido: o pedido fica na última lâmina.</span></li>
               <li><span><b>Lei IV · foto real, luz quente.</b> A cortina de correntes douradas da sala de espera do Instituto, com a luz do próprio espaço e sem filtro, entra como prancha, dentro da margem.</span></li>
-              <li><span><b>Lei V · critério e identificação.</b> O texto explica antes de indicar. O bloco da clínica (registro no CRM-PR e Diretor Técnico-Médico) fica na base, com a mesma fonte, o mesmo tamanho e a mesma cor, para quando a peça sair do perfil.</span></li>
+              <li><span><b>Lei V · critério e identificação.</b> O texto explica antes de indicar. A identificação da clínica (registro no CRM-PR e Diretor Técnico-Médico) vai na legenda do post, nunca dentro da arte (16.5).</span></li>
             </ol>
             <div class="nota"><strong>Por que o numeral é metálico e o ouro da peça não</strong>O numeral grande no alto de cada seção deste manual é a abertura de seção sobre preto, com mais de 96 px: é um dos três lugares onde o metal pode viver. Dentro de uma peça, o metal fica na marca ou, quando a marca sai em ouro chapado, no numeral grande (96 px ou mais, sobre preto). Nunca nos dois.</div>
           </div>
@@ -5891,7 +5888,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
           <label class="check-row"><input type="checkbox"><span><b>ii · Um brilho e o dedo</b><small>Só um elemento metálico. A ponta do dedo cobre a única palavra em ouro; fora dela, só fios finos.</small></span></label>
           <label class="check-row"><input type="checkbox"><span><b>iii · Uma frase, um itálico, um pedido</b><small>A ideia cabe numa frase sem “e”. O título tem uma palavra em itálico. A margem está inteira.</small></span></label>
           <label class="check-row"><input type="checkbox"><span><b>iv · Dá para visitar</b><small>A cena existe no Instituto, a luz é a do espaço e o letreiro antigo está fora do quadro.</small></span></label>
-          <label class="check-row"><input type="checkbox"><span><b>v · Nenhum verbo prometendo</b><small>Nenhuma promessa, superlativo ou técnica proibida. A identificação médica e, fora do perfil, o bloco da clínica estão onde a regra pede.</small></span></label>
+          <label class="check-row"><input type="checkbox"><span><b>v · Nenhum verbo prometendo</b><small>Nenhuma promessa, superlativo ou técnica proibida. A identificação médica está na legenda do post.</small></span></label>
         </div>
         <div class="pilha">
           <div class="alerta"><strong>Quando a peça não passa</strong>A peça muda, a lei não. Se uma regra parece impedir a ideia, a ideia é que precisa de outro formato: dividir em duas peças, trocar a foto ou reescrever o título. Nenhuma lei tem exceção por pressa, por pedido de campanha ou por “só desta vez”.</div>
@@ -6126,7 +6123,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
                 <div class="pc-linha c06-faixa-linha">
                   <img class="pc-marca" data-asset-src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto" width="852" height="365" loading="lazy" decoding="async">
                   <span class="pc-fio-v"></span>
-                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p>
+                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span></p>
                 </div>
               </div>
             </div>
@@ -6139,7 +6136,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
               <li>O Instituto ISC assina com a marca. O médico entra pelo bloco dele: nome, MÉDICO e CRM, com a mesma fonte, o mesmo tamanho e a mesma cor.</li>
               <li>O nome do médico nunca fica maior que a marca nem ocupa o lugar dela.</li>
               <li>Vale igual para qualquer médico do corpo clínico, com o nome e o CRM de quem aparece.</li>
-              <li>Se a peça sair do perfil (WhatsApp, impresso, anúncio em vídeo), o bloco da clínica também entra: Instituto ISC · Registro <span class="c06-nq">CRM-PR [nº]</span> · Diretor Técnico-Médico: [nome] · MÉDICO · <span class="c06-nq">CRM-PR [nº]</span> (seção 08).</li>
+              <li>Nas redes, a identificação vai na legenda do post: Instituto ISC · Registro <span class="c06-nq">CRM-PR [nº]</span> · Diretor Técnico-Médico: [nome] · MÉDICO · <span class="c06-nq">CRM-PR [nº]</span> (16.5). No impresso, dentro da peça (seção 08).</li>
             </ul>
           </div>
         </div>
@@ -6149,7 +6146,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <div class="mock c06-faixa" style="--base:1080;--m:56;aspect-ratio:1080/360">
               <div class="peca campo-preto">
                 <div class="c06-faixa-pessoal">
-                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span><span>MÉDICO · <span class="c06-nq">CRM-PR [nº]</span></span></p>
+                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span></p>
                   <p class="pc-apoio" style="font-size:calc(var(--u) * 26)">Atende no Instituto ISC · Ecoville, Curitiba (PR)</p>
                 </div>
               </div>
@@ -6176,7 +6173,6 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
                   <span class="pc-fio-v"></span>
                   <span class="c06-parceiro">[marca do parceiro]</span>
                 </div>
-                <p class="pc-id pc-id--linhas pc-mt-24"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p>
               </div>
             </div>
             <figcaption class="legenda"><b>Faixa C · 1080 × 460</b>Base de uma peça em parceria</figcaption>
@@ -6187,7 +6183,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <ul class="lista">
               <li>O ISC à esquerda, o parceiro à direita, separados pelo fio vertical, com a mesma altura visual e o respiro de cada marca.</li>
               <li>Cada marca na versão oficial para aquele fundo: o parceiro nunca vira ouro e o ISC nunca ganha a cor do parceiro.</li>
-              <li>O bloco da clínica fica embaixo das duas marcas, e por isso a faixa cresce para 460 px. Nada de brinde, desconto casado ou sorteio, e o parceiro não fala de resultado de tratamento.</li>
+              <li>O bloco da clínica vai na legenda do post; no impresso, embaixo das duas marcas, e a faixa cresce para 460 px. Nada de brinde, desconto casado ou sorteio, e o parceiro não fala de resultado de tratamento.</li>
               <li>O Dr. Sharbo não faz publicidade de produto: cosmético, suplemento ou aparelho.</li>
             </ul>
           </div>
@@ -6205,7 +6201,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
                 <div class="pc-linha c06-faixa-linha">
                   <img class="pc-marca" data-asset-src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto" width="852" height="365" loading="lazy" decoding="async">
                   <span class="pc-fio-v"></span>
-                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p>
+                  <p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span></p>
                 </div>
               </div>
             </div>
@@ -6222,7 +6218,7 @@ body{ font-variant-numeric: lining-nums; }</code></pre>
             <div><dt>Marca</dt><dd>Logotipo horizontal oficial em ouro, com <b>560&nbsp;px</b> de largura (nunca abaixo de 450)</dd></div>
             <div><dt>Fio</dt><dd>Vertical, <b>2&nbsp;px</b>, em ouro, na altura da marca, com 24&nbsp;px de espaço de cada lado</dd></div>
             <div><dt>Bloco do médico</dt><dd>Montserrat 500, <b>26&nbsp;px</b>, branco quente, uma informação por linha: nome, MÉDICO e CRM</dd></div>
-            <div><dt>Fora do perfil</dt><dd>A faixa cresce para <b>460&nbsp;px</b> e ganha o bloco da clínica embaixo, como na faixa C</dd></div>
+            <div><dt>Identificação</dt><dd>Na legenda do post (16.5). No impresso, a faixa cresce para <b>460&nbsp;px</b> e ganha o bloco da clínica embaixo</dd></div>
           </dl>
         </div>
       </div>
@@ -6859,7 +6855,7 @@ Para agilizar, conte o seu nome e o assunto: consulta de avaliação, retorno ou
             <div><dt>Cor</dt><dd>Uma só em todos os itens: branco ou o branco quente do sistema sobre preto; grafite ou preto sobre claro. Nunca ouro, marrom ou o cinza de apoio.</dd></div>
             <div><dt>Ordem</dt><dd>Nome, MÉDICO, CRM. Especialidade e RQE no fim, quando couberem. Na clínica, o Diretor Técnico-Médico também leva a palavra MÉDICO antes do CRM.</dd></div>
             <div><dt>Separador</dt><dd>Ponto médio com espaço dos dois lados (&nbsp;· ) ou uma linha por item.</dd></div>
-            <div><dt>Posição</dt><dd><b>Post:</b> na base, dentro da margem de 72&nbsp;px, 32&nbsp;px abaixo do fio. <b>Story:</b> acima dos 250&nbsp;px da base. <b>Reels e story patrocinado:</b> numa tarja acima dos 35% de baixo (até 1.248&nbsp;px do topo), a 65&nbsp;px das laterais e longe da coluna de botões. <span class="apoio">Medidas da tarja: <a href="#s-16">seção 16.5</a>&nbsp;· impressos: <a href="#s-17">seção 17</a></span></dd></div>
+            <div><dt>Posição</dt><dd><b>Impresso e documento:</b> na base, dentro da margem, 32&nbsp;px abaixo do fio. <b>Redes sociais (post, carrossel, story, reels e anúncio):</b> no texto da legenda, nunca dentro da arte. <span class="apoio">Modelos: <a href="#s16-5">seção 16.5</a>&nbsp;· impressos: <a href="#s-17">seção 17</a></span></dd></div>
           </dl>
         </div>
         <figcaption class="legenda"><b>Fonte</b>Resolução 2.336, art.&nbsp;4º&nbsp;· Código de Ética Médica, art.&nbsp;117&nbsp;· Manual, p.&nbsp;<span class="c08-nq">61-62</span>. O Manual resume a regra numa frase: não pode haver diferença entre fonte, tamanho e cor.</figcaption>
@@ -6878,45 +6874,31 @@ Para agilizar, conte o seu nome e o assunto: consulta de avaliação, retorno ou
         </div>
       </div>
 
-      <h4 class="mt-8">As quatro versões prontas</h4>
-      <p class="legenda mt-4">Rodapé da peça de 1080&nbsp;px, com o bloco em 26&nbsp;px, 32&nbsp;px abaixo do fio e o símbolo ao lado. Na clínica, o Diretor Técnico-Médico ocupa duas linhas, o nome numa e MÉDICO com o CRM na outra, como no exemplo do Manual (p.&nbsp;64). Os números ficam entre colchetes até o Instituto confirmar cada registro.</p>
-      <div class="mesa cols-2 mt-6">
-        <figure class="mock-quadro">
-          <div class="mock" style="--base:1080;--m:72;aspect-ratio:1080/280">
-            <div class="peca campo-preto">
-              <span class="pc-fio pc-empurra"></span>
-              <div class="pc-rodape pc-mt-32"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span><span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <figcaption class="legenda"><b>Médico&nbsp;· sobre preto</b>Texto branco quente, fio e símbolo em ouro</figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock" style="--base:1080;--m:72;aspect-ratio:1080/280">
-            <div class="peca campo-marfim">
-              <span class="pc-fio pc-empurra"></span>
-              <div class="pc-rodape pc-mt-32"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span><span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <figcaption class="legenda"><b>Médico&nbsp;· sobre marfim</b>Texto grafite, fio bronze e símbolo preto</figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock" style="--base:1080;--m:72;aspect-ratio:1080/320">
-            <div class="peca campo-preto">
-              <span class="pc-fio pc-empurra"></span>
-              <div class="pc-rodape pc-mt-32"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <figcaption class="legenda"><b>Clínica&nbsp;· sobre preto</b>Três linhas, como no exemplo do Manual</figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock" style="--base:1080;--m:72;aspect-ratio:1080/320">
-            <div class="peca campo-marfim">
-              <span class="pc-fio pc-empurra"></span>
-              <div class="pc-rodape pc-mt-32"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
-            </div>
-          </div>
-          <figcaption class="legenda"><b>Clínica&nbsp;· sobre marfim</b>A mesma composição no papel</figcaption>
-        </figure>
+      <h4 class="mt-8">A identificação pronta para a legenda</h4>
+      <p class="legenda mt-4">Nas redes, o bloco vai no texto da legenda do post, com os números entre colchetes até o Instituto confirmar cada registro. Em impresso, receituário e documento, o bloco continua dentro da peça (08.4).</p>
+      <div class="cols-3 mt-6">
+        <div class="modelo">
+          <p class="rotulo">Legenda de post do @drsharbo</p>
+          <p class="modelo-texto">Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]
+[Especialidade registrada]&nbsp;· RQE [nº]</p>
+          <p class="legenda">A segunda linha só entra quando o post cita especialidade, e só com o RQE confirmado.</p>
+          <button class="copiar" type="button" aria-label="Copiar a identificação para a legenda do médico">Copiar</button>
+        </div>
+        <div class="modelo">
+          <p class="rotulo">Legenda de post do Instituto</p>
+          <p class="modelo-texto">Instituto ISC&nbsp;· Registro CRM-PR [nº]
+Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
+          <p class="legenda">No fim do texto da legenda, antes das hashtags.</p>
+          <button class="copiar" type="button" aria-label="Copiar a identificação para a legenda do Instituto">Copiar</button>
+        </div>
+        <div class="modelo">
+          <p class="rotulo">Post do Instituto em que o médico aparece</p>
+          <p class="modelo-texto">Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]
+Instituto ISC&nbsp;· Registro CRM-PR [nº]
+Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
+          <p class="legenda">Os dois blocos, um embaixo do outro (Resolução 2.336, art.&nbsp;9º,&nbsp;X).</p>
+          <button class="copiar" type="button" aria-label="Copiar os dois blocos para a legenda">Copiar</button>
+        </div>
       </div>
 
       <div class="cols-2 mt-8">
@@ -6961,7 +6943,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
     <div class="bloco reveal" id="s08-3">
       <div class="bloco-head">
         <div><span class="bloco-n">08.3</span><h3>Onde o bloco vai</h3></div>
-        <p class="bloco-apoio">Nas redes, o bloco mora na bio e não precisa se repetir em cada post. Quando a peça sai do perfil, ele vai junto, dentro dela. No vídeo de anúncio, fica em todos os quadros.</p>
+        <p class="bloco-apoio">Nas redes, o bloco mora na bio e no texto da legenda de cada post, nunca dentro da arte. No impresso e no documento, ele vai dentro da peça.</p>
       </div>
       <div class="table-wrap">
         <table class="consulta">
@@ -6970,8 +6952,8 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
           <tbody>
             <tr><td>Bio do perfil e página inicial do site</td><td>Na página principal do perfil, em todas as redes: Instagram, Facebook, TikTok, YouTube, LinkedIn, Threads e WhatsApp comercial. No perfil do médico, os dados dele; no do Instituto, os da clínica e do Diretor Técnico-Médico.</td><td>O texto da própria plataforma</td><td>Resolução 2.336, art.&nbsp;6º e art.&nbsp;8º, §1º&nbsp;· Manual, p.&nbsp;<span class="c08-nq">72-73</span></td></tr>
             <tr><td>Post, carrossel e story no próprio perfil</td><td>Não precisa repetir: já está na bio. O story segue as mesmas regras do post.</td><td>Não se aplica</td><td>Resolução 2.336, art.&nbsp;6º, §1º&nbsp;· Manual, p.&nbsp;<span class="c08-nq">72-73</span></td></tr>
-            <tr><td>Peça que sai do perfil</td><td>Dentro da própria peça, na base, fora da área coberta pela interface do aplicativo. Vale para a peça encaminhada no WhatsApp, compartilhada em outro perfil ou enviada por e-mail.</td><td class="n">26&nbsp;px na peça de 1080</td><td>Manual, p.&nbsp;<span class="c08-nq">72-73</span></td></tr>
-            <tr><td>Vídeo de anúncio na internet</td><td>Em todos os quadros, numa tarja fixa. O reels impulsionado ou compartilhado segue a mesma regra, por cautela. <span class="selo selo--provisorio">Interpretação</span></td><td class="n">26&nbsp;px na base de 1080</td><td>Manual, p.&nbsp;71</td></tr>
+            <tr><td>Post, carrossel, story e reels</td><td>No texto da legenda do post, em todas as redes. A arte não leva o bloco. <span class="selo selo--oficial">Decisão do Instituto</span></td><td>O texto da própria plataforma</td><td>Manual, p.&nbsp;<span class="c08-nq">72-73</span></td></tr>
+            <tr><td>Vídeo de anúncio na internet</td><td>No texto principal do anúncio, sem tarja no vídeo. <span class="selo selo--oficial">Decisão do Instituto</span></td><td>O texto da própria plataforma</td><td>Manual, p.&nbsp;71</td></tr>
             <tr><td>Vídeo para TV</td><td>Cartela final de cor única, texto centralizado, parado tempo suficiente para a leitura, com CRM e RQE.</td><td>Legível na tela; 2&nbsp;s ou mais</td><td>Manual, p.&nbsp;71&nbsp;· perguntas e respostas do CFM</td></tr>
             <tr><td>Áudio: rádio, anúncio em podcast</td><td>Lido no final da peça, com calma e em voz clara.</td><td>Não se aplica</td><td>Manual, p.&nbsp;71</td></tr>
             <tr><td>Impresso</td><td>Folder, cartaz, banner, placa, totem e anúncio em revista: leitura da esquerda para a direita, sobre fundo neutro. Se o fundo atrapalhar, num retângulo branco com filete.</td><td>Pelo menos 35% da maior letra da peça: regra da casa, a partir da sugestão do Manual. Maior letra é o maior texto composto (em geral o título); o logotipo só conta quando a peça não tem outro texto, como placa e fachada</td><td>Manual, p.&nbsp;<span class="c08-nq">65-66</span></td></tr>
@@ -7011,7 +6993,7 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
     <div class="bloco reveal" id="s08-4">
       <div class="bloco-head">
         <div><span class="bloco-n">08.4</span><h3>O bloco aplicado nas peças</h3></div>
-        <p class="bloco-apoio">Os mesmos dados em seis situações: post que vai ser encaminhado, peça da clínica, bio do perfil, anúncio em vídeo, cartaz e receituário. As peças estão reduzidas; o botão da legenda mostra o tamanho real.</p>
+        <p class="bloco-apoio">Os mesmos dados em cinco situações: post do médico, post da clínica, bio do perfil, cartaz e receituário. Nos posts, a arte fica limpa e o bloco vai na legenda. As peças estão reduzidas; o botão da legenda mostra o tamanho real.</p>
       </div>
       <div class="mesa cols-3">
         <figure class="mock-quadro">
@@ -7021,11 +7003,11 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
               <p class="pc-titulo pc-empurra">A consulta é sempre o primeiro <em>passo</em>.</p>
               <p class="pc-texto pc-mt-32">Antes de qualquer indicação, o médico ouve o seu histórico e explica o que é possível, os limites e os riscos.</p>
               <span class="pc-cta pc-cta--cheio pc-mt-48">Agende sua avaliação</span>
-              <div class="pc-rodape pc-mt-96"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span><span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
+              <div class="pc-rodape pc-mt-96"><p class="pc-id"><span>Dr. Sharbo Casagrande</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Post que sai do perfil</b>Vai ser encaminhado no WhatsApp: o bloco do médico entra na peça</figcaption>
+          <figcaption class="legenda"><b>Post do médico</b>A arte assina com o nome; o bloco completo vai na legenda</figcaption>
         </figure>
         <figure class="mock-quadro">
           <div class="mock post-45">
@@ -7033,11 +7015,11 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
               <div class="pc-folio"><span><b>Instituto ISC</b></span><span>Ecoville, Curitiba</span></div>
               <div class="pc-foto pc-mt-48" style="height:calc(var(--u) * 430);--foco:50% 55%"><img data-asset-src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async"></div>
               <p class="pc-titulo pc-mt-48">Um espaço para unir medicina e <em>acolhimento</em>.</p>
-              <div class="pc-rodape"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
+              <div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Peça da clínica</b>Anúncio pela página do Instituto: o bloco da clínica, com o Diretor Técnico-Médico</figcaption>
+          <figcaption class="legenda"><b>Post da clínica</b>Arte limpa; o bloco da clínica, com o Diretor Técnico-Médico, vai na legenda</figcaption>
         </figure>
         <figure class="mock-quadro">
           <div class="mock celular">
@@ -7084,26 +7066,9 @@ Avaliação médica antes de qualquer indicação.</p>
         </div>
       </div>
 
-      <h4 class="mt-8">Anúncio em vídeo: o bloco em todos os quadros</h4>
-      <p class="legenda mt-4">Anúncio no Meta (anunciante: página do Instituto; quem fala e assina: Dr. Sharbo). A tarja preta com fio de ouro leva o bloco da clínica e fica parada do primeiro ao último quadro, acima da área que a legenda e os botões do aplicativo cobrem. No quadro em que o médico aparece, a tarja ganha a linha dele (Resolução 2.336, art.&nbsp;9º,&nbsp;X). Se um dia o anunciante for o perfil pessoal, sem a marca ISC, a tarja leva só o bloco do médico. Medidas da tarja: <a href="#s-16">seção 16.5</a>&nbsp;· impressos: <a href="#s-17">seção 17</a>.</p>
-      <div class="fita mt-6">
-        <figure>
-          <div class="mock reels"><div class="peca peca--segura campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"><span class="pc-veu"></span><p class="pc-legenda pc-empurra">Primeiro, a <em>avaliação</em></p><div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p></div></div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="fita-tempo"><b>0:00</b>Abertura</figcaption>
-        </figure>
-        <figure>
-          <div class="mock reels"><div class="peca peca--segura campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 20%" loading="lazy" decoding="async"><span class="pc-veu"></span><p class="pc-legenda pc-empurra">O seu <em>histórico</em></p><div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span><span>Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p></div></div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="fita-tempo"><b>0:04</b>Fala do médico: a tarja ganha a linha dele</figcaption>
-        </figure>
-        <figure>
-          <div class="mock reels"><div class="peca peca--segura campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:45% 50%" loading="lazy" decoding="async"><span class="pc-veu"></span><p class="pc-legenda pc-empurra">Limites e <em>riscos</em></p><div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p></div></div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="fita-tempo"><b>0:09</b>Explicação</figcaption>
-        </figure>
-        <figure>
-          <div class="mock reels"><div class="peca peca--segura campo-preto"><img class="pc-marca" data-asset-src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto" width="852" height="365" loading="lazy" decoding="async"><span class="pc-cta pc-cta--cheio pc-empurra">Agende sua avaliação</span><div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Instituto ISC&nbsp;· Registro <span class="c08-nq">CRM-PR [nº]</span></span><span>Diretor Técnico-Médico: [nome]</span><span>MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span></p></div></div><div class="ui-reels" aria-hidden="true"></div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="fita-tempo"><b>0:14</b>Cartela final</figcaption>
-        </figure>
-      </div>
+      <h4 class="mt-8">Anúncio em vídeo: a identificação na legenda</h4>
+      <p class="legenda mt-4">Anúncio no Meta (anunciante: página do Instituto; quem fala e assina: Dr. Sharbo). O vídeo não leva tarja: o texto principal do anúncio traz o bloco da clínica e, quando o médico aparece, também o dele (Resolução 2.336, art.&nbsp;9º,&nbsp;X). Modelos em <a href="#s16-5">16.5</a>&nbsp;· impressos: <a href="#s-17">seção 17</a>.</p>
+      <div class="nota"><strong>Decisão do Instituto, 27/09/2026</strong>A identificação médica sai de dentro das artes de redes sociais: post, carrossel, story, reels, vídeo e anúncio. Ela vai no texto da legenda de cada post, em todas as redes. O Manual de Publicidade Médica do CFM (p.&nbsp;71 a 73) pede a identificação dentro da peça que sai do perfil e em todos os quadros do vídeo de anúncio. A leitura de que a legenda basta é do Instituto: se a Codame do <span class="c08-nq">CRM-PR</span> ou a assessoria jurídica disser o contrário, a identificação volta para dentro da arte. Impressos, receituário, placas, site e documentos continuam com o bloco dentro da peça (seções 08.4, 17 e 18).</div>
 
       <div class="mesa cols-2 mt-8">
         <figure class="mock-quadro">
@@ -7320,7 +7285,7 @@ Avaliação médica antes de qualquer indicação.</p>
           <div><dt>Formato</dt><dd>Vídeo vertical de <b>1080 × 1920&nbsp;px</b> (9:16), o mesmo do reels. Cada imagem fica 2&nbsp;s ou mais, todas com o mesmo tempo.</dd></div>
           <div><dt>Texto educativo</dt><dd>No alto, logo abaixo dos 14% de cima que o aplicativo cobre, em <b>32&nbsp;px ou mais</b>, em todos os quadros: a etapa, a indicação, o que muda o resultado e as complicações.</dd></div>
           <div><dt>Foto</dt><dd>No meio do quadro, sem edição que mude o resultado e sem nada que identifique o paciente. Antes e depois do mesmo paciente com o mesmo enquadramento e a mesma luz.</dd></div>
-          <div><dt>Tarja</dt><dd>A tarja do médico que assina, com a especialidade e o RQE, se o vídeo for impulsionado ou sair do perfil. Fica acima dos 35% de baixo, como no anúncio em vídeo.</dd></div>
+          <div><dt>Identificação</dt><dd>O bloco do médico que assina, com a especialidade e o RQE, no texto da legenda do post (16.5). Nada de tarja no vídeo.</dd></div>
           <div><dt>Locução</dt><dd>Opcional. Se houver, lê o mesmo texto educativo, sem adjetivo sobre o resultado.</dd></div>
           <div><dt>Etapas 1 e 4</dt><dd>Texto, ilustração própria ou figura de artigo científico. Imagem de terceiros entra com a origem citada e a licença de uso. Banco de imagem não entra (lei IV). <span class="apoio">Art.&nbsp;14, II, “h”</span></dd></div>
         </dl>
@@ -7330,12 +7295,11 @@ Avaliação médica antes de qualquer indicação.</p>
               <p class="pc-rotulo">Etapa 2&nbsp;· Paciente 1&nbsp;· antes</p>
               <p class="pc-texto pc-mt-24">Indicação, o que muda o resultado e as complicações descritas na literatura.</p>
               <div class="c08-lugar-foto pc-mt-48"><span>Foto real, sem identificar o paciente</span></div>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span></span><span>[Especialidade registrada]&nbsp;· <span class="c08-nq">RQE [nº]</span></span></p></div>
             </div>
             <div class="ui-reels" aria-hidden="true"></div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Quadro-tipo&nbsp;· 1080 × 1920</b>Texto no alto, foto no meio, tarja acima da área do aplicativo</figcaption>
+          <figcaption class="legenda"><b>Quadro-tipo&nbsp;· 1080 × 1920</b>Texto no alto, foto no meio, identificação na legenda do post</figcaption>
         </figure>
       </div>
       <div class="fita c08-roteiro mt-7">
@@ -7554,7 +7518,7 @@ Avaliação médica antes de qualquer indicação.</p>
         <table class="consulta">
           <thead><tr><th scope="col">Onde a peça sai</th><th scope="col">Quem responde e aprova</th><th scope="col">Fonte</th></tr></thead>
           <tbody>
-            <tr><td>Canais do Instituto</td><td>O Diretor Técnico-Médico, [nome]. Vale para o Instagram do Instituto, o site, o WhatsApp comercial, os impressos, o receituário e os anúncios. Anúncio pela página do Instituto: responde o Diretor Técnico-Médico; com o médico falando, os dois blocos (<a href="#s-16">16.5</a>), e o médico que fala também aprova.</td><td>Resolução 2.336, art.&nbsp;3º,&nbsp;II</td></tr>
+            <tr><td>Canais do Instituto</td><td>O Diretor Técnico-Médico, [nome]. Vale para o Instagram do Instituto, o site, o WhatsApp comercial, os impressos, o receituário e os anúncios. Anúncio pela página do Instituto: responde o Diretor Técnico-Médico; com o médico falando, os dois blocos na legenda (<a href="#s16-5">16.5</a>), e o médico que fala também aprova.</td><td>Resolução 2.336, art.&nbsp;3º,&nbsp;II</td></tr>
             <tr><td>Perfil pessoal do Dr. Sharbo</td><td>O Dr. Sharbo Casagrande, no @drsharbo, no YouTube e no podcast. Os anúncios em que ele fala saem hoje no Meta com anunciante na página do Instituto (quem fala e assina: Dr. Sharbo), e por isso seguem a linha de cima.</td><td>Resolução 2.336, art.&nbsp;3º,&nbsp;I e II</td></tr>
             <tr><td>Peça do Instituto que apresenta outro médico da equipe</td><td>O Diretor Técnico-Médico, depois que o médico citado concorda e confere o nome, o CRM e o RQE</td><td>Resolução 2.336, art.&nbsp;3º,&nbsp;II e art.&nbsp;9º,&nbsp;X</td></tr>
             <tr><td>ISC REGEN (@iscregen)</td><td>A definir com o Instituto. Até lá, o Diretor Técnico-Médico, e nenhum tratamento regenerativo é anunciado antes da validação regulatória (<a href="#s23-p11">pendência 11 da seção 23</a>)</td><td>Resolução 2.336, art.&nbsp;3º</td></tr>
@@ -7568,7 +7532,7 @@ Avaliação médica antes de qualquer indicação.</p>
           <p class="rotulo">Registro de aprovação</p>
           <p class="modelo-texto">Peça: [nome ou link]
 Perfil ou canal: [@perfil, site, WhatsApp, impresso]
-Sai do perfil: [sim ou não]&nbsp;· Bloco de identificação na peça: [sim ou não]
+Sai do perfil: [sim ou não]&nbsp;· Identificação na legenda do post: [sim ou não]
 Conferida por: [nome], em [dd/mm/aaaa]
 Aprovada por: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CRM-PR [nº]</span>, em [dd/mm/aaaa]
 Ajustes pedidos: [texto]</p>
@@ -7603,7 +7567,7 @@ Ajustes pedidos: [texto]</p>
             <li>A página oficial de situação da Resolução 2.336/2023 não pôde ser lida. Nenhuma alteração foi encontrada até 25/09/2026.</li>
             <li>Antes e depois sem RQE na área do procedimento pode ficar vedado: o art.&nbsp;14 e a nota da Codame não dizem a mesma coisa.</li>
             <li>Carrossel com as quatro etapas do antes e depois não é citado no Manual. Adotado: não usar.</li>
-            <li>Reels impulsionado: o Manual não deixa claro se vale a regra do vídeo de anúncio. Adotado: tarja em todos os quadros.</li>
+            <li>Identificação só na legenda do post, sem tarja nem bloco na arte: decisão do Instituto em 27/09/2026, diferente da leitura do Manual (p.&nbsp;71 a 73). Confirmar com a Codame.</li>
             <li>Depoimento gravado pela clínica com o rosto do paciente. Adotado: não gravar.</li>
             <li>A norma não diz quando a tarja basta para tornar um rosto irreconhecível.</li>
             <li>Permuta com influenciador não tem artigo próprio. Adotado: proibida.</li>
@@ -7925,7 +7889,7 @@ Ajustes pedidos: [texto]</p>
             <div><dt>Título</dt><dd>No <b>quarto de baixo</b> da foto. Ali a sombra passa de 60% e o texto grande fica acima de 3 para 1 de contraste mesmo sobre o mármore.</dd></div>
             <div><dt>Medidas</dt><dd>Peça de 1080 × 1350: margem de 72; título em Gilda de 96 a 104, em até <b>duas linhas</b>, começando abaixo de 1.010&nbsp;px; embaixo dele, só o rótulo de 26, a 72&nbsp;px da borda. Três linhas não cabem no quarto de baixo: corte o texto.</dd></div>
             <div><dt>Texto pequeno</dt><dd>Rótulo e legenda só <b>rente à base</b>, onde a sombra chega a 90%.</dd></div>
-            <div><dt>Identificação médica</dt><dd><b>Nunca sobre a foto</b>: a foto muda o fundo a cada peça e a cada quadro de vídeo. Vai na tarja preta do vídeo (seção 16) ou no campo preto abaixo da foto.</dd></div>
+            <div><dt>Identificação médica</dt><dd><b>Nunca sobre a foto</b>: a foto muda o fundo a cada peça e a cada quadro de vídeo. Nas redes, vai no texto da legenda do post (16.5); no impresso, no campo abaixo da foto.</dd></div>
             <div><dt>Cor do texto</dt><dd>Título em branco, com o itálico em champanhe. Rótulo e texto pequeno em branco. No trecho do título o ouro cai para cerca de 2 para 1; para não ter exceção, <b>o ouro não entra como texto</b> na foto.</dd></div>
             <div><dt>Foto clara</dt><dd>Se a base da foto é clara demais (piso branco, janela), o texto sai da foto e vai para o campo preto, abaixo dela.</dd></div>
           </dl>
@@ -8804,7 +8768,7 @@ iforms.svg('elo',
                 <li><svg class="pc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span class="pc-texto">[dias e horário de atendimento]</span></li>
                 <li><svg class="pc-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg><span class="pc-texto">WhatsApp (41) [número oficial]</span></li>
               </ul>
-              <div class="pc-rodape"><p class="pc-id pc-id--linhas"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
+              <div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
@@ -9231,12 +9195,11 @@ iforms.svg('elo',
               <p class="pc-titulo pc-titulo--p pc-mt-72">Quinta tem mais horários <em>livres</em>.</p>
               <div class="grafico-svg pc-mt-48" data-iviz='{"tipo":"barras","estilo":"fio","rotulos":["Seg","Ter","Qua","Qui","Sex"],"valores":[4,7,5,11,6],"destaque":3,"altura":190,"aria":"Horários livres para avaliação por dia da semana: quinta-feira tem 11, o maior número"}'></div>
               <p class="pc-apoio pc-mt-24">Fonte: agenda do Instituto ISC, semana de [data]. Dados ilustrativos.</p>
-              <p class="pc-id pc-id--linhas pc-empurra"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p>
               <div class="pc-rodape pc-mt-32"><span class="pc-cta pc-cta--cheio">Agende sua avaliação</span><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Informação de serviço</b>Barras em haste fina, com o ponto no dia que importa. Como a secretária encaminha pelo WhatsApp, a peça leva o bloco da clínica.</figcaption>
+          <figcaption class="legenda"><b>Informação de serviço</b>Barras em haste fina, com o ponto no dia que importa. O bloco da clínica vai na legenda do post.</figcaption>
         </figure>
         <figure class="mock-quadro">
           <div class="mock post-45">
@@ -9246,18 +9209,18 @@ iforms.svg('elo',
               <div class="grafico-svg pc-mt-32" data-iviz='{"tipo":"kpi","vrotulo":"[nº]%","rotulo":"[o que o número mede, com as palavras da fonte]","aria":"Modelo de número em destaque, com o valor entre colchetes até a fonte ser confirmada"}'></div>
               <p class="pc-sub pc-empurra">A avaliação mostra se isso vale para você.</p>
               <p class="pc-apoio pc-mt-24">Fonte: [instituição], [ano].</p>
-              <div class="pc-rodape pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span><span>MÉDICO · CRM-PR [nº]</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
+              <div class="pc-rodape pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande</span></p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="Símbolo ISC" width="291" height="284" loading="lazy" decoding="async"></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Modelo com dado público</b>O número fica entre colchetes até a fonte oficial ser confirmada. A chamada e a fonte descem para junto da identificação.</figcaption>
+          <figcaption class="legenda"><b>Modelo com dado público</b>O número fica entre colchetes até a fonte oficial ser confirmada. A chamada e a fonte descem para junto da assinatura.</figcaption>
         </figure>
         <div class="pilha">
           <dl class="ficha-tec">
             <div><dt>Largura</dt><dd>A largura útil da peça: <b>936 px</b> no post de 1080. Abaixo de 660&nbsp;px, o rótulo fica menor que 26&nbsp;px.</dd></div>
             <div><dt>Rótulo</dt><dd>O motor mede a peça: o rótulo do gráfico vale o rótulo do formato (26&nbsp;px no post, 11 no celular).</dd></div>
             <div><dt>Fonte</dt><dd>Dentro da arte, em texto de apoio (28&nbsp;px), com instituição e ano ou período.</dd></div>
-            <div><dt>Identificação</dt><dd>Peça institucional leva o bloco da clínica; peça do Dr. Sharbo, o bloco do médico. Dentro da arte sempre que sair do perfil (seção 08).</dd></div>
+            <div><dt>Identificação</dt><dd>Peça institucional leva o bloco da clínica; peça do Dr. Sharbo, o bloco do médico. Sempre na legenda do post, nunca na arte (16.5).</dd></div>
             <div><dt>Tom</dt><dd>O dado informa, nunca assusta: nada que cause medo ou pânico (Resolução CFM 2.336/2023, art. 11, §2º, “e”).</dd></div>
             <div><dt>Sem fonte</dt><dd>O número fica <b>[nº]</b> até ser confirmado. Nunca um valor “aproximado”.</dd></div>
           </dl>
@@ -9676,7 +9639,7 @@ iviz.svg(el);</code></pre>
       <div class="cols-7-5 gap-g mt-7">
         <dl class="ficha-tec">
           <div><dt>Receituário</dt><dd>Clínica e Diretor Técnico-Médico no cabeçalho, junto ao logotipo; nome, MÉDICO e CRM de quem prescreve na assinatura ou no carimbo (seção 17).</dd></div>
-          <div><dt>Peça de 1080&nbsp;px</dt><dd><code>pc-id</code> e <code>pc-id--linhas</code>, com 26&nbsp;px, nunca menos. Em vídeo impulsionado, fixa na <code>pc-tarja</code> (seção 16).</dd></div>
+          <div><dt>Peça de 1080&nbsp;px</dt><dd><code>pc-id</code> e <code>pc-id--linhas</code>, com 26&nbsp;px, nunca menos. Em redes sociais, não entra na arte: vai na legenda do post (16.5).</dd></div>
           <div><dt>Perfil</dt><dd>Na bio. Post, carrossel e story do próprio perfil não repetem o CRM em cada peça.</dd></div>
         </dl>
         <div class="pilha">
@@ -9763,7 +9726,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
             <div><dt><a href="#s-12">12 · Dados</a></dt><dd>Gráficos: <code>grafico</code> <code>grafico-svg</code></dd></div>
             <div><dt><a href="#s-14">14 · Redes sociais</a></dt><dd>Peças em escala real: <code>mock</code> <code>peca</code> <code>pc-*</code>. Instagram: <code>ig</code></dd></div>
             <div><dt><a href="#s-15">15 · WhatsApp</a></dt><dd><code>wa</code> <code>modelo</code></dd></div>
-            <div><dt><a href="#s-16">16 · Vídeo e reels</a></dt><dd><code>fita</code> <code>pc-tarja</code> <code>pc-legenda</code> <code>ui-reels</code></dd></div>
+            <div><dt><a href="#s-16">16 · Vídeo e reels</a></dt><dd><code>fita</code> <code>pc-legenda</code> <code>ui-reels</code></dd></div>
             <div><dt><a href="#s-17">17 · Documentos e impressos</a></dt><dd><code>doc-cab</code> <code>doc-tabela</code> <code>receita-linhas</code></dd></div>
             <div><dt><a href="#s-18">18 · Site e páginas</a></dt><dd><code>site-cab</code> <code>site-nav</code> <code>site-rodape</code> <code>navegador</code></dd></div>
             <div><dt><a href="#s-19">19 · Grade e espaçamento</a></dt><dd><code>grade-overlay</code> <code>grade-doc</code> <code>escala-espaco</code> <code>cota</code></dd></div>
@@ -9806,7 +9769,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           <li><b>O formato certo.</b>Carrossel em 4:5 (1080 × 1350), post único em 3:4 (1080 × 1440), quadrado com 135 nas laterais, story com 250 livres em cima e embaixo. <a class="minuto-ref" href="#s14-8">14.8</a></li>
           <li><b>Nada abaixo de 26 px na peça.</b>Nem o CRM. Se não cabe, corta-se texto. <a class="minuto-ref" href="#s20-3">20.3</a></li>
           <li><b>Uma ideia, um itálico.</b>Até 15 palavras no post único; o resto vai para a legenda. <a class="minuto-ref" href="#s14-2">14.2</a></li>
-          <li><b>A identificação mora na bio.</b>Entra na peça quando ela sai do perfil ou cita um médico pelo nome. <a class="minuto-ref" href="#s14-7">14.7</a></li>
+          <li><b>A identificação mora na bio e na legenda.</b>Nunca dentro da arte: o bloco vai no texto da legenda de cada post. <a class="minuto-ref" href="#s14-7">14.7</a></li>
           <li><b>Capa de reels entre y 285 e 1248.</b>É o trecho que aparece no feed e na grade sem a interface por cima. <a class="minuto-ref" href="#s14-4">14.4</a></li>
           <li><b>Checklist e aprovação antes de publicar.</b>A equipe confere; quem responde aprova por escrito. <a class="minuto-ref" href="#s-24">24</a></li>
         </ol>
@@ -9912,13 +9875,13 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
               <div class="pc-empurra">
                 <span class="pc-fio c14-fio-curto"></span>
                 <p class="c14-olho pc-mt-48">Busco sempre oferecer um atendimento humanizado e fornecer todas as informações aos meus pacientes.</p>
-                <p class="pc-id pc-mt-48"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p>
+                <p class="pc-id pc-mt-48"><span>Dr. Sharbo Casagrande</span></p>
               </div>
               <div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="pc-rotulo c14-deslize">Deslize<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>5 / 6 · Citação</b>Frase real, com o crédito e o CRM</figcaption>
+          <figcaption class="legenda"><b>5 / 6 · Citação</b>Frase real, com o crédito</figcaption>
         </figure>
         <!-- 6 · fechamento -->
         <figure class="mock-quadro">
@@ -9929,13 +9892,12 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
               <p class="pc-chamada pc-mt-32">O médico explica se há indicação, quais são as opções e os limites de cada uma.</p>
               <span class="pc-cta pc-mt-48">Agende sua avaliação</span>
               <div class="pc-empurra">
-                <p class="pc-id pc-id--linhas"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span><span>[Especialidade · RQE nº, se exigível]</span></p>
                 <img class="pc-marca pc-mt-48" data-asset-src="assets/isc-horizontal-ouro.svg" alt="" width="852" height="365" loading="lazy" decoding="async">
               </div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>6 / 6 · Fechamento</b>Chamada, identificação e assinatura</figcaption>
+          <figcaption class="legenda"><b>6 / 6 · Fechamento</b>Chamada e assinatura</figcaption>
         </figure>
       </div>
 
@@ -9944,7 +9906,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           <div><dt>Formato</dt><dd><b>1080 × 1350 px</b> (4:5), margem de 72 px nos quatro lados.</dd></div>
           <div><dt>Lâminas</dt><dd>Seis, como aqui, ou de cinco a oito. A primeira e a última são sempre pretas.</dd></div>
           <div><dt>Ouro</dt><dd>Um só metal por lâmina: o símbolo no rodapé ou a assinatura na última. Na última, o botão é só contorno, para a assinatura ser o único destaque. O numeral do miolo é marrom.</dd></div>
-          <div><dt>Identificação</dt><dd>A bio já identifica o perfil. Entra na peça quando a lâmina cita um médico pelo nome (lâmina 5) e no fechamento (bloco da clínica).</dd></div>
+          <div><dt>Identificação</dt><dd>Na legenda do post, com o bloco do médico citado e o da clínica. A lâmina só assina com o nome (lâmina 5).</dd></div>
           <div><dt>Dado</dt><dd>Número só com fonte e data escritas na própria lâmina. Sem dado confirmado, a lâmina mostra o processo, como o esquema da 4.</dd></div>
           <div><dt>Série</dt><dd>O fólio leva o nome da série. “Série Critério” ainda não foi aprovado pelo Instituto (<a href="#s23-4">pendências da seção 23.4</a>). <span class="selo selo--provisorio">Nome provisório</span></dd></div>
         </dl>
@@ -9968,8 +9930,8 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           <figcaption class="legenda"><b>Post 3:4 · foto</b>1080 × 1440, foto em prancha</figcaption>
         </figure>
         <figure class="mock-quadro">
-          <div class="mock post-34" role="img" aria-label="Post 3:4 da equipe, marfim: lugar do retrato da médica, com a sessão de fotos pendente, título Quem faz a sua avaliação e a identificação com nome, a palavra MÉDICA ou MÉDICO, CRM-PR, especialidade e RQE na mesma letra"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome] · [MÉDICA ou MÉDICO] · CRM-PR [nº]</span><span>[Especialidade registrada] · RQE [nº]</span></p></div><div class="grade-overlay" aria-hidden="true"></div></div>
-          <figcaption class="legenda"><b>Post 3:4 · equipe</b>Retrato e identificação completa</figcaption>
+          <div class="mock post-34" role="img" aria-label="Post 3:4 da equipe, marfim: lugar do retrato da médica, com a sessão de fotos pendente, título Quem faz a sua avaliação e a identificação com nome, a palavra MÉDICA ou MÉDICO, CRM-PR, especialidade e RQE na mesma letra"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome]</span></p></div><div class="grade-overlay" aria-hidden="true"></div></div>
+          <figcaption class="legenda"><b>Post 3:4 · equipe</b>Retrato e nome; identificação completa na legenda</figcaption>
         </figure>
         <figure class="mock-quadro">
           <div class="mock post" style="--m:135" role="img" aria-label="Post quadrado marfim, só tipografia: título Explicar antes de indicar e uma frase de apoio">
@@ -9997,7 +9959,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           </dl>
         </div>
         <div class="pilha">
-          <div class="nota"><strong>Post da equipe</strong>É o post que o perfil do Instituto mais vai publicar: ele é a vitrine do corpo clínico. O médico aparece pelo retrato e pela identificação completa (nome, a palavra MÉDICA ou MÉDICO, que ainda depende da pendência 03, CRM-PR e, quando a peça cita a especialidade, o RQE), tudo na mesma letra. O nome nunca vai no título, porque sairia maior que o registro.</div>
+          <div class="nota"><strong>Post da equipe</strong>É o post que o perfil do Instituto mais vai publicar: ele é a vitrine do corpo clínico. O médico aparece pelo retrato e pelo nome. A identificação completa (nome, a palavra MÉDICA ou MÉDICO, que ainda depende da pendência 03, CRM-PR e, quando a peça cita a especialidade, o RQE) vai na legenda do post.</div>
           <p class="legenda"><b>Foto em prancha</b>A foto entra com a margem de 72 da peça. De ponta a ponta, só quando a resolução aguenta (<a href="#s-09">seção 09</a>): a sala de espera não aguenta, e o recorte dela deixa de fora o teto, a câmera e o ar-condicionado.</p>
           <p class="legenda"><b>As 15 palavras</b>Contam título e texto. Rótulo, identificação médica e assinatura ficam fora da conta.</p>
         </div>
@@ -10054,7 +10016,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           </dl>
           <div class="nota"><strong>A figurinha é do aplicativo</strong>Ela não entra na arte exportada: coloque no próprio Instagram, no lugar marcado aqui. Toque nela até aparecer a versão de maior contraste com o fundo (clara no preto, escura no marfim).</div>
           <p class="legenda"><b>Foto e texto</b>O texto fala do que a foto mostra. A sala de luz quente é a da poltrona reclinável: ilustra o espaço, nunca a consulta nem um tratamento.</p>
-          <p class="legenda"><b>Story patrocinado</b>Anúncio usa as faixas do reels (14% em cima e 35% embaixo) e leva a identificação dentro da peça. Veja a <a href="#s-16">seção 16</a>.</p>
+          <p class="legenda"><b>Story patrocinado</b>Anúncio usa as faixas do reels (14% em cima e 35% embaixo); a identificação vai no texto do anúncio. Veja a <a href="#s-16">seção 16</a>.</p>
         </div>
       </div>
     </div>
@@ -10083,7 +10045,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
             <div><dt>Na grade</dt><dd>Recorte 3:4, de y 240 a 1680. Confira a capa nesse recorte antes de publicar: é ela que forma a vitrine do perfil.</dd></div>
             <div><dt>Palavras</dt><dd>Até 8, em no máximo duas linhas.</dd></div>
           </dl>
-          <p class="legenda">Na capa, nada de identificação nem de chamada: ela é a porta do vídeo. O vídeo impulsionado leva a tarja com nome e CRM em todos os quadros. O retrato é o do acervo; quando houver sessão de fotos, use um quadro do próprio vídeo.</p>
+          <p class="legenda">Na capa, nada de identificação nem de chamada: ela é a porta do vídeo. Nome e CRM vão na legenda do post. O retrato é o do acervo; quando houver sessão de fotos, use um quadro do próprio vídeo.</p>
           <a class="link-seta" href="#s-16">Especificação completa na seção 16.2</a>
         </div>
       </div>
@@ -10162,7 +10124,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
           <div class="c14-grade" role="img" aria-label="Grade de nove posts do Instituto em três linhas. Linha 1: preto com a pergunta O que levar para a consulta, foto da cortina dourada e o post marfim da equipe. Linha 2: marfim com a localização no Ecoville, preto com a nota Indicação vem antes da técnica e o post de foto da sala de espera. Linha 3: foto da sala de luz quente, marfim com A consulta é sempre o primeiro passo e preto com Cada caso é avaliado em consulta">
             <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" loading="lazy" decoding="async" style="--foco:50% 100%"></div></div>
-            <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome] · [MÉDICA ou MÉDICO] · CRM-PR [nº]</span><span>[Especialidade registrada] · RQE [nº]</span></p></div></div>
+            <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome]</span></p></div></div>
             <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Como chegar</span></div><svg class="pc-ic pc-mt-96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><p class="pc-titulo pc-mt-32">No <em>Ecoville</em>, em Curitiba.</p><p class="pc-texto pc-mt-32">R. Dep. Heitor Alencar Furtado, 3350, conj. 51</p><div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-espera"><img data-asset-src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"></div><p class="pc-rotulo pc-mt-48">O Instituto</p><p class="pc-titulo pc-mt-24">Unir medicina e <em>acolhimento</em>.</p><div class="pc-rodape"><p class="pc-texto">Sala de espera, Ecoville, Curitiba.</p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
@@ -10210,7 +10172,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
               <div class="ig-grade">
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" loading="lazy" decoding="async" style="--foco:50% 100%"></div></div>
-                <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome] · [MÉDICA ou MÉDICO] · CRM-PR [nº]</span><span>[Especialidade registrada] · RQE [nº]</span></p></div></div>
+                <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome]</span></p></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Como chegar</span></div><svg class="pc-ic pc-mt-96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><p class="pc-titulo pc-mt-32">No <em>Ecoville</em>, em Curitiba.</p><p class="pc-texto pc-mt-32">R. Dep. Heitor Alencar Furtado, 3350, conj. 51</p><div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-espera"><img data-asset-src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"></div><p class="pc-rotulo pc-mt-48">O Instituto</p><p class="pc-titulo pc-mt-24">Unir medicina e <em>acolhimento</em>.</p><div class="pc-rodape"><p class="pc-texto">Sala de espera, Ecoville, Curitiba.</p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
@@ -10265,7 +10227,7 @@ Avaliação médica antes de qualquer indicação.</p>
                 <div class="mock post-34 c14-recorte"><div class="peca campo-preto c14-capa-reels"><p class="pc-rotulo">Série Critério · vídeo</p><div class="pc-foto pc-mt-32" style="height:calc(var(--u) * 480);--foco:50% 3%"><img data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" loading="lazy" decoding="async"></div><p class="pc-titulo pc-mt-48">Por que a consulta vem <em>antes</em>?</p></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-foto-cheia" style="--foco:50% 75%"><img data-asset-src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Colaboração</b></span><span>Instituto ISC</span></div><p class="pc-titulo pc-mt-96">A consulta é sempre o <em>primeiro</em> passo.</p><span class="pc-cta pc-mt-48">Agende sua avaliação</span><div class="pc-rodape"><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
-                <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Consulta</b></span><span>Citação</span></div><span class="pc-fio c14-fio-curto pc-mt-96"></span><p class="c14-olho c14-olho--p pc-mt-48">Busco sempre oferecer um atendimento humanizado e fornecer todas as informações aos meus pacientes.</p><p class="pc-id pc-empurra"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div></div>
+                <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Consulta</b></span><span>Citação</span></div><span class="pc-fio c14-fio-curto pc-mt-96"></span><p class="c14-olho c14-olho--p pc-mt-48">Busco sempre oferecer um atendimento humanizado e fornecer todas as informações aos meus pacientes.</p><p class="pc-id pc-empurra"><span>Dr. Sharbo Casagrande</span></p></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Consulta</b></span><span>Nota</span></div><p class="pc-titulo pc-mt-96">Toda indicação começa por uma <em>conversa</em>.</p><div class="pc-rodape"><p class="pc-rotulo">Dr. Sharbo Casagrande</p></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-espera"><img data-asset-src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"></div><p class="pc-rotulo pc-mt-48">Colaboração · Instituto ISC</p><p class="pc-titulo pc-mt-24">Unir medicina e <em>acolhimento</em>.</p><div class="pc-rodape"><p class="pc-texto">Sala de espera, Ecoville, Curitiba.</p><img class="pc-simbolo" data-asset-src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" loading="lazy" decoding="async" style="--foco:50% 100%"></div></div>
@@ -10310,9 +10272,9 @@ Atende no Instituto ISC · Curitiba (PR)</p>
             <tr><td>Post único</td><td class="n">1080 × 1440 (3:4)</td><td>72 px; aparece inteiro na grade</td><td>Na bio. No post da equipe, dentro da peça</td></tr>
             <tr><td>Post quadrado</td><td class="n">1080 × 1080</td><td>135 px nas laterais e 72 em cima e embaixo</td><td>Na bio</td></tr>
             <tr><td>Story</td><td class="n">1080 × 1920</td><td>72 nas laterais; 250 livres em cima e embaixo</td><td>Na bio. Na peça, quando cita um médico</td></tr>
-            <tr><td>Capa de reels</td><td class="n">1080 × 1920</td><td>Tudo entre y 285 e 1248, com 72 de margem: o 4:5 central, acima dos 35% de baixo</td><td>Não leva. O vídeo impulsionado leva a tarja</td></tr>
+            <tr><td>Capa de reels</td><td class="n">1080 × 1920</td><td>Tudo entre y 285 e 1248, com 72 de margem: o 4:5 central, acima dos 35% de baixo</td><td>Não leva. Vai na legenda do post</td></tr>
             <tr><td>Capa de destaque</td><td class="n">1080 × 1080</td><td>Fio de 8 px com raio de 502; ícone de 360 px no centro</td><td>Não leva</td></tr>
-            <tr><td>Peça que sai do perfil</td><td>O tamanho do formato</td><td>Faixa de identificação na base, dentro da margem</td><td>Dentro da peça: WhatsApp, anúncio, compartilhamento, impresso</td></tr>
+            <tr><td>Peça que sai do perfil</td><td>O tamanho do formato</td><td>Nenhuma identificação na arte</td><td>Na legenda do post; no impresso, dentro da peça</td></tr>
           </tbody>
         </table>
       </div>
@@ -10963,7 +10925,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <li><b>Vertical, de 40 a 50 segundos.</b>1080 × 1920; nada importante nos 14% de cima nem nos 35% de baixo. <a class="minuto-ref" href="#s16-1">16.1</a></li>
           <li><b>Gancho em dois segundos.</b>Uma frase que nega o exagero ou abre uma pergunta, com um itálico: ouro no preto, champanhe sobre foto. <a class="minuto-ref" href="#s16-3">16.3</a></li>
           <li><b>Legenda curta, na altura do peito.</b>De 1 a 3 palavras, branca, sem caixa e sem contorno. <a class="minuto-ref" href="#s16-4">16.4</a></li>
-          <li><b>Tarja com nome, MÉDICO e CRM.</b>No perfil, na primeira aparição; no anúncio, em todos os quadros, com os dois blocos. <a class="minuto-ref" href="#s16-5">16.5</a></li>
+          <li><b>Identificação na legenda do post.</b>Nome, MÉDICO e CRM no texto do post, nunca em tarja no vídeo. <a class="minuto-ref" href="#s16-5">16.5</a></li>
           <li><b>Só três transições.</b>Corte, dissolução e deslize. Nada de falha, chicote ou clarão. <a class="minuto-ref" href="#s16-7">16.7</a></li>
           <li><b>O que a câmera não grava.</b>Paciente, marca comercial e tela com dado de saúde ficam fora do quadro. <a class="minuto-ref" href="#s16-12">16.12</a></li>
         </ol>
@@ -10974,7 +10936,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <li><a href="#s16-2"><span>16.2</span>Capa</a></li>
             <li><a href="#s16-3"><span>16.3</span>Gancho</a></li>
             <li><a href="#s16-4"><span>16.4</span>Legenda</a></li>
-            <li><a href="#s16-5"><span>16.5</span>Tarja de identificação</a></li>
+            <li><a href="#s16-5"><span>16.5</span>Identificação na legenda</a></li>
             <li><a href="#s16-6"><span>16.6</span>Cartela final</a></li>
             <li><a href="#s16-9"><span>16.9</span>Luz e figurino</a></li>
             <li><a href="#s16-11"><span>16.11</span>Perfil do editor</a></li>
@@ -11005,15 +10967,14 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <figcaption class="fita-tempo"><b>0:00</b>Gancho, 2 s</figcaption>
         </figure>
         <figure>
-          <div class="mock reels" role="img" aria-label="Quadro 0:02, fala: o médico no retrato de acervo, legenda Antes de indicar na altura do peito e a tarja de identificação logo abaixo">
+          <div class="mock reels" role="img" aria-label="Quadro 0:02, fala: o médico no retrato de acervo, legenda Antes de indicar na altura do peito">
             <div class="peca peca--segura campo-preto">
               <img class="pc-fundo" data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 30%" loading="lazy" decoding="async"><span class="pc-veu"></span>
               <p class="pc-legenda pc-empurra">Antes de <em>indicar</em></p>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
             </div>
             <div class="ui-reels" aria-hidden="true"></div>
           </div>
-          <figcaption class="fita-tempo"><b>0:02</b>Fala e tarja</figcaption>
+          <figcaption class="fita-tempo"><b>0:02</b>Fala</figcaption>
         </figure>
         <figure>
           <div class="mock reels" role="img" aria-label="Quadro 0:12, aproximação, em desenho esquemático: rosto e ombros de quem fala ocupam o quadro, legenda o seu histórico">
@@ -11050,7 +11011,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <div class="peca peca--segura campo-preto c16-cartela">
               <div class="c16-cartela-centro">
                 <p class="pc-titulo">Comente <em>“consulta”</em>.</p>
-                <p class="pc-id pc-mt-96"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p>
+                <p class="pc-id pc-mt-96"><span>Dr. Sharbo Casagrande</span></p>
               </div>
             </div>
           </div>
@@ -11073,8 +11034,8 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <div><dt>Formato</dt><dd>1080 × 1920 px, vertical, 30 quadros por segundo.</dd></div>
           <div><dt>Duração</dt><dd><b>40 a 50 segundos</b>, fala em velocidade normal.</dd></div>
           <div><dt>Área segura</dt><dd>Nada importante nos 14% de cima nem nos 35% de baixo, onde o aplicativo põe a descrição e os botões.</dd></div>
-          <div><dt>Letras</dt><dd>Gilda Display no gancho e na cartela; Montserrat 500 na legenda e na tarja; EB Garamond Italic na palavra de ênfase.</dd></div>
-          <div><dt>Cor</dt><dd>Preto ISC, branco e o ouro só no itálico, no fio da tarja e na assinatura.</dd></div>
+          <div><dt>Letras</dt><dd>Gilda Display no gancho e na cartela; Montserrat 500 na legenda; EB Garamond Italic na palavra de ênfase.</dd></div>
+          <div><dt>Cor</dt><dd>Preto ISC, branco e o ouro só no itálico e na assinatura.</dd></div>
         </dl>
       </div>
     </div>
@@ -11135,7 +11096,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <div><dt>Arquivo</dt><dd><b>1080 × 1920 px</b>, PNG ou quadro do próprio vídeo, enviado como capa do reels.</dd></div>
           <div><dt>Área útil</dt><dd>De y <b>285 a 1248</b>, com <b>72&nbsp;px</b> de margem (14.4).</dd></div>
           <div><dt>Palavras</dt><dd>Até 8, em no máximo duas linhas, com um itálico.</dd></div>
-          <div><dt>Na capa</dt><dd>Nada de identificação nem de chamada: a capa é a porta do vídeo. O nome e o CRM ficam na tarja, dentro do vídeo (16.5).</dd></div>
+          <div><dt>Na capa</dt><dd>Nada de identificação nem de chamada: a capa é a porta do vídeo. O nome e o CRM ficam na legenda do post (16.5).</dd></div>
         </dl>
         <dl class="ficha-tec">
           <div><dt>Série</dt><dd>Campo preto, fólio com o nome da série e numeral grande. O numeral é o único metal; o símbolo vai em ouro chapado.</dd></div>
@@ -11227,7 +11188,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <div><dt>Fonte</dt><dd>Montserrat 500, branca, caixa normal, <b>64&nbsp;px</b> na tela de 1080 (cerca de 23&nbsp;px no celular).</dd></div>
             <div><dt>Palavra-chave</dt><dd>EB Garamond Italic 500, 1,2 vez maior, na mesma cor branca. Uma por frase, a que carrega a ideia.</dd></div>
             <div><dt>Por vez</dt><dd>De 1 a 3 palavras, no máximo duas linhas, centralizadas.</dd></div>
-            <div><dt>Posição</dt><dd>Na altura do peito de quem fala, com o espaço da tarja livre embaixo, acima dos 35% de baixo e longe da coluna de botões da direita. A legenda não muda de altura quando a tarja sai.</dd></div>
+            <div><dt>Posição</dt><dd>Na altura do peito de quem fala, acima dos 35% de baixo e longe da coluna de botões da direita.</dd></div>
             <div><dt>Tempo</dt><dd>Troca junto com a fala, nunca antes dela. Pontuação só a da frase falada.</dd></div>
             <div><dt>Leitura</dt><dd>Sobre imagem clara, sombra em degradê de Preto ISC subindo da base (seção 09). Nunca contorno nem caixa.</dd></div>
           </dl>
@@ -11235,81 +11196,44 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
       </div>
     </div>
 
-    <!-- 16.5 Lower third e identificação -->
+    <!-- 16.5 Identificação na legenda do post -->
     <div class="bloco reveal" id="s16-5">
       <div class="bloco-head">
-        <div><span class="bloco-n">16.5</span><h3>A tarja de identificação</h3></div>
-        <p class="bloco-apoio">A tarja do Instituto (o “lower third” da edição): faixa Preto ISC com o fio de ouro à esquerda e a identificação médica por dentro. Nome, MÉDICO e CRM na mesma fonte, tamanho e cor, sempre.</p>
+        <div><span class="bloco-n">16.5</span><h3>Identificação na legenda do post</h3></div>
+        <p class="bloco-apoio">O vídeo não leva tarja de identificação. Nome, MÉDICO, CRM, RQE e, no Instituto, o registro da clínica e o Diretor Técnico-Médico vão no texto da legenda do post, em todas as redes. O quadro fica livre para a imagem e para a legenda curta da fala.</p>
       </div>
-      <div class="mesa cols-4">
-        <figure class="mock-quadro">
-          <div class="mock reels" role="img" aria-label="Vídeo no perfil do médico: tarja com Dr. Sharbo Casagrande, MÉDICO, CRM-PR na primeira aparição">
-            <div class="peca peca--segura campo-preto">
-              <img class="pc-fundo" data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 30%" loading="lazy" decoding="async"><span class="pc-veu"></span>
-              <p class="pc-legenda pc-empurra">Antes de <em>indicar</em></p>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p></div>
-            </div>
-            <div class="ui-reels" aria-hidden="true"></div>
-            <div class="grade-overlay" aria-hidden="true"></div>
-          </div>
-          <figcaption class="legenda"><b>No perfil do médico</b>Primeira aparição, 4 s</figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock reels" role="img" aria-label="Vídeo que cita a especialidade, em desenho esquemático: tarja em duas linhas, com a especialidade registrada no CRM-PR e o RQE entre colchetes, na mesma fonte, tamanho e cor. Só vale depois de confirmado o registro">
-            <div class="peca peca--segura campo-preto">
-              <svg class="pc-fundo c16-silhueta" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path d="M470 760H610L618 890H462Z"/><path d="M60 1920L78 1190C86 1070 168 996 300 966L462 930Q540 968 618 930L780 966C912 996 994 1070 1002 1190L1020 1920Z"/><path class="c16-gola" d="M462 930L540 1050L618 930"/><ellipse class="c16-rosto" cx="540" cy="650" rx="118" ry="150"/></svg>
-              <p class="pc-legenda pc-empurra">eu preciso <em>entender</em></p>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]</span><span>[Especialidade registrada no CRM-PR] · RQE [nº]</span></p></div>
-            </div>
-            <div class="ui-reels" aria-hidden="true"></div>
-            <div class="grade-overlay" aria-hidden="true"></div>
-          </div>
-          <figcaption class="legenda"><b>Com especialidade</b>Só com o RQE <span class="selo selo--pendente">Depois da pendência 03</span></figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock reels" role="img" aria-label="Anúncio pela página do Instituto sem médico em cena: tarja fixa com o registro da clínica e o Diretor Técnico-Médico, em todos os quadros">
-            <div class="peca peca--segura campo-preto">
-              <img class="pc-fundo c16-sem-teto" data-asset-src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:42% 50%" loading="lazy" decoding="async"><span class="pc-veu"></span>
-              <p class="pc-legenda pc-empurra">o que é <em>possível</em></p>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p></div>
-            </div>
-            <div class="ui-reels" aria-hidden="true"></div>
-            <div class="grade-overlay" aria-hidden="true"></div>
-          </div>
-          <figcaption class="legenda"><b>Anúncio pela página do Instituto</b>Em todos os quadros</figcaption>
-        </figure>
-        <figure class="mock-quadro">
-          <div class="mock reels" role="img" aria-label="Anúncio pela página do Instituto em que o médico fala: tarja fixa em três linhas, com os dados do médico, o registro da clínica e o Diretor Técnico-Médico, na mesma fonte, tamanho e cor">
-            <div class="peca peca--segura campo-preto">
-              <img class="pc-fundo" data-asset-src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 30%" loading="lazy" decoding="async"><span class="pc-veu"></span>
-              <p class="pc-legenda pc-empurra">o primeiro <em>passo</em></p>
-              <div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]</span><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p></div>
-            </div>
-            <div class="ui-reels" aria-hidden="true"></div>
-            <div class="grade-overlay" aria-hidden="true"></div>
-          </div>
-          <figcaption class="legenda"><b>Anúncio com o médico</b>Os dois blocos, fixos</figcaption>
-        </figure>
-      </div>
-      <p class="legenda mt-4">O retrato é do acervo; na gravação vale o figurino da 16.9. O segundo quadro é um desenho: a tarja com especialidade só entra depois de confirmado o registro (pendência 3 da seção 23). O quarto é o caso dos anúncios de hoje: anúncio no Meta (anunciante: página do Instituto; quem fala e assina: Dr. Sharbo).</p>
-      <div class="cols-7-5 alinha-topo gap-g mt-7">
-        <div class="pilha">
-          <p class="rotulo">Quanto tempo a tarja fica na tela, num vídeo de 45 segundos</p>
-          <div class="c16-trilhas">
-            <div class="c16-trilha c16-trilha--escala" aria-hidden="true"><span class="c16-trilha-barra"><small>0 s</small><small>15 s</small><small>30 s</small><small>45 s</small></span></div>
-            <div class="c16-trilha"><span class="c16-trilha-nome">Vídeo que fica no perfil</span><span class="c16-trilha-barra" role="img" aria-label="Tarja de 0:02 a 0:06"><span style="--ini:4.4%;--fim:13.3%"></span></span><span class="c16-trilha-tempo">0:02 a 0:06, na primeira aparição de quem fala</span></div>
-            <div class="c16-trilha"><span class="c16-trilha-nome">Anúncio, vídeo impulsionado ou enviado para fora do perfil</span><span class="c16-trilha-barra" role="img" aria-label="Tarja de 0:00 a 0:45"><span style="--ini:0%;--fim:100%"></span></span><span class="c16-trilha-tempo">0:00 a 0:45, em todos os quadros</span></div>
-          </div>
-          <div class="nota"><strong>Por que a tarja fica o vídeo inteiro no anúncio</strong>O Manual de Publicidade Médica pede a identificação legível em todos os quadros do vídeo de anúncio na internet (p. 71). Para reels impulsionado, a regra não é explícita: este manual adota a leitura mais segura (seção 08).</div>
+      <div class="cols-3 mt-6">
+        <div class="modelo">
+          <p class="rotulo">Legenda de post do @drsharbo</p>
+          <p class="modelo-texto">Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]
+[Especialidade registrada]&nbsp;· RQE [nº]</p>
+          <p class="legenda">A segunda linha só entra quando o post cita especialidade, e só com o RQE confirmado.</p>
+          <button class="copiar" type="button" aria-label="Copiar a identificação para a legenda do médico">Copiar</button>
         </div>
+        <div class="modelo">
+          <p class="rotulo">Legenda de post do Instituto</p>
+          <p class="modelo-texto">Instituto ISC&nbsp;· Registro CRM-PR [nº]
+Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
+          <p class="legenda">No fim do texto da legenda, antes das hashtags.</p>
+          <button class="copiar" type="button" aria-label="Copiar a identificação para a legenda do Instituto">Copiar</button>
+        </div>
+        <div class="modelo">
+          <p class="rotulo">Post do Instituto em que o médico aparece</p>
+          <p class="modelo-texto">Dr. Sharbo Casagrande&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]
+Instituto ISC&nbsp;· Registro CRM-PR [nº]
+Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· CRM-PR [nº]</p>
+          <p class="legenda">Os dois blocos, um embaixo do outro (Resolução 2.336, art.&nbsp;9º,&nbsp;X).</p>
+          <button class="copiar" type="button" aria-label="Copiar os dois blocos para a legenda">Copiar</button>
+        </div>
+      </div>
+      <div class="cols-7-5 alinha-topo gap-g mt-7">
         <dl class="ficha-tec">
-          <div><dt>Faixa</dt><dd>Preto ISC, fio de ouro de 3&nbsp;px à esquerda, 18&nbsp;px por 26&nbsp;px de respiro por dentro.</dd></div>
-          <div><dt>Texto</dt><dd>Montserrat 500, <b>26&nbsp;px</b>, branco. Uma linha; duas quando entra a especialidade ou a clínica; três no vídeo do Instituto em que o médico fala.</dd></div>
-          <div><dt>Posição</dt><dd>Na base da área segura, alinhada à margem esquerda de 65&nbsp;px, logo abaixo da legenda.</dd></div>
-          <div><dt>Quem aparece</dt><dd>No vídeo do médico, os dados dele. No vídeo do Instituto, os da clínica e do Diretor Técnico-Médico. No vídeo do Instituto em que um médico fala, os dados dele e os da clínica (Resolução CFM 2.336/2023, art.&nbsp;9º, X).</dd></div>
+          <div><dt>Onde</dt><dd>No texto da legenda do post, no fim, antes das hashtags. Vale para Instagram, Facebook, TikTok, YouTube, LinkedIn e Threads, e para o texto principal do anúncio.</dd></div>
+          <div><dt>Quem aparece</dt><dd>No post do médico, os dados dele. No post do Instituto, os da clínica e do Diretor Técnico-Médico. No post do Instituto em que um médico fala, os dois blocos.</dd></div>
           <div><dt>Especialidade</dt><dd>Só a registrada no CRM-PR, com o RQE (08.5).</dd></div>
-          <div><dt>Movimento</dt><dd>Entra e sai por dissolução. Nunca letra por letra.</dd></div>
+          <div><dt>No quadro</dt><dd>Nenhuma tarja, faixa ou caixa com dados do médico, do começo ao fim do vídeo.</dd></div>
         </dl>
+        <div class="nota"><strong>Decisão do Instituto, 27/09/2026</strong>A identificação médica sai de dentro das artes de redes sociais: post, carrossel, story, reels, vídeo e anúncio. Ela vai no texto da legenda de cada post, em todas as redes. O Manual de Publicidade Médica do CFM (p.&nbsp;71 a 73) pede a identificação dentro da peça que sai do perfil e em todos os quadros do vídeo de anúncio. A leitura de que a legenda basta é do Instituto: se a Codame do <span class="c08-nq">CRM-PR</span> ou a assessoria jurídica disser o contrário, a identificação volta para dentro da arte. Impressos, receituário, placas, site e documentos continuam com o bloco dentro da peça (seções 08.4, 17 e 18).</div>
       </div>
     </div>
 
@@ -11317,7 +11241,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
     <div class="bloco reveal" id="s16-6">
       <div class="bloco-head">
         <div><span class="bloco-n">16.6</span><h3>A cartela final</h3></div>
-        <p class="bloco-apoio">Os últimos três segundos, parados: uma chamada e a assinatura. No reels orgânico do @drsharbo, o pedido de comentário e o bloco do médico; no anúncio pela página do Instituto, a chamada de agendamento, a marca e a tarja.</p>
+        <p class="bloco-apoio">Os últimos três segundos, parados: uma chamada e a assinatura. No reels orgânico do @drsharbo, o pedido de comentário e o bloco do médico; no anúncio pela página do Instituto, a chamada de agendamento e a marca. A identificação vai na legenda do post.</p>
       </div>
       <div class="cols-7-5 alinha-topo gap-g">
         <div class="mesa cols-2">
@@ -11326,7 +11250,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
               <div class="peca peca--segura campo-preto c16-cartela">
                 <div class="c16-cartela-centro">
                   <p class="pc-titulo">Comente <em>“consulta”</em>.</p>
-                  <p class="pc-id pc-mt-96"><span>Dr. Sharbo Casagrande</span><span>MÉDICO</span><span>CRM-PR [nº]</span></p>
+                  <p class="pc-id pc-mt-96"><span>Dr. Sharbo Casagrande</span></p>
                 </div>
               </div>
               <div class="ui-reels" aria-hidden="true"></div>
@@ -11335,19 +11259,18 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <figcaption class="legenda"><b>No perfil do @drsharbo</b>Palavra de exemplo, assinatura do médico</figcaption>
           </figure>
           <figure class="mock-quadro">
-            <div class="mock reels" role="img" aria-label="Cartela final de anúncio pela página do Instituto: Agende sua avaliação, WhatsApp e bairro, a assinatura em ouro e a tarja fixa com o bloco do médico e o da clínica">
+            <div class="mock reels" role="img" aria-label="Cartela final de anúncio pela página do Instituto: Agende sua avaliação, WhatsApp e bairro, e a assinatura em ouro">
               <div class="peca peca--segura campo-preto c16-cartela">
                 <div class="c16-cartela-centro">
                   <p class="pc-titulo">Agende sua <em>avaliação</em>.</p>
                   <p class="pc-texto pc-mt-32">WhatsApp (41) [número oficial] · Ecoville, Curitiba</p>
                   <img class="pc-marca pc-mt-72" data-asset-src="assets/isc-horizontal-ouro.svg" alt="" width="852" height="365" loading="lazy" decoding="async">
                 </div>
-                <div class="pc-tarja pc-mt-48"><p class="pc-id pc-id--linhas"><span>Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]</span><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p></div>
               </div>
               <div class="ui-reels" aria-hidden="true"></div>
               <div class="grade-overlay" aria-hidden="true"></div>
             </div>
-            <figcaption class="legenda"><b>Anúncio pela página do Instituto</b>Tarja no mesmo lugar, com os dois blocos</figcaption>
+            <figcaption class="legenda"><b>Anúncio pela página do Instituto</b>Os dois blocos vão no texto do anúncio</figcaption>
           </figure>
         </div>
         <div class="pilha">
@@ -11356,7 +11279,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <div><dt>Campo</dt><dd>Preto ISC liso. Entra por dissolução, com a trilha terminando junto.</dd></div>
             <div><dt>Chamada</dt><dd>Gilda Display, 104&nbsp;px, centralizada, um itálico.</dd></div>
             <div><dt>Assinatura</dt><dd><b>No @drsharbo:</b> o bloco do médico (nome, MÉDICO e CRM-PR), em Montserrat 500 de 26&nbsp;px, sem a marca ISC até a decisão da 06.3. <b>No anúncio pela página do Instituto:</b> horizontal em ouro, <b>460&nbsp;px</b> de largura, centralizada, o único metal do quadro.</dd></div>
-            <div><dt>No anúncio</dt><dd>Telefone e bairro podem entrar (Resolução CFM 2.336/2023, art. 13, II). A tarja não muda de lugar.</dd></div>
+            <div><dt>No anúncio</dt><dd>Telefone e bairro podem entrar (Resolução CFM 2.336/2023, art. 13, II). Os dados médicos vão no texto do anúncio.</dd></div>
           </dl>
           <div class="nota"><strong>A palavra do comentário</strong>“Consulta” é só o exemplo. A regra da palavra, que nunca é nome de tratamento, está em <a href="#s07-6">07.6</a>.</div>
         </div>
@@ -11391,7 +11314,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           </svg>
           <span class="selo selo--permitido">Permitido</span>
           <h4>Dissolução</h4>
-          <p>Entre dois momentos do roteiro, na entrada e na saída da tarja e na chegada da cartela. De 8 a 12 quadros (cerca de 0,3 a 0,4 s).</p>
+          <p>Entre dois momentos do roteiro e na chegada da cartela. De 8 a 12 quadros (cerca de 0,3 a 0,4 s).</p>
         </div>
         <div class="card c16-trans">
           <svg viewBox="0 0 280 96" role="img" aria-labelledby="s16-tr3-t"><title id="s16-tr3-t">Deslize: no quadro do meio, a cena B entra pela direita e empurra a cena A</title>
@@ -11478,7 +11401,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
       <div class="cols-5-7 alinha-topo gap-g">
         <figure class="figura painel campo-branco c16-folha">
           <svg viewBox="-60 -60 1200 2040" role="img" aria-labelledby="s16-enq-t" focusable="false">
-            <title id="s16-enq-t">Folha técnica do enquadramento do reels: quadro de 1080 por 1920 com a faixa livre de cima (14%), a faixa da interface embaixo (35%), a coluna de botões à direita, as margens, as linhas dos terços, a silhueta de quem fala com os olhos na linha do terço de cima, a área da legenda na altura do peito e a tarja logo abaixo</title>
+            <title id="s16-enq-t">Folha técnica do enquadramento do reels: quadro de 1080 por 1920 com a faixa livre de cima (14%), a faixa da interface embaixo (35%), a coluna de botões à direita, as margens, as linhas dos terços, a silhueta de quem fala com os olhos na linha do terço de cima e a área da legenda na altura do peito</title>
             <rect x="0" y="0" width="1080" height="1920" fill="#FFFFFF" stroke="#6B645B" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
             <g stroke="#D9CDB8" stroke-width="1.5" vector-effect="non-scaling-stroke"><path d="M0 640H1080M0 1280H1080M360 0V1920M720 0V1920"/></g>
             <g stroke="#5E3118" stroke-width="1.25" stroke-dasharray="8 6" fill="none" vector-effect="non-scaling-stroke"><path d="M0 269H1080M0 1248H1080M65 269V1248M1015 269V1248"/><rect x="968" y="1052" width="84" height="576" rx="12"/></g>
@@ -11489,7 +11412,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <g fill="#5E3118" fill-opacity=".1"><rect x="0" y="0" width="1080" height="269"/><rect x="0" y="1248" width="1080" height="672"/></g>
             <g stroke="#5E3118" stroke-width="2.5" vector-effect="non-scaling-stroke"><path d="M402 640H676M402 626V654M676 626V654"/></g>
             <rect x="110" y="1016" width="860" height="112" fill="none" stroke="#5E3118" stroke-width="1.75" stroke-dasharray="10 6" vector-effect="non-scaling-stroke"/>
-            <rect x="65" y="1146" width="720" height="84" fill="#121314"/><rect x="65" y="1146" width="4" height="84" fill="#D39A1F"/>
+            
             <g stroke="#6B645B" stroke-width="1" fill="none" vector-effect="non-scaling-stroke">
               <circle cx="-30" cy="-30" r="10"/><path d="M-50 -30H-10M-30 -50V-10"/>
               <circle cx="1110" cy="-30" r="10"/><path d="M1090 -30H1130M1110 -50V-10"/>
@@ -11503,9 +11426,9 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
               <text x="540" y="1520" text-anchor="middle"><tspan x="540">DESCRIÇÃO E BOTÕES DO APP</tspan><tspan x="540" dy="54">672 PX · 35%</tspan></text>
               <text x="92" y="336">MARGEM 65</text>
             </g>
-            <text x="94" y="1201" aria-hidden="true" style="font-family:Montserrat,system-ui,sans-serif;font-weight:500;font-size:36px;letter-spacing:2px;fill:#FFFFFF">TARJA DE IDENTIFICAÇÃO</text>
+            <text x="94" y="1201" aria-hidden="true" style="font-family:Montserrat,system-ui,sans-serif;font-weight:500;font-size:36px;letter-spacing:2px;fill:#FFFFFF"></text>
           </svg>
-          <figcaption class="legenda"><b>Folha 16.9</b>Tracejado: os limites da área segura e a coluna de botões à direita. Os olhos ficam na linha do terço de cima; a legenda, na altura do peito; a tarja, logo abaixo.</figcaption>
+          <figcaption class="legenda"><b>Folha 16.9</b>Tracejado: os limites da área segura e a coluna de botões à direita. Os olhos ficam na linha do terço de cima; a legenda, na altura do peito.</figcaption>
         </figure>
         <div class="pilha">
           <dl class="ficha-tec">
@@ -11534,7 +11457,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
             <div class="download"><div><b>Símbolo para a capa de série</b><span>Ouro chapado, fundo transparente, 800 px</span><span class="selo selo--derivada">Derivada · aguarda validação do designer</span></div><span class="download-meta">PNG · 51 kB</span><a class="btn btn--linha btn--baixar" href="assets/isc-simbolo-ouro-chapado-web.png" download>Baixar</a></div>
           </div>
         </div>
-        <div class="nota"><strong>Tarja e cartela ainda não são arquivo</strong>Não existe PNG pronto da tarja nem da cartela. Até o modelo ser validado no editor do videomaker (pendência 9 da seção 23), as duas são montadas no próprio editor com as medidas da 16.5 e da 16.6, e conferidas sobre a área segura.</div>
+        <div class="nota"><strong>A cartela ainda não é arquivo</strong>Não existe PNG pronto da cartela. Até o modelo ser validado no editor do videomaker (pendência 9 da seção 23), ela é montada no próprio editor com as medidas da 16.6 e conferida sobre a área segura.</div>
       </div>
     </div>
     <!-- 16.10 Não faça -->
@@ -11558,11 +11481,6 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <div class="mock reels" role="img" aria-label="Erro: legenda na base, coberta pela descrição e pelos botões do aplicativo"><div class="peca campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" style="--foco:50% 40%" loading="lazy" decoding="async"><span class="pc-veu"></span><p class="pc-legenda pc-empurra c16-err-base">Antes de <em>indicar</em></p></div><div class="ui-reels" aria-hidden="true"></div></div>
           <span class="nf-x" aria-hidden="true"></span>
           <figcaption class="nf-txt"><b>Legenda na base.</b>Nos 35% de baixo, a descrição e os botões do aplicativo cobrem o texto.</figcaption>
-        </figure>
-        <figure class="nf">
-          <div class="mock reels" role="img" aria-label="Erro: tarja com o nome grande em outra fonte e o CRM pequeno"><div class="peca peca--segura campo-preto"><img class="pc-fundo" data-asset-src="assets/fotos/instituto-sala-de-atendimento.jpg" alt="" width="1920" height="1280" style="--foco:40% 50%" loading="lazy" decoding="async"><span class="pc-veu"></span><div class="pc-tarja pc-empurra"><p class="c16-err-nome">Dr. Sharbo Casagrande</p><p class="pc-id">MÉDICO · CRM-PR [nº]</p></div></div><div class="ui-reels" aria-hidden="true"></div></div>
-          <span class="nf-x" aria-hidden="true"></span>
-          <figcaption class="nf-txt"><b>Nome grande, CRM pequeno.</b>Nome, MÉDICO e CRM vão na mesma fonte, no mesmo tamanho e na mesma cor.</figcaption>
         </figure>
         <figure class="nf">
           <div class="mock reels" role="img" aria-label="Erro: gancho com efeito de falha digital e franjas coloridas"><div class="peca peca--segura campo-preto"><div class="pc-empurra"><p class="pc-sub c16-err-glitch">Antes do tratamento,</p><p class="pc-titulo pc-titulo--g pc-mt-16 c16-err-glitch">a <em>consulta</em>.</p></div></div><div class="ui-reels" aria-hidden="true"></div></div>
@@ -11606,9 +11524,9 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
               <tr><td>Legenda</td><td>Montserrat 500 branca, 1 a 3 palavras, sem caixa e sem contorno; sombra de leitura em Preto ISC.</td></tr>
               <tr><td>Palavra-chave da legenda</td><td>EB Garamond Italic 500, 1,2 vez maior, branca. Sai o cobre e sai o peso mais forte.</td></tr>
               <tr><td>Gancho e cartela</td><td>Gilda Display branca; itálico em ouro no campo preto e champanhe sobre foto (09.4).</td></tr>
-              <tr><td>Tarja</td><td>Preto ISC com fio de ouro, identificação em Montserrat 500 branca.</td></tr>
+              <tr><td>Identificação</td><td>Não entra no vídeo: vai na legenda do post (16.5).</td></tr>
               <tr><td>Infográfico e painel</td><td>Fundo Preto ISC, cartão Noite, destaque em ouro; séries em champanhe e fumaça.</td></tr>
-              <tr><td>Encerramento</td><td>No @drsharbo: Comente “[palavra]”, em Gilda, com o bloco do médico (Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]), sem a marca ISC até a decisão da 06.3. No anúncio pela página do Instituto: a chamada, a assinatura em ouro e a tarja com os dois blocos (16.6).</td></tr>
+              <tr><td>Encerramento</td><td>No @drsharbo: Comente “[palavra]”, em Gilda, com o bloco do médico (Dr. Sharbo Casagrande · MÉDICO · CRM-PR [nº]), sem a marca ISC até a decisão da 06.3. No anúncio pela página do Instituto: a chamada e a assinatura em ouro; os dois blocos vão no texto do anúncio (16.5 e 16.6).</td></tr>
               <tr><td>Velocidade</td><td>1,0×; no máximo 1,1×.</td></tr>
               <tr><td>Imagens de apoio</td><td>Fotos reais do Instituto. Imagem gerada por inteligência artificial só como ilustração abstrata (fio, círculo, ponto, textura). Nunca sala, pessoa, paciente, rosto, corpo ou resultado (seções 08.8 e 09.7).</td></tr>
             </tbody>
@@ -14096,7 +14014,6 @@ window.iscAtualiza(elemento);</code></pre>
               <div class="pc-rodape">
                 <img class="pc-marca" data-asset-src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto" width="852" height="365" loading="lazy" decoding="async">
               </div>
-              <p class="pc-id pc-id--linhas pc-mt-24"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
@@ -14113,7 +14030,6 @@ window.iscAtualiza(elemento);</code></pre>
               <div class="pc-rodape">
                 <img class="pc-marca" data-asset-src="assets/isc-horizontal-ouro.svg" alt="ISC Instituto, com a assinatura pequena demais" width="852" height="365" loading="lazy" decoding="async" style="width:calc(var(--u) * 300)">
               </div>
-              <p class="pc-id pc-id--linhas pc-mt-16"><span>Instituto ISC · Registro CRM-PR [nº]</span><span>Diretor Técnico-Médico: [nome] · MÉDICO · CRM-PR [nº]</span></p>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
@@ -14500,7 +14416,7 @@ Apoio no preto: #1B1C1E #F8EEE0 #A8A198 #2E2D2B</p>
       <div class="cols-2 gap-g alinha-topo">
         <div class="pilha">
           <h4>Perfil de vídeo Fio de Ouro</h4>
-          <p>O arquivo do editor troca cor, letra, legenda, tarja e encerramento de uma vez. Os valores ficam só na seção 16.11, para não existirem dois números para a mesma coisa: copie de lá o arquivo <code>video/perfil.json</code> inteiro.</p>
+          <p>O arquivo do editor troca cor, letra, legenda e encerramento de uma vez. Os valores ficam só na seção 16.11, para não existirem dois números para a mesma coisa: copie de lá o arquivo <code>video/perfil.json</code> inteiro.</p>
           <ol class="passos">
             <li><div><b>Abra a 16.11</b>A tabela “antes e agora” mostra cada cor e cada fonte que muda.</div></li>
             <li><div><b>Copie o arquivo</b>Em “Para quem programa”, o perfil inteiro, pronto para trocar o atual.</div></li>
@@ -15219,7 +15135,7 @@ Observação: [se houver]</p>
         <table class="consulta">
           <thead><tr><th scope="col">Pendência</th><th scope="col">Seção</th><th scope="col">Regra de espera</th></tr></thead>
           <tbody>
-            <tr><td>Quem anuncia no Meta</td><td><a href="#s-06">06</a> · <a href="#s08-10">08.10</a> · <a href="#s16-5">16.5</a></td><td>Hoje: anúncio no Meta (anunciante: página do Instituto; quem fala e assina: Dr. Sharbo). Toda peça leva os dois blocos e passa pelos dois aprovadores. Decidir se o anunciante continua na página do Instituto ou passa para o @drsharbo.</td></tr>
+            <tr><td>Quem anuncia no Meta</td><td><a href="#s-06">06</a> · <a href="#s08-10">08.10</a> · <a href="#s16-5">16.5</a></td><td>Hoje: anúncio no Meta (anunciante: página do Instituto; quem fala e assina: Dr. Sharbo). A legenda de toda peça leva os dois blocos e ela passa pelos dois aprovadores. Decidir se o anunciante continua na página do Instituto ou passa para o @drsharbo.</td></tr>
             <tr><td>Política de privacidade do site</td><td><a href="#s18-agencia">18.8</a></td><td>Trava o site: ele só vai ao ar com a política publicada.</td></tr>
             <tr><td>Pronúncia de ISC</td><td><a href="#s02-7">02.7</a></td><td>Seguir a forma que o Dr. Sharbo usar em vídeo. Ao telefone: “Instituto ISC, [nome], bom dia.”</td></tr>
             <tr><td>Proporção de cor do mês</td><td><a href="#s03-6">03.6</a></td><td>Vale a proposta 46 · 37 · 10 · 3 · 3 · 1, com ouro e metal somando 4, dentro do teto de 5% por peça.</td></tr>
@@ -15329,7 +15245,7 @@ Observação: [se houver]</p>
           <div class="c24-grupo" data-g="4">
             <h4 id="s24-g4">Publicidade médica</h4>
             <div class="checklist">
-              <div class="c24-linha"><label class="check-row"><input type="checkbox"><span><b>Identificação médica onde a regra pede.</b><small>Na bio do perfil. Dentro da peça quando ela sai do perfil: WhatsApp, impresso, vídeo impulsionado. Nome, CRM e RQE com a mesma fonte, o mesmo tamanho e a mesma cor.</small></span></label><a class="c24-ref" href="#s-08" aria-label="Ver a seção 08, Publicidade médica">08</a></div>
+              <div class="c24-linha"><label class="check-row"><input type="checkbox"><span><b>Identificação médica onde a regra pede.</b><small>Na bio do perfil e no texto da legenda do post, nunca dentro da arte de rede social. No impresso, dentro da peça. Nome, CRM e RQE com a mesma fonte, o mesmo tamanho e a mesma cor.</small></span></label><a class="c24-ref" href="#s-08" aria-label="Ver a seção 08, Publicidade médica">08</a></div>
               <div class="c24-linha"><label class="check-row"><input type="checkbox"><span><b>Nenhum colchete na peça publicada.</b><small>[nº], [nome] e (41) [número oficial] são lugares guardados. Sem o dado, a peça espera.</small></span></label><a class="c24-ref" href="#s-23" aria-label="Ver a seção 23, Pendências com o ISC">23</a></div>
               <div class="c24-linha"><label class="check-row"><input type="checkbox"><span><b>Título do médico só como registrado no CRM-PR.</b><small>“Especialista” só com RQE (08.5).</small></span></label><a class="c24-ref" href="#s-08" aria-label="Ver a seção 08, Publicidade médica">08</a></div>
               <div class="c24-linha"><label class="check-row"><input type="checkbox"><span><b>Nenhuma promessa e nenhum superlativo.</b><small>Nada de “garantido”, “sem risco”, “resultado surpreendente”, “o melhor”, “referência em”, “exclusivo” ou “tecnologia de ponta”.</small></span></label><a class="c24-ref" href="#s-08" aria-label="Ver a seção 08, Publicidade médica">08</a></div>
