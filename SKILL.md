@@ -194,10 +194,10 @@ Espaço só na escala de 4 (4, 8, 12, 16, 24, 32, 48, 64, 96, 128). Respiro late
 
 | Peça | Formato | Regra principal |
 |---|---|---|
-| Carrossel | 1080 × 1350, margem 72 | capa preta com foto em prancha e pergunta; miolo marfim com numeral marrom; lâmina final com CTA e bloco de identificação; até 12 palavras no título da capa |
+| Carrossel | 1080 × 1350, margem 72 | capa com foto real de tela inteira, véu de Preto ISC (50% no alto, 90% na base), pergunta em branco e itálico champanhe; miolo marfim com numeral marrom; lâmina final com CTA e bloco de identificação; até 12 palavras no título da capa |
 | Post único | 1080 × 1350 (4:5) ou 1080 × 1080 | até 15 palavras na arte; o resto vai na legenda |
 | Story | 1080 × 1920 | faixas de 250 px no topo e na base livres; tudo importante nos 1420 do meio |
-| Capa de reels | 1080 × 1920 | título e rosto dentro do recorte central 1080 × 1350 (feed) |
+| Capa de reels | 1080 × 1920 | foto de tela inteira com véu; título e rosto dentro do recorte central 1080 × 1350 (feed) |
 | Capa de destaque | 1080 × 1080 | ícone Lucide de 360 px em ouro sobre preto, fio de ouro no círculo |
 | Avatar | símbolo sobre Preto ISC | composição completa só grande |
 | Status de WhatsApp | 1080 × 1920 | tipográfico, com bloco de identificação dentro da peça |

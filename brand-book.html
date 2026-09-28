@@ -851,6 +851,8 @@ table.consulta caption,.table-wrap.matriz caption{ caption-side:bottom; text-ali
 .peca > .pc-fundo{ position:absolute; inset:0; width:100%; height:100%; max-width:none; object-fit:cover; object-position:var(--foco,50% 50%); z-index:0; }
 .peca > .pc-fundo + .pc-veu{ position:absolute; inset:0; z-index:0; background:linear-gradient(to top,rgba(18,19,20,.92) 0%,rgba(18,19,20,.6) 30%,rgba(18,19,20,0) 62%); }
 .peca > .pc-fundo ~ :not(.pc-veu){ position:relative; z-index:1; }
+/* Capa com foto de fundo (27/09/2026): véu leve no alto e denso na base, para o texto branco ler em qualquer foto */
+.peca > .pc-fundo + .pc-veu--capa{ background:linear-gradient(to top,rgba(18,19,20,.9) 0%,rgba(18,19,20,.62) 42%,rgba(18,19,20,.5) 100%); }
 
 /* Vídeo: legenda do reels e tarja de identificação */
 .pc-legenda{ align-self:center; max-width:86%; text-align:center; font:500 calc(var(--u) * var(--pc-legenda))/1.15 var(--texto); color:var(--branco); text-wrap:balance; }
@@ -7020,14 +7022,14 @@ Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <span class="c08-nq">CR
               <div class="ig-bio"><b>Instituto ISC</b><span>Instituto ISC&nbsp;· Registro <bdi class="c08-nq">CRM-PR [nº]</bdi></span><span>Diretor Técnico-Médico: [nome]&nbsp;· MÉDICO&nbsp;· <bdi class="c08-nq">CRM-PR [nº]</bdi></span><span>Avaliação médica antes de qualquer indicação.</span></div>
               <div class="ig-destaques"><span class="ig-destaque"><img src="assets/destaques/isc-destaque-instituto.png" alt="" width="1080" height="1080" loading="lazy" decoding="async"><span>Instituto</span></span><span class="ig-destaque"><img src="assets/destaques/isc-destaque-consulta.png" alt="" width="1080" height="1080" loading="lazy" decoding="async"><span>Consulta</span></span><span class="ig-destaque"><img src="assets/destaques/isc-destaque-localizacao.png" alt="" width="1080" height="1080" loading="lazy" decoding="async"><span>Localização</span></span></div>
               <div class="ig-grade">
-                <div class="mock post-34"><div class="peca campo-preto"><p class="pc-titulo pc-empurra">Primeiro, a <em>conversa</em>.</p></div></div>
+                <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" style="--foco:50% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><p class="pc-titulo pc-empurra">Primeiro, a <em class="enf--champanhe">conversa</em>.</p></div></div>
                 <img src="assets/fotos/instituto-cortina-dourada-capa.jpg" alt="" width="720" height="442" loading="lazy" decoding="async">
                 <div class="mock post-34"><div class="peca campo-marfim"><span class="pc-num">01</span><p class="pc-titulo pc-empurra">O que a consulta <em>avalia</em>.</p></div></div>
                 <img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async">
                 <div class="mock post-34"><div class="peca campo-marfim"><p class="pc-titulo pc-empurra">Explicar antes de <em>indicar</em>.</p></div></div>
                 <img src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" loading="lazy" decoding="async">
                 <img src="assets/fotos/instituto-sala-de-atendimento.jpg" alt="" width="1920" height="1280" loading="lazy" decoding="async">
-                <div class="mock post-34"><div class="peca campo-preto"><p class="pc-titulo pc-empurra">Limites e <em>riscos</em>.</p></div></div>
+                <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-parede-pendentes.jpg" alt="" width="415" height="290" style="--foco:50% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><p class="pc-titulo pc-empurra">Limites e <em class="enf--champanhe">riscos</em>.</p></div></div>
                 <img src="assets/fotos/instituto-parede-pendentes.jpg" alt="" width="415" height="290" loading="lazy" decoding="async">
               </div>
             </div>
@@ -9786,11 +9788,11 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
     <div class="bloco reveal" id="s14-1">
       <div class="bloco-head">
         <div><span class="bloco-n">14.1</span><h3>O carrossel de seis lâminas</h3></div>
-        <p class="bloco-apoio">A capa é preta e faz a pergunta; o miolo é marfim e responde. É a alternância da revista aplicada ao gesto de deslizar: preto, marfim, marfim, preto, marfim, preto. Toque em Mostrar grade para ver margens e colunas sobre as lâminas.</p>
+        <p class="bloco-apoio">A capa é uma foto real de tela inteira e faz a pergunta: é o gancho que para o dedo. O miolo é marfim e responde. Depois vem a alternância da revista: marfim, marfim, preto, marfim, preto. Toque em Mostrar grade para ver margens e colunas sobre as lâminas.</p>
       </div>
 
       <ol class="c14-serie" aria-label="A sequência das seis lâminas e o campo de cada uma">
-        <li><span class="c14-serie-campo campo-preto" aria-hidden="true"></span><div><b>Capa</b><span>Preto · a pergunta</span></div></li>
+        <li><span class="c14-serie-campo campo-preto" aria-hidden="true"></span><div><b>Capa</b><span>Foto · a pergunta</span></div></li>
         <li><span class="c14-serie-campo campo-marfim" aria-hidden="true"></span><div><b>Resposta</b><span>Marfim · 01</span></div></li>
         <li><span class="c14-serie-campo campo-marfim" aria-hidden="true"></span><div><b>Resposta</b><span>Marfim · 02</span></div></li>
         <li><span class="c14-serie-campo campo-preto" aria-hidden="true"></span><div><b>Esquema</b><span>Preto · o processo</span></div></li>
@@ -9798,19 +9800,19 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
         <li><span class="c14-serie-campo campo-preto" aria-hidden="true"></span><div><b>Fechamento</b><span>Preto · chamada</span></div></li>
       </ol>
 
+      <div class="nota mt-6"><strong>Capa com foto de fundo · decisão do Instituto, 27/09/2026</strong>Capa de carrossel, post, story e reels usa foto real de tela inteira como gancho visual, e não fundo preto ou marfim liso. Para o texto ler em qualquer foto: véu de Preto ISC por cima, leve no alto (cerca de 50%) e denso na base (90%), texto branco e o itálico em champanhe (09.4). Nada de caixa colorida nem contorno na letra. Foto de paciente (antes e depois, 08.6) não recebe véu nem texto por cima: o texto fica fora da foto.</div>
       <div class="carrossel" data-rotulo="Carrossel de seis lâminas sobre flacidez depois do emagrecimento, com rolagem lateral">
         <!-- 1 · capa -->
         <figure class="mock-quadro">
-          <div class="mock post-45" role="img" aria-label="Lâmina 1 de 6, capa preta: detalhe da cortina de correntes douradas do Instituto em prancha e a pergunta Flacidez depois do emagrecimento: quando vale tratar?">
+          <div class="mock post-45" role="img" aria-label="Lâmina 1 de 6, capa com foto de fundo: a cortina de correntes douradas do Instituto em tela inteira, com véu escuro, e a pergunta Flacidez depois do emagrecimento: quando vale tratar?">
             <div class="peca campo-preto">
+              <img class="pc-fundo" src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" style="--foco:50% 55%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span>
               <div class="pc-folio"><span><b>Série Critério</b></span><span>1 / 6</span></div>
-              <div class="pc-foto pc-mt-48" style="height:calc(var(--u) * 520);--foco:40% 50%"><img src="assets/fotos/instituto-cortina-dourada-capa.jpg" alt="" width="720" height="442" loading="lazy" decoding="async"></div>
-              <p class="pc-titulo pc-mt-48">Flacidez depois do emagrecimento: quando vale <em>tratar</em>?</p>
-              <div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="pc-rotulo c14-deslize">Deslize<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+              <div class="pc-empurra"><p class="pc-titulo">Flacidez depois do emagrecimento: quando vale <em class="enf--champanhe">tratar</em>?</p><div class="pc-rodape pc-mt-48"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"><span class="pc-rotulo c14-deslize">Deslize<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div></div>
             </div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>1 / 6 · Capa</b>Preto, foto em prancha, a pergunta</figcaption>
+          <figcaption class="legenda"><b>1 / 6 · Capa</b>Foto de fundo, véu e a pergunta</figcaption>
         </figure>
         <!-- 2 · resposta 01 -->
         <figure class="mock-quadro">
@@ -9895,7 +9897,7 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
       <div class="cols-2 gap-g mt-7">
         <dl class="ficha-tec">
           <div><dt>Formato</dt><dd><b>1080 × 1350 px</b> (4:5), margem de 72 px nos quatro lados.</dd></div>
-          <div><dt>Lâminas</dt><dd>Seis, como aqui, ou de cinco a oito. A primeira e a última são sempre pretas.</dd></div>
+          <div><dt>Lâminas</dt><dd>Seis, como aqui, ou de cinco a oito. A primeira é foto de fundo com véu; a última é preta.</dd></div>
           <div><dt>Ouro</dt><dd>Um só metal por lâmina: o símbolo no rodapé ou a assinatura na última. Na última, o botão é só contorno, para a assinatura ser o único destaque. O numeral do miolo é marrom.</dd></div>
           <div><dt>Identificação</dt><dd>Na legenda do post, com o bloco do médico citado e o da clínica. A lâmina só assina com o nome (lâmina 5).</dd></div>
           <div><dt>Dado</dt><dd>Número só com fonte e data escritas na própria lâmina. Sem dado confirmado, a lâmina mostra o processo, como o esquema da 4.</dd></div>
@@ -9966,18 +9968,18 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
       <div class="c14-stories">
         <figure class="mock-quadro c14-com-regua">
           <div class="c14-regua" aria-hidden="true"><span style="flex:250 1 0">250</span><span style="flex:1420 1 0">1420 · área livre</span><span style="flex:250 1 0">250</span></div>
-          <div class="mock story" role="img" aria-label="Story preto com foto: sala com pendentes âmbar e poltrona em prancha, rótulo O Instituto, título Um espaço pensado para acolher e a figurinha de link Fale com a equipe">
+          <div class="mock story" role="img" aria-label="Story com foto de fundo: sala com pendentes âmbar e poltrona em tela inteira, com véu escuro, rótulo O Instituto, título Um espaço pensado para acolher e a figurinha de link Fale com a equipe">
             <div class="peca peca--segura campo-preto">
-              <div class="pc-foto" style="height:calc(var(--u) * 640);--foco:55% 40%"><img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async"></div>
-              <span class="pc-fio pc-mt-48"></span>
+              <img class="pc-fundo" src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" style="--foco:55% 40%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span>
+              <span class="pc-fio pc-empurra"></span>
               <p class="pc-rotulo pc-mt-48">O Instituto</p>
-              <p class="pc-titulo pc-mt-24">Um espaço pensado para <em>acolher</em>.</p>
+              <p class="pc-titulo pc-mt-24">Um espaço pensado para <em class="enf--champanhe">acolher</em>.</p>
               <span class="c14-figurinha pc-mt-72"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Fale com a equipe</span>
             </div>
             <div class="ui-story" aria-hidden="true"></div>
             <div class="grade-overlay" aria-hidden="true"></div>
           </div>
-          <figcaption class="legenda"><b>Story · foto</b>1080 × 1920, prancha em cima</figcaption>
+          <figcaption class="legenda"><b>Story · foto</b>1080 × 1920, foto de tela inteira</figcaption>
         </figure>
         <figure class="mock-quadro c14-com-regua">
           <span class="c14-regua c14-regua--vazia" aria-hidden="true"></span>
@@ -10020,8 +10022,8 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
       </div>
       <div class="cols-5-7 alinha-topo gap-g">
         <figure class="mock-quadro c14-capa-quadro">
-          <div class="mock reels c14-reels" role="img" aria-label="Capa de reels preta: rótulo, retrato do Dr. Sharbo em prancha e o título Por que a consulta vem antes?, tudo acima da linha de y 1248; linhas tracejadas marcam o recorte 3:4 da grade e o recorte 4:5 do feed">
-            <div class="peca campo-preto c14-capa-reels"><p class="pc-rotulo">Série Critério · vídeo</p><div class="pc-foto pc-mt-32" style="height:calc(var(--u) * 480);--foco:50% 3%"><img src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" loading="lazy" decoding="async"></div><p class="pc-titulo pc-mt-48">Por que a consulta vem <em>antes</em>?</p></div>
+          <div class="mock reels c14-reels" role="img" aria-label="Capa de reels com o retrato do Dr. Sharbo em tela inteira, véu escuro, rótulo e o título Por que a consulta vem antes?, tudo acima da linha de y 1248; linhas tracejadas marcam o recorte 3:4 da grade e o recorte 4:5 do feed">
+            <div class="peca campo-preto c14-capa-reels"><img class="pc-fundo" src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 12%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><p class="pc-rotulo">Série Critério · vídeo</p><p class="pc-titulo pc-empurra">Por que a consulta vem <em class="enf--champanhe">antes</em>?</p></div>
             <div class="guia-34" aria-hidden="true"></div>
             <div class="c14-guia-45" aria-hidden="true"></div>
             <div class="c14-guia-video" aria-hidden="true"></div>
@@ -10108,20 +10110,20 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
     <div class="bloco reveal" id="s14-6">
       <div class="bloco-head">
         <div><span class="bloco-n">14.6</span><h3>A grade do perfil</h3></div>
-        <p class="bloco-apoio">Nove posts, três campos: preto, marfim e foto. Em cada linha e em cada coluna, um de cada. É o ritmo de revista visto de longe, antes de alguém abrir qualquer post.</p>
+        <p class="bloco-apoio">Nove posts, três campos: foto com texto, marfim e foto sem texto. Os posts com texto em fundo escuro levam sempre uma foto real por trás (decisão do Instituto, 27/09/2026). É o ritmo de revista visto de longe, antes de alguém abrir qualquer post.</p>
       </div>
       <div class="cols-7-5 alinha-topo gap-g">
         <figure class="figura">
           <div class="c14-grade" role="img" aria-label="Grade de nove posts do Instituto em três linhas. Linha 1: preto com a pergunta O que levar para a consulta, foto da cortina dourada e o post marfim da equipe. Linha 2: marfim com a localização no Ecoville, preto com a nota Indicação vem antes da técnica e o post de foto da sala de espera. Linha 3: foto da sala de luz quente, marfim com A consulta é sempre o primeiro passo e preto com Cada caso é avaliado em consulta">
-            <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
+            <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:40% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" loading="lazy" decoding="async" style="--foco:50% 100%"></div></div>
             <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome]</span></p></div></div>
             <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Como chegar</span></div><svg class="pc-ic pc-mt-96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><p class="pc-titulo pc-mt-32">No <em>Ecoville</em>, em Curitiba.</p><p class="pc-texto pc-mt-32">R. Dep. Heitor Alencar Furtado, 3350, conj. 51</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
-            <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
+            <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-sala-de-atendimento.jpg" alt="" width="1920" height="1280" style="--foco:40% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-espera"><img src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"></div><p class="pc-rotulo pc-mt-48">O Instituto</p><p class="pc-titulo pc-mt-24">Unir medicina e <em>acolhimento</em>.</p><div class="pc-rodape"><p class="pc-texto">Sala de espera, Ecoville, Curitiba.</p><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
             <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-foto-cheia" style="--foco:50% 75%"><img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async"></div></div></div>
             <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Consulta</span></div><p class="pc-titulo pc-mt-96">A consulta é sempre o <em>primeiro</em> passo.</p><span class="pc-cta pc-mt-48">Agende sua avaliação</span><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
-            <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><p class="pc-titulo pc-mt-96">Cada caso é <em>avaliado</em> em consulta.</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
+            <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-lounge.jpg" alt="" width="1920" height="1280" style="--foco:50% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><p class="pc-titulo pc-mt-96">Cada caso é <em>avaliado</em> em consulta.</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
           </div>
           <div class="c14-grade-legenda" aria-hidden="true"><span><i class="c14-amostra campo-preto"></i>Preto</span><span><img class="c14-amostra" src="assets/fotos/instituto-cortina-dourada-capa.jpg" alt="" width="720" height="442" loading="lazy" decoding="async">Foto real</span><span><i class="c14-amostra campo-marfim"></i>Marfim</span></div>
           <figcaption class="legenda mt-4"><b>Grade 3 × 3 do Instituto</b>Cada célula em 3:4, como o aplicativo mostra. O post mais novo fica no canto superior esquerdo.</figcaption>
@@ -10161,15 +10163,15 @@ A consulta custa R$ [valor]. Quer ver os horários?</p>
                 <span class="ig-destaque"><span class="c14-ig-circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span><span>Localização</span></span>
               </div>
               <div class="ig-grade">
-                <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
+                <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:40% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Dúvidas</span></div><p class="pc-titulo pc-mt-96">O que levar para a <em>consulta</em>?</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-cortina-dourada-vertical.jpg" alt="" width="760" height="1280" loading="lazy" decoding="async" style="--foco:50% 100%"></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Corpo clínico</b></span><span>Instituto ISC</span></div><div class="foto-vazia c14-retrato-vazio pc-mt-48">Retrato pendente · sessão de fotos</div><p class="pc-titulo pc-mt-48">Quem faz a sua <em>avaliação</em>.</p><p class="pc-id pc-id--linhas pc-empurra"><span>Dra. [nome]</span></p></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Como chegar</span></div><svg class="pc-ic pc-mt-96" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><p class="pc-titulo pc-mt-32">No <em>Ecoville</em>, em Curitiba.</p><p class="pc-texto pc-mt-32">R. Dep. Heitor Alencar Furtado, 3350, conj. 51</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
-                <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
+                <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-sala-de-atendimento.jpg" alt="" width="1920" height="1280" style="--foco:40% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><span class="pc-num pc-mt-72">03</span><p class="pc-titulo pc-titulo--p pc-mt-48">Indicação vem <em>antes</em> da técnica.</p></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-espera"><img src="assets/fotos/instituto-sala-de-espera.jpg" alt="" width="1300" height="1280" loading="lazy" decoding="async"></div><p class="pc-rotulo pc-mt-48">O Instituto</p><p class="pc-titulo pc-mt-24">Unir medicina e <em>acolhimento</em>.</p><div class="pc-rodape"><p class="pc-texto">Sala de espera, Ecoville, Curitiba.</p><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-foto-cheia" style="--foco:50% 75%"><img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Consulta</span></div><p class="pc-titulo pc-mt-96">A consulta é sempre o <em>primeiro</em> passo.</p><span class="pc-cta pc-mt-48">Agende sua avaliação</span><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
-                <div class="mock post-34"><div class="peca campo-preto"><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><p class="pc-titulo pc-mt-96">Cada caso é <em>avaliado</em> em consulta.</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
+                <div class="mock post-34"><div class="peca campo-preto"><img class="pc-fundo" src="assets/fotos/instituto-lounge.jpg" alt="" width="1920" height="1280" style="--foco:50% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><div class="pc-folio"><span><b>Instituto ISC</b></span><span>Nota</span></div><p class="pc-titulo pc-mt-96">Cada caso é <em>avaliado</em> em consulta.</p><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-ouro.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
               </div>
             </div>
           </div>
@@ -10215,7 +10217,7 @@ Avaliação médica antes de qualquer indicação.</p>
                 <span class="ig-destaque"><span class="c14-ig-circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span><span>Localização</span></span>
               </div>
               <div class="ig-grade">
-                <div class="mock post-34 c14-recorte"><div class="peca campo-preto c14-capa-reels"><p class="pc-rotulo">Série Critério · vídeo</p><div class="pc-foto pc-mt-32" style="height:calc(var(--u) * 480);--foco:50% 3%"><img src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" loading="lazy" decoding="async"></div><p class="pc-titulo pc-mt-48">Por que a consulta vem <em>antes</em>?</p></div></div>
+                <div class="mock post-34 c14-recorte"><div class="peca campo-preto c14-capa-reels"><img class="pc-fundo" src="assets/fotos/dr-sharbo-retrato.jpg" alt="" width="900" height="1300" style="--foco:50% 12%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span><p class="pc-rotulo">Série Critério · vídeo</p><p class="pc-titulo pc-empurra">Por que a consulta vem <em class="enf--champanhe">antes</em>?</p></div></div>
                 <div class="mock post-34"><div class="peca campo-preto"><div class="pc-foto c14-foto-cheia" style="--foco:50% 75%"><img src="assets/fotos/instituto-sala-luz-quente-vertical.jpg" alt="" width="700" height="1280" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Colaboração</b></span><span>Instituto ISC</span></div><p class="pc-titulo pc-mt-96">A consulta é sempre o <em>primeiro</em> passo.</p><span class="pc-cta pc-mt-48">Agende sua avaliação</span><div class="pc-rodape"><img class="pc-simbolo" src="assets/isc-simbolo-preto.svg" alt="" width="291" height="284" loading="lazy" decoding="async"></div></div></div>
                 <div class="mock post-34"><div class="peca campo-marfim"><div class="pc-folio"><span><b>Consulta</b></span><span>Citação</span></div><span class="pc-fio c14-fio-curto pc-mt-96"></span><p class="c14-olho c14-olho--p pc-mt-48">Busco sempre oferecer um atendimento humanizado e fornecer todas as informações aos meus pacientes.</p><p class="pc-id pc-empurra"><span>Dr. Sharbo Casagrande</span></p></div></div>
@@ -11035,12 +11037,12 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
     <div class="bloco reveal" id="s16-2">
       <div class="bloco-head">
         <div><span class="bloco-n">16.2</span><h3>Capa: um arquivo, dois recortes</h3></div>
-        <p class="bloco-apoio">A regra da capa está na 14.4: 1080 × 1920, com tudo o que importa entre y 285 e 1248, dentro do recorte 4:5 central (feed) e acima dos 35% de baixo, onde o reels põe a legenda e os botões. Aqui, a capa de série, só tipográfica, para o vídeo que não tem um bom quadro do rosto.</p>
+        <p class="bloco-apoio">A regra da capa está na 14.4: 1080 × 1920, com tudo o que importa entre y 285 e 1248, dentro do recorte 4:5 central (feed) e acima dos 35% de baixo, onde o reels põe a legenda e os botões. Aqui, a capa de série, com foto do Instituto de fundo, para o vídeo que não tem um bom quadro do rosto.</p>
       </div>
       <div class="mesa cols-3 c16-capas">
         <figure class="mock-quadro">
-          <div class="mock reels" role="img" aria-label="Capa de série em campo preto: fólio Série Critério, numeral 03 em metal, título O que a consulta avalia e o símbolo em ouro chapado; linhas tracejadas marcam o recorte 3:4 da grade do perfil e o recorte 4:5 do feed">
-            <div class="peca campo-preto c16-capa">
+          <div class="mock reels" role="img" aria-label="Capa de série com a foto do consultório de fundo e véu escuro: fólio Série Critério, numeral 03 em metal, título O que a consulta avalia e o símbolo em ouro chapado; linhas tracejadas marcam o recorte 3:4 da grade do perfil e o recorte 4:5 do feed">
+            <div class="peca campo-preto c16-capa"><img class="pc-fundo" src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:45% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span>
               <div class="pc-folio"><span><b>Série Critério</b></span><span>Vídeo</span></div>
               <span class="pc-num pc-mt-72">03</span>
               <p class="pc-titulo pc-empurra">O que a consulta <em>avalia</em>.</p>
@@ -11055,7 +11057,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <div class="mock post-45" role="img" aria-label="A mesma capa de série como aparece no feed, recortada em 4:5: fólio, numeral, título e símbolo inteiros">
             <div class="c16-recorte c16-recorte-45">
               <div class="mock reels">
-                <div class="peca campo-preto c16-capa">
+                <div class="peca campo-preto c16-capa"><img class="pc-fundo" src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:45% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span>
                   <div class="pc-folio"><span><b>Série Critério</b></span><span>Vídeo</span></div>
                   <span class="pc-num pc-mt-72">03</span>
                   <p class="pc-titulo pc-empurra">O que a consulta <em>avalia</em>.</p>
@@ -11070,7 +11072,7 @@ Agradecemos a sua visita. Se ficou alguma dúvida sobre o que o médico explicou
           <div class="mock post-34" role="img" aria-label="A mesma capa de série como aparece na grade do perfil, recortada em 3:4">
             <div class="c16-recorte c16-recorte-34">
               <div class="mock reels">
-                <div class="peca campo-preto c16-capa">
+                <div class="peca campo-preto c16-capa"><img class="pc-fundo" src="assets/fotos/instituto-consultorio.jpg" alt="" width="1920" height="1280" style="--foco:45% 50%" loading="lazy" decoding="async"><span class="pc-veu pc-veu--capa"></span>
                   <div class="pc-folio"><span><b>Série Critério</b></span><span>Vídeo</span></div>
                   <span class="pc-num pc-mt-72">03</span>
                   <p class="pc-titulo pc-empurra">O que a consulta <em>avalia</em>.</p>
