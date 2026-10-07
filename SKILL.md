@@ -19,8 +19,8 @@ Palavras-guia: sóbrio, preciso, acolhedor, médico, de alto padrão. Nunca: gri
 |---|---|---|
 | **Claude Code** (terminal, VS Code, app de desktop) | `~/.claude/skills/branding-isc` (clone do repositório) | Nada. Ambiente completo: escreve arquivo, usa `assets/`, exporta PDF. |
 | **Codex** (CLI, IDE, app) | `~/.agents/skills/branding-isc` (versões antigas: `~/.codex/skills/`) | Nada. `agents/openai.yaml` dá o nome e a descrição da lista de skills. |
-| **claude.ai** (navegador e celular) | Configurações, Capacidades, Skills: o `branding-isc.zip` do Releases | **O artefato é um arquivo só: não enxerga `assets/` nem os `.js`.** |
-| **ChatGPT** | Skills do app: o mesmo `branding-isc.zip` | Igual ao claude.ai: material em arquivo único. |
+| **claude.ai** (navegador e celular) | Personalizar > Skills > + > Enviar uma skill: o `branding-isc.zip` do Releases (execução de código ligada) | **O artefato é um arquivo só: não enxerga `assets/` nem os `.js`.** |
+| **ChatGPT** | Skills do app, onde a conta liberar o envio: o mesmo `branding-isc.zip` | Igual ao claude.ai: material em arquivo único. |
 
 **O que o ZIP leva e o que fica no site do manual.** O pacote traz tudo o que a skill usa para produzir (marca em SVG e PNG web, favicon, avatar, fotos reais, formas, gráficos, destaques, ícones em SVG, fontes, motores e modelos). Ficam só no endereço público `https://rafaelnasch.github.io/branding-isc/`: o arquivo original do designer (`assets/referencia-original/`), as PNG da marca em resolução de impressão, os ícones em PNG, as capturas do manual e as versões autocontidas do `dist/`. Para impressão, baixe a PNG grande de lá.
 
