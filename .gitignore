@@ -4,3 +4,4 @@ __pycache__/
 *.zip
 _preview-*.html
 !assets/icones/*.zip
+dist-skill/

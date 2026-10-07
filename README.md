@@ -25,11 +25,13 @@ Instale uma vez e peça o material em português. O Claude passa a produzir post
 | `dist/` | **Para enviar a alguém.** Versões de arquivo único (imagens, fontes e motores embutidos): `brand-book-isc.html`, `apresentacao-isc.html` e `assinaturas-isc.html`. Abrem sozinhas no e-mail, WhatsApp, Drive e celular. |
 | `autocontido.py` | Gera o `dist/` de novo: `python3 autocontido.py`. Também transforma qualquer HTML novo feito com a skill: `python3 autocontido.py meu-material.html`. |
 | `exportar_pdf.py` | Exporta documento ou apresentação em PDF com o Playwright. |
+| `agents/openai.yaml` | Nome, descrição, ícone e pedido de exemplo da skill no Codex e no ChatGPT (o Claude ignora). |
+| `tools/empacotar_skill.py` | Gera o ZIP do Releases dentro dos limites e falha se algum estourar. |
 | `assets/` | A marca em SVG e PNG (horizontal, vertical, símbolo, avatar e favicon, em ouro, preto, branco e ouro chapado), as fotos reais do Instituto já tratadas (`fotos/`), as fontes (`fontes/`) e o arquivo original do designer (`referencia-original/`). |
 
 ## Instalar
 
-O nome da pasta tem que ser exatamente `branding-isc`, com o `SKILL.md` dentro.
+O nome da pasta tem que ser exatamente `branding-isc`, com o `SKILL.md` dentro. A mesma pasta serve ao Claude, ao Codex e ao ChatGPT: segue o padrão aberto [Agent Skills](https://agentskills.io/specification).
 
 ### Claude Code (terminal, VS Code, app de desktop)
 
@@ -43,20 +45,41 @@ Abra uma sessão nova e digite `/branding-isc`, ou simplesmente peça "faz no pa
 cd ~/.claude/skills/branding-isc && git pull
 ```
 
-### Claude no navegador ou no celular (claude.ai)
-
-1. Baixe o ZIP pronto na página de **[Releases](https://github.com/rafaelnasch/branding-isc/releases/latest)**: o arquivo `branding-isc.zip`.
-2. No Claude, vá em **Settings, Capabilities, Skills** e envie o ZIP.
-
-> Use o ZIP do Releases, **não** o "Code, Download ZIP" do GitHub: aquele vem com o nome da pasta trocado (`branding-isc-main`) e a skill sobe com o nome errado.
-
-No navegador o material sai como arquivo único, com a marca e os gráficos embutidos. A skill já sabe fazer isso. Só o PDF muda: ela entrega o HTML e você imprime pelo Chrome (instruções abaixo).
-
-### Codex CLI
+### Codex (CLI, extensão de IDE e app de desktop)
 
 ```bash
-git clone https://github.com/rafaelnasch/branding-isc.git ~/.codex/skills/branding-isc
+git clone https://github.com/rafaelnasch/branding-isc.git ~/.agents/skills/branding-isc
 ```
+
+O Codex lê `~/.agents/skills/`; versões anteriores leem `~/.codex/skills/` (mesmo comando, trocando a pasta). O `agents/openai.yaml` dá o nome, a descrição, o ícone e o pedido de exemplo que aparecem na lista de skills. Para atualizar: `cd ~/.agents/skills/branding-isc && git pull`.
+
+### claude.ai (navegador e celular) e ChatGPT
+
+1. Baixe o pacote pronto na página de **[Releases](https://github.com/rafaelnasch/branding-isc/releases/latest)**: o arquivo `branding-isc.zip`.
+2. No claude.ai, vá em **Configurações, Capacidades, Skills** e envie o ZIP. No ChatGPT, envie o mesmo ZIP onde o app oferecer Skills; o caminho do menu muda conforme a versão do app.
+
+> Use o ZIP do Releases, **não** o "Code, Download ZIP" do GitHub: aquele vem com o nome da pasta trocado (`branding-isc-main`), traz o repositório inteiro (com o `dist/` e o arquivo original do designer) e a skill sobe com o nome errado.
+
+O pacote leva `SKILL.md`, `agents/openai.yaml`, o manual, os modelos, os motores, os scripts, a marca (SVG, PNG web, favicon, avatar, imagem de compartilhamento), as fotos reais, formas, gráficos, destaques, grades, ícones em SVG e as fontes. **Ficam fora do ZIP** e continuam no endereço público [rafaelnasch.github.io/branding-isc](https://rafaelnasch.github.io/branding-isc/): o arquivo original do designer, as PNG da marca em resolução de impressão, os ícones em PNG, as capturas do manual e o `dist/`. Dentro do pacote, o manual aponta para essas URLs. No navegador o material sai como arquivo único, com a marca em data URI do `lockup.html` e os motores embutidos; só o PDF muda: a skill entrega o HTML e você imprime pelo Chrome (instruções abaixo).
+
+**Gerar o pacote** (para subir num Release novo): `python3 tools/empacotar_skill.py` grava `dist-skill/branding-isc.zip` (fora do git) e falha se algum limite abaixo estourar.
+
+### Limites atendidos (conferidos em 07/10/2026)
+
+| Limite | Regra | Esta skill |
+|---|---|---|
+| `name` | minúsculas, números e hífen, até 64, igual ao nome da pasta | `branding-isc` (12) |
+| `description` | até 1.024 caracteres, sem `<` e `>`; caso de uso e gatilhos no começo | 788 caracteres |
+| Campos do frontmatter | só os da especificação | `name` e `description` |
+| `SKILL.md` | menos de 500 linhas | 335 linhas |
+| Links relativos | todo link do `SKILL.md` aponta para arquivo do pacote | 0 quebrados |
+| ZIP | até 30 MB (meta 10 MB) | 5,80 MB |
+| Descompactado | até 25 MB | 8,10 MB |
+| Arquivos | até 400; nenhum acima de 10 MB; nomes só com letras, números, ponto, hífen e sublinhado | 212; o maior é o `brand-book.html` (1,35 MB) |
+| Estrutura | uma pasta `branding-isc/` no topo, um só `SKILL.md` | sim |
+| Validador oficial | `skills-ref validate` (agentskills/agentskills) | "Valid skill: branding-isc" no pacote e no repositório |
+
+Os limites de nome, descrição, campos e linhas são os da [especificação Agent Skills](https://agentskills.io/specification); os de tamanho são as travas do `tools/empacotar_skill.py`, mais rígidas que as dos apps.
 
 ## O primeiro teste
 

@@ -17,9 +17,12 @@ Palavras-guia: sóbrio, preciso, acolhedor, médico, de alto padrão. Nunca: gri
 
 | Ambiente | Onde instalar | O que muda |
 |---|---|---|
-| **Claude Code** (terminal, VS Code, app de desktop) | `~/.claude/skills/branding-isc` | Nada. Ambiente completo: escreve arquivo, usa `assets/`, exporta PDF. |
-| **Codex CLI** | `~/.codex/skills/branding-isc` | Nada. |
-| **claude.ai** (navegador e celular) | Settings, Capabilities, Skills (ZIP do Releases) | **O artefato é um arquivo só: não enxerga `assets/` nem os `.js`.** |
+| **Claude Code** (terminal, VS Code, app de desktop) | `~/.claude/skills/branding-isc` (clone do repositório) | Nada. Ambiente completo: escreve arquivo, usa `assets/`, exporta PDF. |
+| **Codex** (CLI, IDE, app) | `~/.agents/skills/branding-isc` (versões antigas: `~/.codex/skills/`) | Nada. `agents/openai.yaml` dá o nome e a descrição da lista de skills. |
+| **claude.ai** (navegador e celular) | Configurações, Capacidades, Skills: o `branding-isc.zip` do Releases | **O artefato é um arquivo só: não enxerga `assets/` nem os `.js`.** |
+| **ChatGPT** | Skills do app: o mesmo `branding-isc.zip` | Igual ao claude.ai: material em arquivo único. |
+
+**O que o ZIP leva e o que fica no site do manual.** O pacote traz tudo o que a skill usa para produzir (marca em SVG e PNG web, favicon, avatar, fotos reais, formas, gráficos, destaques, ícones em SVG, fontes, motores e modelos). Ficam só no endereço público `https://rafaelnasch.github.io/branding-isc/`: o arquivo original do designer (`assets/referencia-original/`), as PNG da marca em resolução de impressão, os ícones em PNG, as capturas do manual e as versões autocontidas do `dist/`. Para impressão, baixe a PNG grande de lá.
 
 **REGRA DO NAVEGADOR (claude.ai):** todo HTML gerado ali é **autocontido**.
 1. **Marca:** use os blocos em **data URI** do [`lockup.html`](lockup.html) (bloco 04, ouro; bloco 05, preta; bloco 06, símbolo). Copie o `src` inteiro; nunca digite, resuma ou reconstrua um data URI.
@@ -28,7 +31,7 @@ Palavras-guia: sóbrio, preciso, acolhedor, médico, de alto padrão. Nunca: gri
 4. **Fontes:** continuam pelo link do Google Fonts.
 5. **PDF:** entregue o HTML e mande imprimir pelo Chrome (seção "Exportar PDF").
 
-**Para ENVIAR um HTML a alguém**, use sempre a versão autocontida: `python3 autocontido.py <arquivo.html>` grava em `dist/` com imagens, fontes e motores embutidos. As versões prontas do brand book, da apresentação e das assinaturas já estão em `dist/`.
+**Para ENVIAR um HTML a alguém**, use sempre a versão autocontida: `python3 autocontido.py <arquivo.html>` grava em `dist/` com imagens, fontes e motores embutidos. As versões prontas do brand book, da apresentação e das assinaturas estão em `dist/` no repositório e no endereço público (fora do ZIP).
 
 ## Cores (TRAVADAS)
 
